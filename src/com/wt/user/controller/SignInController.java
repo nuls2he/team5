@@ -8,12 +8,26 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.wt.user.dao.UserDAO;
+import com.wt.user.domain.User;
+
 @WebServlet("/controller/signin")
 public class SignInController extends HttpServlet {
 
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id = request.getParameter("id");
+		System.out.println("호출됨..");
+		
+		UserDAO dao = new UserDAO();
+		User user = new User();
+		user.setID(request.getParameter("id"));
+		user.setNick(request.getParameter("nick"));
+		user.setPwd(request.getParameter("password"));
+		user.setEmail(request.getParameter("email"));
+		user.setHintQ(request.getParameter("hintQ"));
+		user.setHintA(request.getParameter("hintA"));
+		
+		dao.join(user);
 		
 	}
 	

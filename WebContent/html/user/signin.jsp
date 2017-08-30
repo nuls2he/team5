@@ -86,55 +86,55 @@ html, body {
 		<div id="main" class="col-xs-6 col-sm-8" >
 			<div class="contentwrap">
   <article class="container">
-    <form class="form-horizontal">
+    <form action="/team5_miniprj/com/wt/user/controller/SignInController" class="form-horizontal">
     <div class="form-group">
     <label for="inputEmail" class="col-sm-2 control-label">아이디</label>
     <div class="col-sm-6">
-    <input type="text" class="form-control" id="inputID" placeholder="아이디">
+    <input type="text" class="form-control" name="id" id="inputID" placeholder="아이디">
     </div>
     </div>
     <div class="form-group">
     <label for="inputEmail" class="col-sm-2 control-label">닉네임</label>
     <div class="col-sm-6">
-    <input type="text" class="form-control" id="inputNick" placeholder="닉네임">
+    <input type="text" class="form-control" naem="nick" id="inputNick" placeholder="닉네임">
     </div>
     </div>
     <div class="form-group">
     <label for="inputPassword" class="col-sm-2 control-label">비밀번호</label>
     <div class="col-sm-6">
-    <input type="password" class="form-control" id="inputPassword" placeholder="비밀번호">
+    <input type="password" class="form-control" name="password" id="inputPassword" placeholder="비밀번호">
     <p class="help-block">숫자, 특수문자 포함 8자 이상</p>
     </div>
     </div>
        <div class="form-group">
     <label for="inputPasswordCheck" class="col-sm-2 control-label">비밀번호 확인</label>
     <div class="col-sm-6">
-    <input type="password" class="form-control" id="inputPasswordCheck" placeholder="비밀번호 확인">
+    <input type="password" class="form-control" name="check-pass"id="inputPasswordCheck" placeholder="비밀번호 확인">
       <p class="help-block">비밀번호를 한번 더 입력해주세요.</p>
     </div>
     </div>
     <div class="form-group">
     <label for="inputEmail" class="col-sm-2 control-label">이메일</label>
     <div class="col-sm-6">
-    <input type="email" class="form-control" id="inputEmail" placeholder="이메일">
+    <input type="email" class="form-control" name="email" id="inputEmail" placeholder="이메일">
     </div>
     </div><br>
     <div class="form-group">
     <label for="inputRipple" class="col-sm-2 control-label"></label>
     <div class="col-sm-6">
-    <select name="sel">
-		<option value="email" selected="selected">비밀번호 힌트 질문</option>
+    <select name="hintQ">
+		<option value="question" selected="selected">비밀번호 힌트 질문</option>
 		<option value="message1">내가 다녔던 초등학교 이름은?</option>
 		<option value="message2">내가 다녔던 중학교 이름은?</option>
 		<option value="message3">내가 다녔던 고등학교 이름은?</option>
-		<option value="message3">내가 좋아하는 나의 별명은?</option>
+		<option value="message4">내가 좋아하는 나의 별명은?</option>
 	</select>
     </div>
     </div>
     <div class="form-group">
     <label for="inputName" class="col-sm-2 control-label">질문에 대한 답</label>
     <div class="col-sm-6">
-    <input type="text" class="form-control" id="inputAnswer" placeholder="답">
+    <input type="text" class="form-control" name="inputA" id="inputAnswer" placeholder="답">
     </div>
     </div>
     <div class="form-group">
