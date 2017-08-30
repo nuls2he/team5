@@ -1,0 +1,67 @@
+@CHARSET "UTF-8";
+ /* Remove the navbar's default margin-bottom and rounded borders */
+ /*.img-responsive {width:25%; height:150px;
+ }*/
+
+.img-responsiver {
+	width: 200px; height: 200px;
+}
+
+ .navbar {
+   margin-bottom: 0;
+   border-radius: 0;
+ }
+
+ /* Add a gray background color and some padding to the footer */
+ footer {
+   background-color: #f2f2f2;
+   padding: 25px;
+ }
+ .fileInput,.searchBlock{
+     display: inline-block;
+     /*border :  1px solid red;*/
+ }
+.searchBlock{
+	width : 50%;
+}
+
+.form-control{
+     display: inline;
+	max-width: 300px;
+}
+.btn-srch {
+     display: inline;
+	size: auto;
+}
+
+.form-control {
+	display: inline;
+	max-width: 300px;
+}
+
+.btn-srch {
+	display: inline;
+	size: auto;
+}
+
+.topBlock
+{
+    margin-bottom: 1em;
+    text-align: right;
+}
+.topBlock > span:nth-child(2){
+	margin-left : 10px;
+  margin-right: 20px;
+}
+
+img,li{
+  width: 140px;
+}
+
+
+
+
+
+
+
+<!-- -->
