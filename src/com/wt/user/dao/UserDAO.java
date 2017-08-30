@@ -20,7 +20,7 @@ public class UserDAO {
 			con = ConnectionPool.getConnection();
 			
 			StringBuffer sql = new StringBuffer();
-			sql.append(" insert tb_users (id, nick, pwd, email, hintQ, hintA) ");
+			sql.append(" insert into tb_users (id, nick, pwd, email, hintQ, hintA) ");
 			sql.append(" values (?, ?, ?, ?, ?, ?) ");
 			
 			pstmt = con.prepareStatement(sql.toString());
