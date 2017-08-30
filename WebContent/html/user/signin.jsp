@@ -86,7 +86,7 @@ html, body {
 		<div id="main" class="col-xs-6 col-sm-8" >
 			<div class="contentwrap">
   <article class="container">
-    <form action="/team5_miniprj/controller/signin" class="form-horizontal">
+    <form action="/testing/controller/signin" class="form-horizontal">
     <div class="form-group">
     <label for="inputEmail" class="col-sm-2 control-label">아이디</label>
     <div class="col-sm-6">
