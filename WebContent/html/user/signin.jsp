@@ -86,7 +86,7 @@ html, body {
 		<div id="main" class="col-xs-6 col-sm-8" >
 			<div class="contentwrap">
   <article class="container">
-    <form action="/team5_miniprj/com/wt/user/controller/SignInController" class="form-horizontal">
+    <form action="/team5_miniprj/controller/signin" class="form-horizontal">
     <div class="form-group">
     <label for="inputEmail" class="col-sm-2 control-label">아이디</label>
     <div class="col-sm-6">
@@ -96,7 +96,7 @@ html, body {
     <div class="form-group">
     <label for="inputEmail" class="col-sm-2 control-label">닉네임</label>
     <div class="col-sm-6">
-    <input type="text" class="form-control" naem="nick" id="inputNick" placeholder="닉네임">
+    <input type="text" class="form-control" name="nick" id="inputNick" placeholder="닉네임">
     </div>
     </div>
     <div class="form-group">
@@ -134,7 +134,7 @@ html, body {
     <div class="form-group">
     <label for="inputName" class="col-sm-2 control-label">질문에 대한 답</label>
     <div class="col-sm-6">
-    <input type="text" class="form-control" name="inputA" id="inputAnswer" placeholder="답">
+    <input type="text" class="form-control" name="hintA" id="inputAnswer" placeholder="답">
     </div>
     </div>
     <div class="form-group">

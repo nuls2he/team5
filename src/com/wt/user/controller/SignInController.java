@@ -18,16 +18,18 @@ public class SignInController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("호출됨..");
 		
-		UserDAO dao = new UserDAO();
-		User user = new User();
-		user.setID(request.getParameter("id"));
-		user.setNick(request.getParameter("nick"));
-		user.setPwd(request.getParameter("password"));
-		user.setEmail(request.getParameter("email"));
-		user.setHintQ(request.getParameter("hintQ"));
-		user.setHintA(request.getParameter("hintA"));
-		
-		dao.join(user);
+		if(request.getParameter("password").equals(request.getParameter("check-pass"))) {
+			UserDAO dao = new UserDAO();
+			User user = new User();
+			user.setID(request.getParameter("id"));
+			user.setNick(request.getParameter("nick"));
+			user.setPwd(request.getParameter("password"));
+			user.setEmail(request.getParameter("email"));
+			user.setHintQ(request.getParameter("hintQ"));
+			user.setHintA(request.getParameter("hintA"));
+			
+			dao.join(user);
+		}
 		
 	}
 	
