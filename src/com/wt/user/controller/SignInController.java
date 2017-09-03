@@ -29,7 +29,12 @@ public class SignInController extends HttpServlet {
 			user.setHintA(request.getParameter("hintA"));
 			
 			dao.join(user);
+			
+			response.sendRedirect("/testing/html/wtmain.jsp");
+		} else {
+			response.sendRedirect("/testing/html/user/signin.jsp");
 		}
+		
 		
 	}
 	

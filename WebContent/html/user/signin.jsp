@@ -22,7 +22,7 @@ html, body {
     border: 3px solid blue;}
 }
 
-</style> 
+</style>
 <title>W.T.회원가입</title>
 
 <meta name="viewport"
