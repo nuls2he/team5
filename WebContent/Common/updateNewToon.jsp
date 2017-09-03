@@ -105,7 +105,7 @@ div#container{
 		</div>
 		<div id="main" class="col-xs-6 col-sm-8" >
 			<table summary="글쓰기 전체 테이블">
-				<form name="BoardWriteForm" method="post" action="/team5/com/wt/common/controller/commoninsertServlet" 
+				<form name="BoardWriteForm" method="post" action="/team5_miniprj/commoninsert" 
 																	onsubmit="return boardWriteCheck();" >
 					
 			   		<colgroup>

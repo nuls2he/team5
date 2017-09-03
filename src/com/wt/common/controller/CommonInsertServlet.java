@@ -14,7 +14,7 @@ import javax.servlet.jsp.PageContext;
 
 import com.wt.common.dao.CommonDao;
 import com.wt.common.domain.Common;
-@WebServlet("/com/wt/common/controller/commoninsertServlet")
+@WebServlet("/commoninsert")
 public class CommonInsertServlet extends HttpServlet{
 		
 		@Override
@@ -39,7 +39,7 @@ public class CommonInsertServlet extends HttpServlet{
 			CommonDao dao = new CommonDao();
 			dao.insertBoard(vo);
 			
-			response.sendRedirect("/team5/newtoonList");
+			response.sendRedirect("//team5_miniprj/newtoonList");
 //			RequestDispatcher rd = request.getRequestDispatcher("/com/wt/common/controller/commonListServlet");
 //			rd.forward(request, response);
 			

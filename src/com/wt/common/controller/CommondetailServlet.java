@@ -14,7 +14,7 @@ import com.wt.common.dao.CommonDao;
 import com.wt.common.domain.Common;
 import com.wt.common.domain.Search;
 
-@WebServlet("/com/wt/common/controller/commondetailServlet")
+@WebServlet("/commondetail")
 public class CommondetailServlet extends HttpServlet{
 	CommonDao dao = new CommonDao();
 	

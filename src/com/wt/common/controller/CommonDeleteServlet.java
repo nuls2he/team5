@@ -26,7 +26,7 @@ public class CommonDeleteServlet extends HttpServlet{
 
 		dao.deleteBoard(no);
 		
-		response.sendRedirect("/team5/newtoonList");
+		response.sendRedirect("/team5_miniprj/newtoonList");
 	}
 
 	

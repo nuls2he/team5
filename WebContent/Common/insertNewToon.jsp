@@ -107,11 +107,11 @@ div#container{
 			<table summary="글쓰기 전체 테이블">
 				<c:choose>
 					<c:when test="${empty list }">
-						<form name="BoardWriteForm" method="get" action="/team5/com/wt/common/controller/commoninsertServlet" 
+						<form name="BoardWriteForm" method="get" action="/team5_miniprj/commoninsert" 
 																	onsubmit="return boardWriteCheck();" >
 					</c:when>
 					<c:otherwise>
-					<form name="BoardWriteForm" method="get" action="/team5/newtoonupdate" 
+					<form name="BoardWriteForm" method="get" action="/team5_miniprj/newtoonupdate" 
 																	onsubmit="return boardWriteCheck();" >
 					</c:otherwise>
 				</c:choose>
