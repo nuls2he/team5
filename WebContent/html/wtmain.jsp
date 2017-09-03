@@ -70,7 +70,7 @@ div#container{
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="/testing/html/wtmain.jsp">W.T</a>
+				<a class="navbar-brand" href="/team5_miniprj/html/wtmain.jsp">W.T</a>
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
