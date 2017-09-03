@@ -108,8 +108,8 @@ div#container{
 		<div id="main" class="col-xs-6 col-sm-8" >
 	
 	
-	<a href="/team5/newtoonList"> 목록</a>
-	<a href="/team5/Common/insertNewToon.jsp">등록</a>
+	<a href="/team5_miniprj/newtoonList"> 목록</a>
+	<a href="/team5_miniprj/Common/insertNewToon.jsp">등록</a>
 	<table class="table table-hover" >
 		<tr>
 			<th>글번호</th>
@@ -125,8 +125,8 @@ div#container{
 			<td><c:out value="${Common.content}" /></td>
 			<td><c:out value="${Common.image}"/></td>
 			<td><c:out value="${Common.regdate}"/></td>
-			<td><a href="/team5/commonInsertToUpdate?no=${Common.no}">수정</a></td>
-			<td><a href="/team5/commonDelete?no=${Common.no}">삭제</a></td>
+			<td><a href="/team5_miniprj/commonInsertToUpdate?no=${Common.no}">수정</a></td>
+			<td><a href="/team5_miniprj/commonDelete?no=${Common.no}">삭제</a></td>
 		</tr> 
 		</c:forEach>
 		<!-- <button id="button" onclick="button_click();">버튼
