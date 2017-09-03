@@ -8,8 +8,8 @@ import java.util.List;
 
 import com.wt.common.domain.Common;
 import com.wt.common.domain.Search;
-import com.wt.util.ConnectionPool;
-import com.wt.util.JdbcUtil;
+import kr.co.mlec.util.ConnectionPool;
+import kr.co.mlec.util.JdbcUtil;
 
 public class CommonDaoRow {
 	// 글번호 처리 
