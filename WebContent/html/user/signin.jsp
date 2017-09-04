@@ -50,7 +50,7 @@ html, body {
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="/team5_miniprj/html/wtmain.jsp">W.T</a>
+				<a class="navbar-brand" href="${pageContext.request.contextPath}/html/wtmain.jsp">W.T</a>
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
@@ -142,7 +142,7 @@ html, body {
     <div class="form-group">
     <label for="inputName" class="col-sm-2 control-label"></label>
     <div class="col-sm-6">
-      <a href="https://www.naver.com">메인으로</a>
+      <a href="${pageContext.request.contextPath}/html/wtmain.jsp">메인으로</a>
       <button type="submit" class="btn btn-primary" style="margin-left: 25px;">계정 생성</button>
     </div>
     </div>
