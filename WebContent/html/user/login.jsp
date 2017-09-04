@@ -145,7 +145,7 @@ html, body {
         <input type="password" id="inputPassword" class="form-control" required>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
       </form><br><br>
-      <a href="https://www.naver.com" style="width: 100%" class="usr">회원가입</a>
+      <a href="signin.jsp" style="width: 100%" class="usr">회원가입</a>
       <a href="" style="width: 100%" class="idpw">아이디/비밀번호 찾기</a>
 
     </div> <!-- /container -->
