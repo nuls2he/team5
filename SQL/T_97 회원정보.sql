@@ -14,3 +14,4 @@ create table tb_users (
 
 select * from tb_users;
 
+drop table tb_users;

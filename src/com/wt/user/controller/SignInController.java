@@ -30,9 +30,9 @@ public class SignInController extends HttpServlet {
 			
 			dao.join(user);
 			
-			response.sendRedirect("/testing/html/wtmain.jsp");
+			response.sendRedirect("/team5_miniprj/html/wtmain.jsp");
 		} else {
-			response.sendRedirect("/testing/html/user/signin.jsp");
+			response.sendRedirect("/team5_miniprj/html/user/signin.jsp");
 		}
 		
 		

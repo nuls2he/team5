@@ -42,7 +42,7 @@ public class UserDAO {
 	}
 	
 	
-	public String login(User usr) {
+	public User login(User user) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 
@@ -50,20 +50,27 @@ public class UserDAO {
 			con = ConnectionPool.getConnection();
 
 			StringBuffer sql = new StringBuffer();
-			sql.append(" select nick ");
+			sql.append(" select * ");
 			sql.append("   from tb_users ");
 			sql.append("  where id = ? and pwd = ? ");
 
 			pstmt = con.prepareStatement(sql.toString());
 
-			pstmt.setString(1, usr.getID());
-			pstmt.setString(2, usr.getPwd());
+			pstmt.setString(1, user.getID());
+			pstmt.setString(2, user.getPwd());
 			
 			ResultSet rs = pstmt.executeQuery();
 			
 			if (rs.next()) {
-				return rs.getString("nick");
-			}
+				User usr = new User();
+				usr.setID(rs.getString("id"));
+				usr.setNick(rs.getString("nick"));
+				usr.setEmail(rs.getString("email"));
+				usr.setName(rs.getString("name"));
+				usr.setCall(rs.getString("call"));
+				usr.setAddr(rs.getString("addr"));
+				return usr;
+			} 
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
