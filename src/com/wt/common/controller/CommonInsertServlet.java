@@ -39,7 +39,7 @@ public class CommonInsertServlet extends HttpServlet{
 			CommonDao dao = new CommonDao();
 			dao.insertBoard(vo);
 			
-			response.sendRedirect("//team5_miniprj/newtoonList");
+			response.sendRedirect("/team5_miniprj/newtoonList");
 //			RequestDispatcher rd = request.getRequestDispatcher("/com/wt/common/controller/commonListServlet");
 //			rd.forward(request, response);
 			
