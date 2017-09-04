@@ -14,4 +14,11 @@ create table tb_users (
 
 select * from tb_users;
 
+delete TB_USERS;
+
 drop table tb_users;
+
+select *
+  from tb_users
+ where id = 'abc123' and pwd = '123';
+ 

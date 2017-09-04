@@ -45,6 +45,7 @@ public class UserDAO {
 	public User login(User user) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
+		User usr = new User();
 
 		try {
 			con = ConnectionPool.getConnection();
@@ -61,8 +62,8 @@ public class UserDAO {
 			
 			ResultSet rs = pstmt.executeQuery();
 			
-			if (rs.next()) {
-				User usr = new User();
+			while (rs.next()) {
+				
 				usr.setID(rs.getString("id"));
 				usr.setNick(rs.getString("nick"));
 				usr.setEmail(rs.getString("email"));

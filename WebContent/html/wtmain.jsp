@@ -59,7 +59,6 @@ div#container{
 
 </head>
 <body>
-	<c:redirect url="/html/wtmain.jsp" />
  	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
@@ -71,14 +70,14 @@ div#container{
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="/team5_miniprj/html/wtmain.jsp">W.T</a>
+				<a class="navbar-brand" href="${pageContext.request.contextPath}/wtmain">W.T</a>
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li><a href="news.jsp">News</a></li>
 					<li><a href="#NewToon">NewToon</a></li>
 					<li><a href="#HotToon">HotToon</a></li>
-					<li><a href="/testing/toonart/taform">ToonArt</a></li>
+					<li><a href="${pageContext.request.contextPath}/toonart/taform">ToonArt</a></li>
 					<li><a href="#19+">19+</a></li>
 				</ul>
 				<div class="row">
