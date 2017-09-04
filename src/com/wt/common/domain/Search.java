@@ -5,6 +5,7 @@ public class Search {
 	String type_NT;
 	String word;
 	String id;
+
 	public String getId() {
 		return id;
 	}
