@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.wt.user.dao.UserDAO;
 import com.wt.user.domain.User;
 
-@WebServlet("/controller/signin")
+@WebServlet("/user/signin")
 public class SignInController extends HttpServlet {
 
 	@Override
