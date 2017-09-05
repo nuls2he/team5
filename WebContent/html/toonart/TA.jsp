@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ko">
 <head>
@@ -123,23 +124,21 @@ div#container{
 			<h2>ToonArt</h2>
 		</div>
 	</div>
-
+<form>
 <div class="topBlock">
    <span class="searchBlock">
 		<select>
-			<option>제목</option>
-			<option>글쓴이</option>
+			<option value=title>제목</option>
+			<option value=no>글번호</option>
 			
 		</select>
-		<input type="search" name="search_val" no="srch-val" class="form-control" placeholder="글쓴이 또는 제목을 검색하세요"/>
+		<input type="search" name="word" no="no" class="form-control" placeholder="글번호 또는 제목을 검색하세요"/>
 		<button type="submit" class="btn-srch">검색</button>
-		<button >글쓰기</button>
 		
-		
-		
+		<button type="button" onclick="location.href='http://localhost:8000/team5_mini/toonartwrite.jsp'" >글쓰기</button>
    </span>
  </div>
-
+</form>
 <div class="container-fluid bg-3 text-center">
 
 
@@ -156,13 +155,18 @@ div#container{
 
 <div class="container-fluid bg-3 text-center">
   <div class="row">
+	<c:forEach var="toon" items="${list}">
+<%-- 	 	<c:out value="${list}" /><br>  --%>
     <div class="col-sm-3">
-     <a href="tanew.jsp" target="css/a.jpg"><img src="css/a.jpg" class="img-responsive" style="width:400px; height:200px;" alt="Image"></a>
-      <p>제목</p>
-      <p>글쓴이 날짜</p>
+     <a href="tanew.jsp"><img src="/team5_mini/css/a.jpg" class="img-responsive" style="width:400px; height:200px;" alt="Image"></a>
+      <p>${toon.title}</p>
+      <p>${toon.writer}<br> ${toon.regdate}</p>
     </div>
-    <div class="col-sm-3">
-      <a href="http://www.naver.com" target="css/b.jpg"><img src="css/b.jpg" class="img-responsive" style="width:400px; height:200px;" alt="Image"></a>
+    </c:forEach>
+    
+    
+   <!--  <div class="col-sm-3">
+      <a href="http://cafe.naver.com/infinitylands/406" target="css/b.jpg"><img src="css/b.jpg" class="img-responsive" style="width:400px; height:200px;" alt="Image"></a>
      <p>제목</p>    
       <p>글쓴이 날짜</p>
      </div>
@@ -195,7 +199,7 @@ div#container{
       <a href="http://www.naver.com" target="css/h.jpg"><img src="css/h.jpg" class="img-responsive" style="width:400px; height:200px;" alt="Image"></a>
       <p>제목</p>
       <p>글쓴이 날짜</p>
-    </div>
+    </div> -->
   </div>
 </div><br><br> 
 
