@@ -1,16 +1,15 @@
 package com.wt.common.domain;
 
 public class Search {
-	String type;
-	String type_NT;
-	String word;
-	String id;
-
-	public String getId() {
-		return id;
+	private String word;
+	private String notitle;
+	private String type;
+	
+	public String getWord() {
+		return word;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setWord(String word) {
+		this.word = word;
 	}
 	public String getType() {
 		return type;
@@ -18,16 +17,12 @@ public class Search {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public String getType_NT() {
-		return type_NT;
+
+	public String getNotitle() {
+		return notitle;
 	}
-	public void setType_NT(String type_NT) {
-		this.type_NT = type_NT;
-	}
-	public String getWord() {
-		return word;
-	}
-	public void setWord(String word) {
-		this.word = word;
+	public void setNotitle(String notitle) {
+		this.notitle = notitle;
+	
 	}
 }
