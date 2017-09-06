@@ -160,7 +160,7 @@ html, body {
     <div class="form-group">
     <label for="inputName" class="col-sm-2 control-label"></label>
     <div class="col-sm-6">
-      <a href="${pageContext.request.contextPath}/html/wtmain.jsp">메인으로</a>
+      <a href="${pageContext.request.contextPath}/withrawForm">회원탈퇴</a>
       <button type="submit" class="btn btn-primary" style="margin-left: 25px;">저장</button>
     </div>
     </div>

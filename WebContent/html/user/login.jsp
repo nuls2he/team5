@@ -147,9 +147,9 @@ html, body {
       <form class="form-signin" method="post" action="${pageContext.request.contextPath}/user/login">
       	<strong>I D</strong>
         <input type="text" name="id" class="form-control" required autofocus>
-        <br>
+        <br><br>
       	<strong>Password</strong>
-        <input type="password" name="pwd" class="form-control" required>
+        <input type="password" name="pwd" class="form-control" required><br>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
       </form><br><label style="color: red">${error}</label><br><br><hr>
       <a href="${pageContext.request.contextPath}/signinForm" style="width: 100%" class="usr">회원가입</a>

@@ -153,6 +153,29 @@ public class UserDAO {
 		}
 	}
 	
+	public void withRaw(String id) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+
+		try {
+			con = ConnectionPool.getConnection();
+
+			StringBuffer sql = new StringBuffer();
+			sql.append(" delete tb_users ");
+			sql.append("  where id = ?");
+
+			pstmt = con.prepareStatement(sql.toString());
+			pstmt.setString(1, id);
+			
+			pstmt.executeQuery();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(pstmt);
+			ConnectionPool.releaseConnection(con);
+		}
+	}
+	
 	
 	public String findID(User usr) {
 		Connection con = null;
