@@ -95,26 +95,30 @@ html, body {
 		<div id="main" class="col-xs-6 col-sm-8" >
 			<div class="contentwrap">
   <article class="container">
-    <form action="${pageContext.request.contextPath}/user/signin" class="form-horizontal">
+    <form action="${pageContext.request.contextPath}/user/infoup" class="form-horizontal" method="post">
    <fieldset style="border-style: double; width: 80%;  height: 200px" class="box"><br>
    <legend>기본 정보</legend>
     <div class="form-group">
-    <table style="width: 100%">
-    	<tr>
-    	<th>
-	    	<label>아이디</label>
-    	</th>
-    	<th>
-	    	<label>${user.id}</label>
-    	</th>
-    	<th>
-    		<label>닉네임</label>
-    	</th>
-    	<th>
-    		<label>${user.nick}</label>
-    	</th>
-    	</tr>
-    </table>
+<!--     <table style="width: 100%"> -->
+<!--     	<tr> -->
+<!--     	<th> -->
+<!-- 	    	<label>아이디</label> -->
+<!--     	</th> -->
+<!--     	<th> -->
+<%-- 	    	<label>${user.id}</label> --%>
+<!--     	</th> -->
+<!--     	<th> -->
+<!--     		<label>닉네임</label> -->
+<!--     	</th> -->
+<!--     	<th> -->
+<%--     		<label>${user.nick}</label> --%>
+<!--     	</th> -->
+<!--     	</tr> -->
+<!--     </table> -->
+    <label class="col-sm-2 control-label">닉네임</label>
+    <div class="col-sm-6">
+    <label class="form-control">${user.nick}</label>
+    </div>
     </div>
     <div class="form-group">
     <label for="inputNick" class="col-sm-2 control-label">이메일</label>

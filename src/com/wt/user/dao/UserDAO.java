@@ -69,7 +69,8 @@ public class UserDAO {
 				usr.setEmail(rs.getString("email"));
 				usr.setName(rs.getString("name"));
 				usr.setCall(rs.getString("call"));
-				usr.setAddr(rs.getString("addr"));
+				usr.setAddHead(rs.getString("addHead"));
+				usr.setAddTail(rs.getString("addTail"));
 				return usr;
 			} 
 		} catch (Exception e) {
@@ -88,7 +89,6 @@ public class UserDAO {
 
 		try {
 			con = ConnectionPool.getConnection();
-
 			StringBuffer sql = new StringBuffer();
 			sql.append(" select * ");
 			sql.append("   from tb_users ");
@@ -99,7 +99,6 @@ public class UserDAO {
 			pstmt.setString(1, id);
 			
 			ResultSet rs = pstmt.executeQuery();
-			System.out.println("쿼리시작");
 			while (rs.next()) {
 				User usr = new User();
 				usr.setID(rs.getString("id"));
@@ -107,9 +106,8 @@ public class UserDAO {
 				usr.setEmail(rs.getString("email"));
 				usr.setName(rs.getString("name"));
 				usr.setCall(rs.getString("call"));
-				String[] addr = rs.getString("addr").split("_");
-				usr.setAddHead(addr[0]);
-				usr.setAddTail(addr[1]);
+				usr.setAddHead(rs.getString("addHead"));
+				usr.setAddTail(rs.getString("addTail"));
 				return usr;
 			} 
 		} catch (Exception e) {
@@ -127,24 +125,26 @@ public class UserDAO {
 		
 		try {
 			con = ConnectionPool.getConnection();
-			
+			System.out.println("수정들어옴");
 			StringBuffer sql = new StringBuffer();
 			sql.append(" update tb_users ");
 			sql.append("    set email = ?, ");
 			sql.append("    	name = ?, ");
 			sql.append("    	call = ?, ");
-			sql.append("    	addr = ?, ");
+			sql.append("    	addHead = ?, ");
+			sql.append("    	addTail = ? ");
 			sql.append(" where id = ? ");
-			
 			pstmt = con.prepareStatement(sql.toString());
-			
+			System.out.println(usr.getID());
 			pstmt.setString(1, usr.getEmail());
 			pstmt.setString(2, usr.getName());
 			pstmt.setString(3, usr.getCall());
-			pstmt.setString(4, usr.getAddr());
-			pstmt.setString(5, usr.getID());
+			pstmt.setString(4, usr.getAddHead());
+			pstmt.setString(5, usr.getAddTail());
+			pstmt.setString(6, usr.getID());
 			
 			pstmt.executeQuery();
+			System.out.println("수정완료");
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

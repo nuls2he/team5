@@ -11,28 +11,31 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.catalina.tribes.util.Arrays;
-
 import com.wt.user.dao.UserDAO;
 import com.wt.user.domain.User;
 
-@WebServlet("/infoForm")
-public class InfoFormController extends HttpServlet {
+@WebServlet("/user/infoup")
+public class InfoUpController extends HttpServlet {
 
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		HttpSession session = request.getSession();
-//		System.out.println("user : " + session.getAttribute("user"));
-//		String ssID = (String)session.getAttribute("id");
-//		System.out.println("유저아이디 : "+session.getAttribute("id"));
+		request.setCharacterEncoding("utf-8");
 		Cookie[] c = request.getCookies();
 		String cID = c[0].getValue();
-		
 		UserDAO dao = new UserDAO();
-		request.setAttribute("user", dao.showInfo(cID));
-		request.setAttribute("ID", cID);
-		RequestDispatcher rd = request.getRequestDispatcher("/html/user/info.jsp");
+		User usr = new User();
+		usr.setEmail(request.getParameter("email"));
+		usr.setName(request.getParameter("name"));
+		usr.setCall(request.getParameter("call"));
+		usr.setAddHead(request.getParameter("addHead"));
+		usr.setAddTail(request.getParameter("addTail"));
+		usr.setID(cID);
+		dao.updateInfo(usr);
+		
+		
+		RequestDispatcher rd = request.getRequestDispatcher("/infoForm");
 		rd.forward(request, response);
+		
 	}
-	
+
 }
