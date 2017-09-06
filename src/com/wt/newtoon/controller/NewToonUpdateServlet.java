@@ -1,4 +1,4 @@
-package com.wt.common.controller;
+package com.wt.newtoon.controller;
 
 import java.io.IOException;
 
@@ -12,7 +12,7 @@ import com.wt.common.dao.CommonDao;
 import com.wt.common.domain.Common;
 
 @WebServlet("/newtoonupdate")
-public class CommonUpdateServlet extends HttpServlet{
+public class NewToonUpdateServlet extends HttpServlet{
 	CommonDao dao = new CommonDao();
 	
 	@Override
@@ -38,7 +38,7 @@ public class CommonUpdateServlet extends HttpServlet{
 //		//dao.searchToon(vo);
 //		List<Common> list = dao.updateBoard(vo);
 //		request.setAttribute("list", list);
-		response.sendRedirect("/team5_miniprj/newtoonList");
+		response.sendRedirect("/team5/newtoonlist");
 //	RequestDispatcher rd = request.getRequestDispatcher("/newtoonList");
 //	rd.forward(request, response);
 		

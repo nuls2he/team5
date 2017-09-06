@@ -1,4 +1,4 @@
-package com.wt.common.controller;
+package com.wt.newtoon.controller;
 
 
 import java.io.IOException;
@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.wt.common.dao.CommonDao;
 
-@WebServlet("/commonDelete")
-public class CommonDeleteServlet extends HttpServlet{
+@WebServlet("/newtoondelete")
+public class NewToonDeleteServlet extends HttpServlet{
 	
 	
 	@Override
@@ -26,7 +26,7 @@ public class CommonDeleteServlet extends HttpServlet{
 
 		dao.deleteBoard(no);
 		
-		response.sendRedirect("/team5_miniprj/newtoonList");
+		response.sendRedirect("/team5/newtoonlist");
 	}
 
 	

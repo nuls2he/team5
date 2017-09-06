@@ -1,7 +1,14 @@
+<%@page import="java.text.DecimalFormat"%>
+<%@page import="java.text.Format"%>
 <%@ page import="com.wt.common.domain.Common"%>
 <%@ page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<% 
+DecimalFormat format = new DecimalFormat("0");
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ko">
 <head>
@@ -60,6 +67,7 @@ div#container{
 
 </head>
 <body>
+	
  	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
@@ -87,7 +95,6 @@ div#container{
 						<ul class="nav navbar-nav">
 							<li><a href="#Login">Login</a></li>
 							<li><a href="#Join">Join</a></li>
-
 						</ul>
 					</div>
 				</div>
@@ -102,102 +109,49 @@ div#container{
 			<h3 style = "margin-bottom:20;"> main title</h3>
 		</div>
 		<div id="leftblank" class="col-xs-3 col-sm-2">
+		
 		</div>
 		<div id="main" class="col-xs-6 col-sm-8" >
-			<table summary="글쓰기 전체 테이블">
-				<c:choose>
-					<c:when test="${empty list }">
-						<form name="BoardWriteForm" method="get" action="/team5_miniprj/commoninsert" 
-																	onsubmit="return boardWriteCheck();" >
-					</c:when>
-					<c:otherwise>
-					<form name="BoardWriteForm" method="get" action="/team5_miniprj/newtoonupdate" 
-																	onsubmit="return boardWriteCheck();" >
-					</c:otherwise>
-				</c:choose>
-			   		<colgroup>
-			   			<col width="20%">
-			   			<col width="80%">
-		   		</colgroup>
-			   	
-			
-					<table summary="테이블 구성" >
-					<caption>게시판 글쓰기</caption>	
-					<c:choose>
-						<c:when test="${not empty list }">
-							<c:forEach var="Common" items="${list}">
-								<tr>
-									<td><input type=hidden name="no" value="${Common.no }"></td>
-								</tr>
-					    		<tr>
-									<td>작성자</td>
-									<td><input type=text name="id" size=10 maxlength=8 value="${Common.id}"></td>
-								</tr>
-					    		<tr>
-					     			<td>제 목</td>
-			   			  			<td><input type=text name=title value="${Common.title}"></td>
-			 			   		</tr>
-					    		<tr>
-			  			   			<td>이미지</td>
-			    		 			<td><input type=text name=image size=30 value="${Common.image}"></td>
-			   			 		</tr>
-			    				<tr>
-			     					<td>타입</td>
-			     					<td><input type=text name=type size=30 value="${Common.type}"></td>
-			    				</tr>
-			    				<tr>
-			     					<td>내 용</td>
-			     					<td><textarea name=content rows ="10" cols="100">${Common.content}</textarea></td>
-			    				</tr>
-			    					</c:forEach>
-			    				</c:when>
-			    				    	
-								<c:otherwise>
-					
-									<tr>
-										<td><input type=hidden name="no" value=></td>
-									</tr>
-			    					<tr>
-										<td>작성자</td>
-										<td><input type=text name="id" size=10 maxlength=8 value=></td>
-									</tr>
-			    					<tr>
-			     						<td>제 목</td>
-			     						<td><input type=text name=title value=></td>
-						    		</tr>
-			   				 		<tr>
-			     						<td>이미지</td>
-			     						<td><input type=text name=image size=30 value=></td>
-			    					</tr>
-						    		<tr>
-						     			<td>타입</td>
-						     			<td><input type=text name=type size=30 value=></td>
-						    		</tr>
-						    		<tr>
-						     			<td>내 용</td>
-						     			<td><textarea name=content rows ="10" cols="100"></textarea></td>
-						    		</tr>
-						    	</c:otherwise>
-			    		</c:choose>
-			    		<tr>
-			     			<td colspan=2><hr size=1></td>
-			    		</tr>
-			    		<tr>
-			     			<td colspan="2"><div align="center">
-			     				<input type="submit" value="등록" >&nbsp;&nbsp;&nbsp;
-			    	     		<input type="button" value="뒤로" onclick="move('Board_List.jsp');"></div>
-			     			</td>
-			    		</tr> 
-					</table>
-				</form> 
-			</table>
+	
+	
+	<a href="${pageContext.request.contextPath}/newtoonlist"> 목록</a>
+	<a href="${pageContext.request.contextPath}/newtooninsert.jsp">등록</a>
+	<table class="table table-hover" >
+		<tr>
+			<th>글번호</th>
+			<th>이미지</th>
+			<th>제목</th>
+			<th>글쓴이</th>
+			<th>날짜</th>
+		</tr>
+		<c:forEach var="Common" items="${list}">
+		<tr>
+			<td><c:out value="${Common.no}" /></td>
+			<td><c:out value="${Common.title}"/></td>
+			<td><c:out value="${Common.content}" /></td>
+			<td><c:out value="${Common.image}"/></td>
+			<td><c:out value="${Common.regdate}"/></td>
+			<td><a href="${pageContext.request.contextPath}/newtooninserttoupdate?no=${Common.no}">수정</a></td>
+			<td><a href="${pageContext.request.contextPath}/newtoondelete?no=${Common.no}">삭제</a></td>
+		</tr> 
+		</c:forEach>
+	</table>	 
+			<a href="${pageContext.request.contextPath}/newtoonlist?rnum=0"><<</a>&nbsp;&nbsp;&nbsp;
+			<a href="${pageContext.request.contextPath}/newtoonlist?rnum=<fmt:formatNumber value="${((rnum/5-(rnum/5%1))-1)*5}" pattern="0"/>"><</a>&nbsp;&nbsp;&nbsp;
+			<c:forEach var="i" begin="${(rnum/5-(rnum/5%1))*5}" end="${(rnum/5-(rnum/5%1)+1)*5-1}">
+				<a href="${pageContext.request.contextPath}/newtoonlist?rnum=${i}">${i+1}</a>&nbsp;&nbsp;&nbsp;
+			</c:forEach>
+			<a href="${pageContext.request.contextPath}/newtoonlist?rnum=<fmt:formatNumber value="${((rnum/5-(rnum/5%1))+1)*5}" pattern="0"/>">></a>&nbsp;&nbsp;&nbsp;
+			<a href="${pageContext.request.contextPath}/newtoonlist?rnum=<fmt:formatNumber value="${pnum/5-1}" pattern="0"/>">>></a>&nbsp;&nbsp;&nbsp;
 		</div>
 		<div id="leftblank" class="col-xs-6 col-sm-2">
-			
+
 		</div>
 		
 	</div>
 	
+	<form>
+	</form>
 </body>
 
 </html>

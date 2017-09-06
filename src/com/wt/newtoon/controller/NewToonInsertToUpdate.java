@@ -1,4 +1,4 @@
-package com.wt.common.controller;
+package com.wt.newtoon.controller;
 
 import java.io.IOException;
 import java.util.List;
@@ -14,8 +14,8 @@ import com.wt.common.dao.CommonDao;
 import com.wt.common.domain.Common;
 import com.wt.common.domain.Search;
 
-@WebServlet("/commondetail")
-public class CommondetailServlet extends HttpServlet{
+@WebServlet("/newtooninserttoupdate")
+public class NewToonInsertToUpdate extends HttpServlet{
 	CommonDao dao = new CommonDao();
 	
 	@Override
@@ -23,13 +23,13 @@ public class CommondetailServlet extends HttpServlet{
 		
 		Search vo = new Search();
 		request.setCharacterEncoding("utf-8");
-		String type = request.getParameter("type");
-		String type_NT = request.getParameter("type_NT");
-		String word = request.getParameter("word");
-		String id = request.getParameter("id");
+		String type = "n";
+		String selType = "no";
+		String word = request.getParameter("no");
+		String id = "admin";
 		
 		vo.setType(type);
-		vo.setType_NT(type_NT);
+		vo.setSelType(selType);
 		vo.setWord(word);
 		vo.setId(id);
 		
@@ -37,7 +37,7 @@ public class CommondetailServlet extends HttpServlet{
 		//dao.searchToon(vo);
 		List<Common> list = dao.searchToon(vo);
 		request.setAttribute("list", list);
-	RequestDispatcher rd = request.getRequestDispatcher("/Common/NewToonDetail.jsp");
+	RequestDispatcher rd = request.getRequestDispatcher("/Common/newtooninsert.jsp");
 	rd.forward(request, response);
 		
 }

@@ -1,4 +1,4 @@
-package com.wt.common.controller;
+package com.wt.newtoon.controller;
 
 import java.io.IOException;
 
@@ -14,8 +14,8 @@ import javax.servlet.jsp.PageContext;
 
 import com.wt.common.dao.CommonDao;
 import com.wt.common.domain.Common;
-@WebServlet("/commoninsert")
-public class CommonInsertServlet extends HttpServlet{
+@WebServlet("/newtooninsert")
+public class NewToonInsertServlet extends HttpServlet{
 		
 		@Override
 		public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -36,10 +36,11 @@ public class CommonInsertServlet extends HttpServlet{
 			vo.setImage(image);
 			vo.setType(type);
 			
+			
 			CommonDao dao = new CommonDao();
 			dao.insertBoard(vo);
 			
-			response.sendRedirect("/team5_miniprj/newtoonList");
+			response.sendRedirect("/team5/newtoonlist");	
 //			RequestDispatcher rd = request.getRequestDispatcher("/com/wt/common/controller/commonListServlet");
 //			rd.forward(request, response);
 			

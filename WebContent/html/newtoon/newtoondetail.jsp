@@ -1,8 +1,5 @@
-<%@ page import="com.wt.common.domain.Common"%>
-<%@ page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<% %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ko">
 <head>
@@ -89,6 +86,7 @@ div#container{
 						<ul class="nav navbar-nav">
 							<li><a href="#Login">Login</a></li>
 							<li><a href="#Join">Join</a></li>
+
 						</ul>
 					</div>
 				</div>
@@ -106,53 +104,28 @@ div#container{
 		
 		</div>
 		<div id="main" class="col-xs-6 col-sm-8" >
-	
-	
-	<a href="/team5_miniprj/newtoonList"> 목록</a>
-	<a href="/team5_miniprj/Common/insertNewToon.jsp">등록</a>
-	<table class="table table-hover" >
-		<tr>
-			<th>글번호</th>
-			<th>이미지</th>
-			<th>제목</th>
-			<th>글쓴이</th>
-			<th>날짜</th>
-		</tr>
-		<c:forEach var="Common" items="${list}">
-		<tr>
-			<td><c:out value="${Common.no}" /></td>
-			<td><c:out value="${Common.title}"/></td>
-			<td><c:out value="${Common.content}" /></td>
-			<td><c:out value="${Common.image}"/></td>
-			<td><c:out value="${Common.regdate}"/></td>
-			<td><a href="/team5_miniprj/commonInsertToUpdate?no=${Common.no}">수정</a></td>
-			<td><a href="/team5_miniprj/commonDelete?no=${Common.no}">삭제</a></td>
-		</tr> 
-		</c:forEach>
-		<!-- <button id="button" onclick="button_click();">버튼
-		<script>
-		function button_click(){
-			if(button.r1[0].checked==true)button.text.style.visibility="hidden";
-			else if(button.r1[0].checked==true)button.text.style.visibility="visible";
-		}
-		</script>
-		<borm name=button method=post>
-		<input type
-		
-		
-		</button>
-		<input type = "text" onclick="button_click"> -->
-	</table>
-
+			<table class="table table-hover" >
+				<tr>
+					<th>no</th>
+					<th>이미지</th>
+					<th>글쓴이</th>
+					<th>조회수</th>
+				</tr>
+				<tr>
+					<td><a href="newToonDetail.html">이미지</a></td>
+					<td>이미지</td>
+					<td>내용</td>
+					<td>관리자</td>
+				</tr>
+			</table>
+			
 		</div>
 		<div id="leftblank" class="col-xs-6 col-sm-2">
-
+			
 		</div>
 		
 	</div>
 	
-	<form>
-	</form>
 </body>
 
 </html>

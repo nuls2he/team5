@@ -1,4 +1,4 @@
-package com.wt.common.controller;
+package com.wt.newtoon.controller;
 
 import java.io.IOException;
 import java.util.List;
@@ -14,30 +14,47 @@ import com.wt.common.dao.CommonDao;
 import com.wt.common.domain.Common;
 import com.wt.common.domain.Search;
 
-@WebServlet("/commonInsertToUpdate")
-public class CommonInsertToUpdate extends HttpServlet{
+@WebServlet("/newtoonlist")
+public class NewToonListServlet extends HttpServlet{
 	CommonDao dao = new CommonDao();
 	
 	@Override
 	public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
 		
+		int rnum = 0;
+		
 		Search vo = new Search();
 		request.setCharacterEncoding("utf-8");
 		String type = "n";
-		String type_NT = "no";
-		String word = request.getParameter("no");
-		String id = "admin";
+		String selType = request.getParameter("selType");
+		String word = request.getParameter("word");
+		String id = request.getParameter("id");
 		
+		if(request.getParameter("rnum") != null) {
+			rnum = Integer.parseInt(request.getParameter("rnum"));
+			if(rnum<0) {rnum = 0;}
+			vo.setRnum(rnum);
+		}
+		System.out.println("rnum : " +rnum);
 		vo.setType(type);
-		vo.setType_NT(type_NT);
+		vo.setSelType(selType);
 		vo.setWord(word);
 		vo.setId(id);
 		
-		System.out.println(vo);
+		
 		//dao.searchToon(vo);
 		List<Common> list = dao.searchToon(vo);
+		int pnum = dao.pageBoard(type);
+		if(rnum>pnum/5) rnum=pnum/5;{
+			vo.setRnum(rnum);
+			list = dao.searchToon(vo);
+		}
 		request.setAttribute("list", list);
-	RequestDispatcher rd = request.getRequestDispatcher("/Common/insertNewToon.jsp");
+		request.setAttribute("pnum", pnum);
+		request.setAttribute("rnum", rnum);
+		
+		System.out.println(pnum);
+	RequestDispatcher rd = request.getRequestDispatcher("/Common/newtoonmain.jsp");
 	rd.forward(request, response);
 		
 }
