@@ -12,7 +12,7 @@ create table tb_users (
 	admin_yn VARCHAR2(3) null
 );
 
-select * from tb_users;
+select * from tb_users where id = 'abc123';
 
 delete TB_USERS;
 

@@ -9,8 +9,22 @@ public class User {
 	private String hintA;
 	private String name;
 	private String call;
+	private String addHead;
+	private String addTail;
 	private boolean chekAD;
 	private boolean adminYN;
+	public String getAddHead() {
+		return addHead;
+	}
+	public void setAddHead(String addHead) {
+		this.addHead = addHead;
+	}
+	public String getAddTail() {
+		return addTail;
+	}
+	public void setAddTail(String addTail) {
+		this.addTail = addTail;
+	}
 	
 	public boolean isChekAD() {
 		return chekAD;

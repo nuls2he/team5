@@ -90,6 +90,7 @@ div#container{
 								<li><a href="${pageContext.request.contextPath}/signinForm">Join</a></li>
 							</c:when>
 							<c:otherwise>
+								<li><a href="${pageContext.request.contextPath}/infoForm">Info</a></li>
 								<li><a href="${pageContext.request.contextPath}/user/logout">Logout</a></li>
 							</c:otherwise>
 						</c:choose>

@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Enumeration;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,7 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.oreilly.servlet.MultipartRequest;
-import com.wt.util.MlecFileRenamePolicy;
+
+import kr.co.mlec.util.MlecFileRenamePolicy;
 
 @WebServlet("/com.wt.upload/ta_servlet")
 public class Ta_servlet extends HttpServlet{

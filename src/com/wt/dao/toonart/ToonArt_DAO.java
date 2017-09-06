@@ -8,8 +8,9 @@ import java.util.List;
 
 import com.wt.common.domain.Search;
 import com.wt.common.domain.ToonArt;
-import com.wt.util.ConnectionPool;
-import com.wt.util.JdbcUtil;
+
+import kr.co.mlec.util.ConnectionPool;
+import kr.co.mlec.util.JdbcUtil;
 
 public class ToonArt_DAO {
 	int no = 0;

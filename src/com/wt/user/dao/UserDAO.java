@@ -99,15 +99,17 @@ public class UserDAO {
 			pstmt.setString(1, id);
 			
 			ResultSet rs = pstmt.executeQuery();
-			
-			if (rs.next()) {
+			System.out.println("쿼리시작");
+			while (rs.next()) {
 				User usr = new User();
 				usr.setID(rs.getString("id"));
 				usr.setNick(rs.getString("nick"));
 				usr.setEmail(rs.getString("email"));
 				usr.setName(rs.getString("name"));
 				usr.setCall(rs.getString("call"));
-				usr.setAddr(rs.getString("addr"));
+				String[] addr = rs.getString("addr").split("_");
+				usr.setAddHead(addr[0]);
+				usr.setAddTail(addr[1]);
 				return usr;
 			} 
 		} catch (Exception e) {

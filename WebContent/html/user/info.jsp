@@ -22,9 +22,12 @@ html, body {
     height: 98%; 
     border: 3px solid blue;}
 }
+.box {
+	margin-top: 50px;
+}
 
 </style>
-<title>W.T.회원가입</title>
+<title>W.T.개인정보</title>
 
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -92,64 +95,69 @@ html, body {
 		<div id="main" class="col-xs-6 col-sm-8" >
 			<div class="contentwrap">
   <article class="container">
-    <form action="${pageContext.request.contextPath}/user/signin" method="post" class="form-horizontal" style="margin-top: 5%;">
+    <form action="${pageContext.request.contextPath}/user/signin" class="form-horizontal">
+   <fieldset style="border-style: double; width: 80%;  height: 200px" class="box"><br>
+   <legend>기본 정보</legend>
     <div class="form-group">
-    <label for="inputEmail" class="col-sm-2 control-label">아이디</label>
-    <div class="col-sm-6">
-    <input type="text" class="form-control" name="id" id="inputID" placeholder="아이디">
-    </div>
+    <table style="width: 100%">
+    	<tr>
+    	<th>
+	    	<label>아이디</label>
+    	</th>
+    	<th>
+	    	<label>${user.id}</label>
+    	</th>
+    	<th>
+    		<label>닉네임</label>
+    	</th>
+    	<th>
+    		<label>${user.nick}</label>
+    	</th>
+    	</tr>
+    </table>
     </div>
     <div class="form-group">
-    <label for="inputEmail" class="col-sm-2 control-label">닉네임</label>
+    <label for="inputNick" class="col-sm-2 control-label">이메일</label>
     <div class="col-sm-6">
-    <input type="text" class="form-control" name="nick" id="inputNick" placeholder="닉네임">
+    <input type="text" class="form-control" name="email" id="inputNick" value="${user.email}">
     </div>
     </div>
+   </fieldset><br>
+  <fieldset style="border-style: double; width: 80%;  height: 400px;" class="box">
+  <legend>상세 정보</legend>
+  <br>
     <div class="form-group">
-    <label for="inputPassword" class="col-sm-2 control-label">비밀번호</label>
+    <label for="inputName" class="col-sm-2 control-label">이름</label>
     <div class="col-sm-6">
-    <input type="password" class="form-control" name="password" id="inputPassword" placeholder="비밀번호">
-    <p class="help-block">숫자, 특수문자 포함 8자 이상</p>
+    <input type="text" class="form-control" name="name" id="inputName" value="${user.name}" placeholder="홍길동">
     </div>
-    </div>
+    </div><br>
        <div class="form-group">
-    <label for="inputPasswordCheck" class="col-sm-2 control-label">비밀번호 확인</label>
+    <label for="inputPhoneNum" class="col-sm-2 control-label">휴대폰 번호</label>
     <div class="col-sm-6">
-    <input type="password" class="form-control" name="check-pass"id="inputPasswordCheck" placeholder="비밀번호 확인">
-      <p class="help-block">비밀번호를 한번 더 입력해주세요.</p>
+    <input type="text" class="form-control" name="call"id="inputPhoneNum" value="${user.call}"  placeholder="010-0000-0000">
     </div>
-    </div>
+    </div><br>
+    
     <div class="form-group">
-    <label for="inputEmail" class="col-sm-2 control-label">이메일</label>
+    <label for="inputAdd" class="col-sm-2 control-label">주소</label>
     <div class="col-sm-6">
-    <input type="email" class="form-control" name="email" id="inputEmail" placeholder="이메일">
+    <input type="text" class="form-control" name="addHead" id="inputAdd" value="${user.addHead}" >
     </div>
     </div><br>
     <div class="form-group">
-    <label for="inputRipple" class="col-sm-2 control-label"></label>
+    <label for="inputAddress" class="col-sm-2 control-label">상세 주소</label>
     <div class="col-sm-6">
-    <select name="hintQ">
-		<option value="question" selected="selected">비밀번호 힌트 질문</option>
-		<option value="message1">내가 다녔던 초등학교 이름은?</option>
-		<option value="message2">내가 다녔던 중학교 이름은?</option>
-		<option value="message3">내가 다녔던 고등학교 이름은?</option>
-		<option value="message4">내가 좋아하는 나의 별명은?</option>
-	</select>
+    <input type="text" class="form-control" name="addTail" value="${user.addTail}">
     </div>
     </div>
-    <div class="form-group">
-    <label for="inputName" class="col-sm-2 control-label">질문에 대한 답</label>
-    <div class="col-sm-6">
-    <input type="text" class="form-control" name="hintA" id="inputAnswer" placeholder="답">
-    </div>
-    </div>
-    <div class="form-group">
-    </div>
+  </fieldset>
+ 
     <div class="form-group">
     <label for="inputName" class="col-sm-2 control-label"></label>
     <div class="col-sm-6">
       <a href="${pageContext.request.contextPath}/html/wtmain.jsp">메인으로</a>
-      <button type="submit" class="btn btn-primary" style="margin-left: 25px;">계정 생성</button>
+      <button type="submit" class="btn btn-primary" style="margin-left: 25px;">저장</button>
     </div>
     </div>
     </form>
@@ -157,7 +165,6 @@ html, body {
 </div>
 		</div>
 		<div id="leftblank" class="col-xs-6 col-sm-2">
-			
 		</div>
 		
 	</div>
