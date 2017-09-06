@@ -54,7 +54,7 @@ public class NewToonListServlet extends HttpServlet{
 		request.setAttribute("rnum", rnum);
 		
 		System.out.println(pnum);
-	RequestDispatcher rd = request.getRequestDispatcher("/Common/newtoonmain.jsp");
+	RequestDispatcher rd = request.getRequestDispatcher("/html/newtoon/newtoonmain.jsp");
 	rd.forward(request, response);
 		
 }

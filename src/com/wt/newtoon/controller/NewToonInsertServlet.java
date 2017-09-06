@@ -40,7 +40,7 @@ public class NewToonInsertServlet extends HttpServlet{
 			CommonDao dao = new CommonDao();
 			dao.insertBoard(vo);
 			
-			response.sendRedirect("/team5/newtoonlist");	
+			response.sendRedirect("/team5_miniprj/newtoonlist");	
 //			RequestDispatcher rd = request.getRequestDispatcher("/com/wt/common/controller/commonListServlet");
 //			rd.forward(request, response);
 			

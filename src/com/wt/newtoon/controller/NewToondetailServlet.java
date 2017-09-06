@@ -37,7 +37,7 @@ public class NewToondetailServlet extends HttpServlet{
 		//dao.searchToon(vo);
 		List<Common> list = dao.searchToon(vo);
 		request.setAttribute("list", list);
-	RequestDispatcher rd = request.getRequestDispatcher("/Common/newtoondetail.jsp");
+	RequestDispatcher rd = request.getRequestDispatcher("/html/newtoon/newtoondetail.jsp");
 	rd.forward(request, response);
 		
 }

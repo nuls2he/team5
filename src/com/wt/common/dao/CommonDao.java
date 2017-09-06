@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.wt.common.domain.Common;
 import com.wt.common.domain.Search;
+
 import kr.co.mlec.util.ConnectionPool;
 import kr.co.mlec.util.JdbcUtil;
 
@@ -15,37 +16,61 @@ public class CommonDao {
 	// 글번호 처리 
 	int no = 0;
 	
+	
 	// 전체조회, 검색(no, title)
 	// 검색버튼 클릭시 -> search에 (no,title)과 data입력 과 동시에 메소드 실행  
 	public List<Common> searchToon(Search search){
 		List<Common> list = new ArrayList<>();
 		Connection con = null;
 		PreparedStatement stmt = null;
-		
 		try {
 			con = ConnectionPool.getConnection();
 			
-			String type = search.getType_NT();
+			String selT = search.getSelType();
 			StringBuffer sql = new StringBuffer();
-			sql.append("select * ");
-			sql.append("from toon ");
-			sql.append("where type = ? ");
-			if (type != null) { 
-			if("no".equals(type)) {
-				sql.append("	 and no = ? ");
+			sql.append("select * from (select * ");
+			sql.append("			   from ( ");
+			sql.append("				 select rownum rnum, no, title, content, image, hits, regdate, type, id");
+			sql.append("				 from toon ");
+			sql.append("				 where type = ? ");
+			if (selT != null) { 
+//				String tot = "select count(*) as totalCount from toon where type = '?'";
+//				stmt = con.prepareStatement(tot.toString());
+//				stmt.setString(1, tot);
+				if("no".equals(selT)) {
+					sql.append("	 	 and no = ? ");
+				}
+				else if("title".equals(selT)) {
+					sql.append("	 	 and title = ? ");
+				}
+				else {
+					sql.append("	 	 and no = ? ");
+				}
+			
 			}
-			else if("title".equals(type)) {
-				sql.append("	 and title = ? ");
-			}
-			}
-			sql.append(" order by no desc ");
+				sql.append("	 	 	)");
+				sql.append(" where rnum <= 5*(?+1) and rnum > 5*(?) ");
+				sql.append(")");
 			stmt = con.prepareStatement(sql.toString());
 			stmt.setString(1, search.getType());
-			if (type != null) { 
-				if(type.equals("no") || type.equals("title")) {
+			if (selT != null) { 
+				if(selT.equals("no") || selT.equals("title")  ) {
 					stmt.setString(2, search.getWord());
+					stmt.setInt(3, search.getRnum());
+					stmt.setInt(4, search.getRnum());
 				}
 			}
+			else {
+				stmt.setInt(2, search.getRnum());
+				stmt.setInt(3, search.getRnum());
+			}
+			
+			System.out.println(sql.toString());
+			System.out.println(search.getType());
+			System.out.println(search.getRnum());
+			System.out.println(search.getSelType());
+			System.out.println(search.getWord());
+			System.out.println(search.getRnum());
 			System.out.println("조회dao 실행");
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
@@ -59,10 +84,8 @@ public class CommonDao {
 				toon.setType(rs.getString("type"));
 				toon.setId(rs.getString("id"));
 				list.add(toon);
-		
-			}	
-			
-		} catch (Exception e) {
+			}
+			} catch (Exception e) {
 		} finally {
 			JdbcUtil.close(stmt);
 			ConnectionPool.releaseConnection(con);
@@ -101,6 +124,32 @@ public class CommonDao {
 			JdbcUtil.close(stmt);
 			ConnectionPool.releaseConnection(con);
 		}
+	}	
+	
+	public int pageBoard(String type) {
+		Connection con = null;
+		PreparedStatement stmt = null;
+		int pnum = 0;
+		try {
+			con = ConnectionPool.getConnection();
+			StringBuffer sql = new StringBuffer();
+			
+			sql.append("select count(*) as totalCount from toon where type = ?");
+			
+			stmt = con.prepareStatement(sql.toString());
+		
+			stmt.setString(1, type);
+			ResultSet rs = stmt.executeQuery();
+			if(rs.next()) {				
+				pnum = rs.getInt("totalcount");		
+			}	
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(stmt);
+			ConnectionPool.releaseConnection(con);
+		}
+		return pnum;
 	}	
 	
 	// no,date,type 수정 X

@@ -38,7 +38,7 @@ public class NewToonUpdateServlet extends HttpServlet{
 //		//dao.searchToon(vo);
 //		List<Common> list = dao.updateBoard(vo);
 //		request.setAttribute("list", list);
-		response.sendRedirect("/team5/newtoonlist");
+		response.sendRedirect("/html/newtoon/newtoonlist");
 //	RequestDispatcher rd = request.getRequestDispatcher("/newtoonList");
 //	rd.forward(request, response);
 		
