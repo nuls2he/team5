@@ -7,18 +7,10 @@ create table tb_users (
 	hintA VARCHAR2(30) not null,
 	name VARCHAR2(50) null,
 	call VARCHAR2(30) null,
-	addr VARCHAR2(255) null,
+	addHead VARCHAR2(255) null,
+  addTail VARCHAR2(255) null,
 	check_ad VARCHAR2(3) null,
 	admin_yn VARCHAR2(3) null
 );
-
-select * from tb_users where id = 'abc123';
-
-delete TB_USERS;
-
-drop table tb_users;
-
-select *
-  from tb_users
- where id = 'abc123' and pwd = '123';
- 
+drop table tb_users purge;
+select * from tb_users; 
