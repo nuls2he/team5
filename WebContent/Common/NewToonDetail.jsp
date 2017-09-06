@@ -97,7 +97,7 @@ div#container{
 
 	</nav>
 	<div id = "container" >
-		<div id = "header" style="background-color:#FFA500;">
+		<div id = "header" style="height:100px;">
 			<h3 style = "margin-bottom:20;"> main title</h3>
 		</div>
 		<div id="leftblank" class="col-xs-3 col-sm-2">
