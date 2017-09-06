@@ -23,7 +23,7 @@ public class ListNewsController extends HttpServlet {
 	System.out.println("list");
 		request.setAttribute( "list" , list);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/wt/news/list.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/html/news/list.jsp");
 		
 		rd.forward(request, response);
 	}

@@ -28,7 +28,7 @@ public class DetailNewsController extends HttpServlet {
 			
 			request.setAttribute("news", news);
 			
-			RequestDispatcher rd = request.getRequestDispatcher("/wt/news/detail.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/html/news/detail.jsp");
 			rd.forward(request, response);
 	}
 

@@ -28,7 +28,7 @@ public class UpdateFormNewsController extends HttpServlet {
 			
 			request.setAttribute("news", news);
 			
-			RequestDispatcher rd = request.getRequestDispatcher("/wt/news/updateForm.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/html/news/updateForm.jsp");
 			rd.forward(request, response);
 	}
 
