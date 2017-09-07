@@ -22,12 +22,10 @@ html, body {
     height: 98%; 
     border: 3px solid blue;}
 }
-.box {
-	margin-top: 50px;
-}
+select.
 
 </style>
-<title>W.T.개인정보</title>
+<title>W.T.성인인증</title>
 
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -94,82 +92,46 @@ html, body {
 		</div>
 		<div id="main" class="col-xs-6 col-sm-8" >
 			<div class="contentwrap">
+    </div>
   <article class="container">
-    <form action="${pageContext.request.contextPath}/user/infoup" class="form-horizontal" method="post">
-   <fieldset style="border-style: double; width: 80%;  height: 200px" class="box"><br>
-   <legend>기본 정보</legend>
+    <form action="${pageContext.request.contextPath}/user/withraw" method="post" class="form-horizontal" style="margin-top: 5%;">
+    <fieldset style="border-style: double; width: 80%;  height: 200px">
+    <legend>아이디 입력</legend>
     <div class="form-group">
-<!--     <table style="width: 100%"> -->
-<!--     	<tr> -->
-<!--     	<th> -->
-<!-- 	    	<label>아이디</label> -->
-<!--     	</th> -->
-<!--     	<th> -->
-<%-- 	    	<label>${user.id}</label> --%>
-<!--     	</th> -->
-<!--     	<th> -->
-<!--     		<label>닉네임</label> -->
-<!--     	</th> -->
-<!--     	<th> -->
-<%--     		<label>${user.nick}</label> --%>
-<!--     	</th> -->
-<!--     	</tr> -->
-<!--     </table> -->
-    <label class="col-sm-2 control-label">닉네임</label>
-    <div class="col-sm-6">
-    <label class="form-control">${user.nick}</label>
-    </div>
-    </div>
-    <div class="form-group">
-    <label for="inputNick" class="col-sm-2 control-label">이메일</label>
-    <div class="col-sm-6">
-    <input type="text" class="form-control" name="email" id="inputNick" value="${user.email}">
-    </div>
-    </div>
-   </fieldset><br>
-  <fieldset style="border-style: double; width: 80%;  height: 400px;" class="box">
-  <legend>상세 정보</legend>
-  <br>
-    <div class="form-group">
-    <label for="inputName" class="col-sm-2 control-label">이름</label>
-    <div class="col-sm-6">
-    <input type="text" class="form-control" name="name" id="inputName" value="${user.name}" placeholder="홍길동">
-    </div>
+    <input type="text" class="form-control" name="id" style="width: 65%; margin-left: 17%">
     </div><br>
-       <div class="form-group">
-    <label for="inputPhoneNum" class="col-sm-2 control-label">휴대폰 번호</label>
-    <div class="col-sm-6">
-    <input type="text" class="form-control" name="call"id="inputPhoneNum" value="${user.call}"  placeholder="010-0000-0000">
-    </div>
-    </div><br>
-    
+    </fieldset>
+    <fieldset style="border-style: double; width: 80%;  height: 200px">
+    <legend>생년월일 입력</legend>
     <div class="form-group">
-    <label for="inputAdd" class="col-sm-2 control-label">주소</label>
-    <div class="col-sm-6">
-    <input type="text" class="form-control" name="addHead" id="inputAdd" value="${user.addHead}" >
-    </div>
-    </div><br>
+	<select name="birthYear" class="birth">
+	<c:forEach var="i" begin="0" end="100">
+		<c:set var="year" value="${2017-i}" />
+		<option><c:out value="${year}" /></option>
+	</c:forEach>
+	</select>
+	<select name="birthMonth" class="birth">
+	<c:forEach var="i" begin="1" end="12">
+		<option><c:out value="${i}" /></option>
+	</c:forEach>
+	</select>
+	<select name="birthDay" class="birth">
+	<c:forEach var="i" begin="1" end="31">
+		<option><c:out value="${i}" /></option>
+	</c:forEach>
+	</select>
+    </div><h5 style="text-align: center; color: Cornflowerblue">${msg}</h5><br>
+    </fieldset>
     <div class="form-group">
-    <label for="inputAddress" class="col-sm-2 control-label">상세 주소</label>
-    <div class="col-sm-6">
-    <input type="text" class="form-control" name="addTail" value="${user.addTail}">
-    </div>
-    </div>
-  </fieldset>
- 
-    <div class="form-group">
-      <a href="${pageContext.request.contextPath}/chkAdform" style="margin: 30px;">성인인증</a>
-      <a href="${pageContext.request.contextPath}/withrawForm">회원탈퇴</a>
     <label for="inputName" class="col-sm-2 control-label"></label>
-    <div class="col-sm-6">
-      <button type="submit" class="btn btn-primary" style="margin-left: 25px;">저장</button>
-    </div>
+      <button type="submit" class="btn btn-primary" style="margin-left: 20%;">계정 삭제</button>
     </div>
     </form>
   </article>
 </div>
 		</div>
 		<div id="leftblank" class="col-xs-6 col-sm-2">
+			
 		</div>
 		
 	</div>
