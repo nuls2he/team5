@@ -28,9 +28,9 @@ public class CommonDao {
 			
 			String selT = search.getSelType();
 			StringBuffer sql = new StringBuffer();
-			sql.append("select * from (select * ");
+			sql.append("select B.* from (select rownum rnum, A.* ");
 			sql.append("			   from ( ");
-			sql.append("				 select rownum rnum, no, title, content, image, hits, regdate, type, id");
+			sql.append("				 select *");
 			sql.append("				 from toon ");
 			sql.append("				 where type = ? ");
 			if (selT != null) { 
@@ -46,11 +46,12 @@ public class CommonDao {
 				else {
 					sql.append("	 	 and no = ? ");
 				}
-			
 			}
-				sql.append("	 	 	)");
-				sql.append(" where rnum <= 5*(?+1) and rnum > 5*(?) ");
-				sql.append(")");
+			sql.append("				 order by no desc ");
+			sql.append("	 	 	)A");
+			sql.append(")B");
+			sql.append(" where rnum <= 5*(?+1) and rnum > 5*(?) ");
+			System.out.println(sql);
 			stmt = con.prepareStatement(sql.toString());
 			stmt.setString(1, search.getType());
 			if (selT != null) { 
@@ -65,20 +66,15 @@ public class CommonDao {
 				stmt.setInt(3, search.getRnum());
 			}
 			
-			System.out.println(sql.toString());
-			System.out.println(search.getType());
-			System.out.println(search.getRnum());
-			System.out.println(search.getSelType());
-			System.out.println(search.getWord());
-			System.out.println(search.getRnum());
 			System.out.println("조회dao 실행");
+			System.out.println("조회 dao: " + search.getWord());
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
 				Common toon = new Common();
 				toon.setNo(rs.getInt("no"));
 				toon.setTitle(rs.getString("title"));
 				toon.setContent(rs.getString("content"));
-				toon.setImage(rs.getString("image"));
+				toon.setImage(rs.getString("imagepath"));
 				toon.setHits(Integer.parseInt(rs.getString("hits")));
 				//toon.setRegdate(rs.getDate("reg_date"));
 				toon.setType(rs.getString("type"));
@@ -106,18 +102,23 @@ public class CommonDao {
 			con = ConnectionPool.getConnection();
 			StringBuffer sql = new StringBuffer();
 			
-			sql.append("insert into toon(no, title, id, content, image, type) ");
+			sql.append("insert into toon(no, title, id, content, imagepath, type) ");
 			sql.append("values(toon_seq.nextval, ?, ?, ?, ?, ?) ");
 			
 			stmt = con.prepareStatement(sql.toString());
+			System.out.println(newToon.getTitle());
+			System.out.println(newToon.getId());
+			System.out.println(newToon.getContent());
+			System.out.println(newToon.getImagepath());
+			System.out.println(newToon.getType());
+			System.out.println("등록dao 실행");
 		
 			stmt.setString(1, newToon.getTitle());
 			stmt.setString(2, newToon.getId());
 			stmt.setString(3, newToon.getContent());
-			stmt.setString(4, newToon.getImage());
+			stmt.setString(4, newToon.getImagepath());
 			stmt.setString(5, newToon.getType());		
 			stmt.executeUpdate();
-			System.out.println("등록dao 실행");
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -165,19 +166,16 @@ public class CommonDao {
 			sql.append("update toon ");
 			sql.append("set title = ?, ");
 			sql.append("    content = ?, ");
-			sql.append("    image = ? ");			
+			sql.append("    imagepath = ? ");			
 			sql.append("where no = ? ");
 			/*and id = ?*/
 			System.out.println(sql);
 			stmt = con.prepareStatement(sql.toString());
 			stmt.setString(1, newToon.getTitle());
 			stmt.setString(2, newToon.getContent());
-			stmt.setString(3, newToon.getImage());
+			stmt.setString(3, newToon.getImagepath());
 			stmt.setInt(4, newToon.getNo());
-			System.out.println(newToon.getTitle());
-			System.out.println(newToon.getContent());
-			System.out.println(newToon.getImage());
-			System.out.println(newToon.getNo());
+
 			/*stmt.setString(5, id);*/
 			stmt.executeUpdate();
 

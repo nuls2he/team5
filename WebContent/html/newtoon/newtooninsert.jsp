@@ -107,12 +107,12 @@ div#container{
 			<table summary="글쓰기 전체 테이블">
 				<c:choose>
 					<c:when test="${empty list }">
-						<form name="BoardWriteForm" method="get" action="${pageContext.request.contextPath}/newtooninsert" 
-																	onsubmit="return boardWriteCheck();" >
+						<form name="BoardWriteForm" method="post" action="${pageContext.request.contextPath}/newtooninsert" 
+																	onsubmit="return boardWriteCheck();" enctype="multipart/form-data">
 					</c:when>
 					<c:otherwise>
-					<form name="BoardWriteForm" method="get" action="${pageContext.request.contextPath}/newtoonupdate" 
-																	onsubmit="return boardWriteCheck();" >
+					<form name="BoardWriteForm" method="post" action="${pageContext.request.contextPath}/newtoonupdate" 
+																	onsubmit="return boardWriteCheck();" enctype="multipart/form-data">
 					</c:otherwise>
 				</c:choose>
 			   		<colgroup>
@@ -126,25 +126,16 @@ div#container{
 					<c:choose>
 						<c:when test="${not empty list }">
 							<c:forEach var="Common" items="${list}">
+								
+								<input type=text name=no value="${Common.no}">
 								<tr>
-									<td><input type=hidden name="no" value="${Common.no }"></td>
-								</tr>
-					    		<tr>
-									<td>작성자</td>
-									<td><input type=text name="id" size=10 maxlength=8 value="${Common.id}"></td>
-								</tr>
-					    		<tr>
 					     			<td>제 목</td>
-			   			  			<td><input type=text name=title value="${Common.title}"></td>
+			   			  			<td><input type=text name=title rows = "10" value="${Common.title}"></td>
 			 			   		</tr>
 					    		<tr>
 			  			   			<td>이미지</td>
-			    		 			<td><input type=text name=image size=30 value="${Common.image}"></td>
+			    		 			<td><input type=file name=image size=30 value="${Common.image}"></td>
 			   			 		</tr>
-			    				<tr>
-			     					<td>타입</td>
-			     					<td><input type=text name=type size=30 value="${Common.type}"></td>
-			    				</tr>
 			    				<tr>
 			     					<td>내 용</td>
 			     					<td><textarea name=content rows ="10" cols="100">${Common.content}</textarea></td>
@@ -153,26 +144,14 @@ div#container{
 			    				</c:when>
 			    				    	
 								<c:otherwise>
-					
-									<tr>
-										<td><input type=hidden name="no" value=></td>
-									</tr>
-			    					<tr>
-										<td>작성자</td>
-										<td><input type=text name="id" size=10 maxlength=8 value=></td>
-									</tr>
 			    					<tr>
 			     						<td>제 목</td>
 			     						<td><input type=text name=title value=></td>
 						    		</tr>
 			   				 		<tr>
 			     						<td>이미지</td>
-			     						<td><input type=text name=image size=30 value=></td>
+			     						<td><input type=file name=image size=30 value=></td>
 			    					</tr>
-						    		<tr>
-						     			<td>타입</td>
-						     			<td><input type=text name=type size=30 value=></td>
-						    		</tr>
 						    		<tr>
 						     			<td>내 용</td>
 						     			<td><textarea name=content rows ="10" cols="100"></textarea></td>

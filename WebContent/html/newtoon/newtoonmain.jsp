@@ -115,7 +115,7 @@ div#container{
 	
 	
 	<a href="${pageContext.request.contextPath}/newtoonlist"> 목록</a>
-	<a href="${pageContext.request.contextPath}/newtooninsert.jsp">등록</a>
+	<a href="${pageContext.request.contextPath}/html/newtoon/newtooninsert.jsp">등록</a>
 	<table class="table table-hover" >
 		<tr>
 			<th>글번호</th>
@@ -127,22 +127,22 @@ div#container{
 		<c:forEach var="Common" items="${list}">
 		<tr>
 			<td><c:out value="${Common.no}" /></td>
+			<td><img src="<c:out value="${pageContext.request.contextPath}/image${Common.image}"/>" width="250" height="200"></td>
 			<td><c:out value="${Common.title}"/></td>
 			<td><c:out value="${Common.content}" /></td>
-			<td><c:out value="${Common.image}"/></td>
-			<td><c:out value="${Common.regdate}"/></td>
-			<td><a href="${pageContext.request.contextPath}/newtooninserttoupdate?no=${Common.no}">수정</a></td>
-			<td><a href="${pageContext.request.contextPath}/newtoondelete?no=${Common.no}">삭제</a></td>
+			<td><c:out value="${Common.regdate}"/>
+			<a href="${pageContext.request.contextPath}/newtooninserttoupdate?no=${Common.no}">수정</a>
+			<a href="${pageContext.request.contextPath}/newtoondelete?no=${Common.no}">삭제</a> </td>
 		</tr> 
 		</c:forEach>
 	</table>	 
 			<a href="${pageContext.request.contextPath}/newtoonlist?rnum=0"><<</a>&nbsp;&nbsp;&nbsp;
 			<a href="${pageContext.request.contextPath}/newtoonlist?rnum=<fmt:formatNumber value="${((rnum/5-(rnum/5%1))-1)*5}" pattern="0"/>"><</a>&nbsp;&nbsp;&nbsp;
 			<c:forEach var="i" begin="${(rnum/5-(rnum/5%1))*5}" end="${(rnum/5-(rnum/5%1)+1)*5-1}">
-				<a href="${pageContext.request.contextPath}/newtoonlist?rnum=${i}">${i+1}</a>&nbsp;&nbsp;&nbsp;
+				<a href="/team5/newtoonlist?rnum=${i}">${i+1}</a>&nbsp;&nbsp;&nbsp;
 			</c:forEach>
 			<a href="${pageContext.request.contextPath}/newtoonlist?rnum=<fmt:formatNumber value="${((rnum/5-(rnum/5%1))+1)*5}" pattern="0"/>">></a>&nbsp;&nbsp;&nbsp;
-			<a href="${pageContext.request.contextPath}/newtoonlist?rnum=<fmt:formatNumber value="${pnum/5-1}" pattern="0"/>">>></a>&nbsp;&nbsp;&nbsp;
+			<a href="${pageContext.request.contextPath}/newtoonlist?rnum=<fmt:formatNumber value="${pnum/5}" pattern="0"/>">>></a>&nbsp;&nbsp;&nbsp;
 		</div>
 		<div id="leftblank" class="col-xs-6 col-sm-2">
 

@@ -7,6 +7,7 @@ public class Common {
 	private String title;
 	private String content;
 	private String image;
+	private String imagepath;
 	private int hits;
 	private String id;
 	private Date regdate;
@@ -58,6 +59,12 @@ public class Common {
 	}
 	public void setType(String type) {
 		this.type = type;
+	}
+	public String getImagepath() {
+		return imagepath;
+	}
+	public void setImagepath(String imagepath) {
+		this.imagepath = imagepath;
 	}
 	
 
