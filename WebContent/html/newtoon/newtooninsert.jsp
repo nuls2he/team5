@@ -108,11 +108,11 @@ div#container{
 				<c:choose>
 					<c:when test="${empty list }">
 						<form name="BoardWriteForm" method="post" action="${pageContext.request.contextPath}/newtooninsert" 
-																	onsubmit="return boardWriteCheck();" enctype="multipart/form-data">
+																	enctype="multipart/form-data">
 					</c:when>
 					<c:otherwise>
 					<form name="BoardWriteForm" method="post" action="${pageContext.request.contextPath}/newtoonupdate" 
-																	onsubmit="return boardWriteCheck();" enctype="multipart/form-data">
+																	enctype="multipart/form-data">
 					</c:otherwise>
 				</c:choose>
 			   		<colgroup>
@@ -134,7 +134,7 @@ div#container{
 			 			   		</tr>
 					    		<tr>
 			  			   			<td>이미지</td>
-			    		 			<td><input type=file name=image size=30 value="${Common.image}"></td>
+			    		 			<td><input type=file name=image size=30 value="${Common.imagepath}"></td>
 			   			 		</tr>
 			    				<tr>
 			     					<td>내 용</td>

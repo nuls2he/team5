@@ -127,7 +127,7 @@ div#container{
 		<c:forEach var="Common" items="${list}">
 		<tr>
 			<td><c:out value="${Common.no}" /></td>
-			<td><img src="<c:out value="${pageContext.request.contextPath}/image${Common.image}"/>" width="250" height="200"></td>
+			<td><img src="<c:out value="${pageContext.request.contextPath}/image${Common.imagepath}"/>" width="250" height="200"></td>
 			<td><c:out value="${Common.title}"/></td>
 			<td><c:out value="${Common.content}" /></td>
 			<td><c:out value="${Common.regdate}"/>

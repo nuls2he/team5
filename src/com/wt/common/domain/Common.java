@@ -6,7 +6,6 @@ public class Common {
 	private int no;
 	private String title;
 	private String content;
-	private String image;
 	private String imagepath;
 	private int hits;
 	private String id;
@@ -29,12 +28,6 @@ public class Common {
 	}
 	public void setContent(String content) {
 		this.content = content;
-	}
-	public String getImage() {
-		return image;
-	}
-	public void setImage(String image) {
-		this.image = image;
 	}
 	public int getHits() {
 		return hits;
