@@ -50,15 +50,15 @@ html, body {
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="${pageContext.request.contextPath}/wtmain">W.T</a>
+				<a class="navbar-brand" href="${pageContext.request.contextPath}/html/main/wtmain.jsp">W.T</a>
 			</div>
-			<div id="navbar" class="collapse navbar-collapse">
+			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#News">News</a></li>
-					<li><a href="#NewToon">NewToon</a></li>
-					<li><a href="#HotToon">HotToon</a></li>
-					<li><a href="#ToonArt">ToonArt</a></li>
-					<li><a href="#19+">19+</a></li>
+					<li class="active"><a href="${pageContext.request.contextPath}/wt/news/list">News</a></li>
+					<li><a href="#">NewToon</a></li>
+					<li><a href="#">HotToon</a></li>
+					<li><a href="TA.jsp">ToonArt</a></li>
+					<li><a href="#">19+</a></li>
 				</ul>
 				<div class="row">
 					<div class="col-xs-8 col-sm-6"></div>

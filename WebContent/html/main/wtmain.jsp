@@ -72,20 +72,20 @@ div#container{
 				</button>
 				<a class="navbar-brand" href="${pageContext.request.contextPath}/html/main/wtmain.jsp">W.T</a>
 			</div>
-			<div id="navbar" class="collapse navbar-collapse">
+			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
-					<li><a href="${pageContext.request.contextPath}/news/list">News</a></li>
-					<li><a href="${pageContext.request.contextPath}/newtoonlist">NewToon</a></li>
-					<li><a href="#HotToon">HotToon</a></li>
+					<li class="active"><a href="${pageContext.request.contextPath}/wt/news/list">News</a></li>
+					<li><a href="#">NewToon</a></li>
+					<li><a href="#">HotToon</a></li>
 					<li><a href="TA.jsp">ToonArt</a></li>
-					<li><a href="#19+">19+</a></li>
+					<li><a href="#">19+</a></li>
 				</ul>
 				<div class="row">
 					<div class="col-xs-8 col-sm-6"></div>
 					<div id="navbar" class="collapse navbar-collapse">
 						<ul class="nav navbar-nav">
-							<li><a href="${pageContext.request.contextPath}/user/login">Login</a></li>
-							<li><a href="${pageContext.request.contextPath}/user/join">Join</a></li>
+							<li><a href="${pageContext.request.contextPath}/loginForm">Login</a></li>
+							<li><a href="${pageContext.request.contextPath}/signinForm">Join</a></li>
 
 						</ul>
 					</div>

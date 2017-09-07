@@ -56,6 +56,7 @@ table.type04 th {
     
     font-size:16px;
     vertical-align: top;
+    border-top: 1px solid #42779A;
     border-bottom: 1px solid #42779A;
 }
 table.type04 td {
@@ -63,6 +64,7 @@ table.type04 td {
     padding: 30px;
     font-size:16px;
     vertical-align: top;
+    border-top: 1px solid #5B96A6;
     border-bottom: 1px solid #5B96A6;
 }
  .num {
@@ -99,7 +101,7 @@ margin: 0 auto;
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="wtmain.jsp">W.T</a>
+				<a class="navbar-brand" href="${pageContext.request.contextPath}/html/main/wtmain.jsp">W.T</a>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
@@ -113,8 +115,8 @@ margin: 0 auto;
 					<div class="col-xs-8 col-sm-6"></div>
 					<div id="navbar" class="collapse navbar-collapse">
 						<ul class="nav navbar-nav">
-							<li><a href="login.jsp">Login</a></li>
-							<li><a href="signin.jsp">Join</a></li>
+							<li><a href="${pageContext.request.contextPath}/loginForm">Login</a></li>
+							<li><a href="${pageContext.request.contextPath}/signinForm">Join</a></li>
 
 						</ul>
 					</div>
@@ -151,7 +153,7 @@ margin: 0 auto;
 				<nav>
 				  <ul class="pagination" class="col-xs-6 col-sm-5">
 				    <li><a href="#"><span aria-hidden="true">«</span><span class="sr-only">Previous</span></a></li>
-				    <li><a href="#">1</a></li>
+				    <li><a href="${pageContext.request.contextPath}/wt/news/list">1</a></li>
 				    <li><a href="#">2</a></li>
 				    <li><a href="#">3</a></li>
 				    <li><a href="#">4</a></li>

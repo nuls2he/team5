@@ -1,6 +1,5 @@
-<%@ page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ko">
 <head>
@@ -12,7 +11,7 @@
 }
 html, body {
     height: 100%;
-    background-image: url(bg03.jpg);
+    background-image: url(bg03.png);
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-attachment: fixed;
@@ -41,24 +40,6 @@ img.bg{
 div#container{
 	position:relative;
 }
-table{
-	width: 80%;
-}
-table, td{
-	width: 80%;
-	
-}
-textarea.content {
-	width: 100%;
-	rows: "10" ;
-	cols: "150" ;
-	height: 400px;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	
-}
-
 </style>
 <title>W.T.</title>
 
@@ -77,6 +58,7 @@ textarea.content {
 
 </head>
 <body>
+	
  	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
@@ -88,29 +70,23 @@ textarea.content {
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="${pageContext.request.contextPath}/html/main/wtmain.jsp">W.T</a>
+				<a class="navbar-brand" href="/team5_html/wt/wtmain.html">W.T</a>
 			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
+			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="${pageContext.request.contextPath}/wt/news/list">News</a></li>
-					<li><a href="#">NewToon</a></li>
-					<li><a href="#">HotToon</a></li>
-					<li><a href="TA.jsp">ToonArt</a></li>
-					<li><a href="#">19+</a></li>
+					<li class="active"><a href="#News">News</a></li>
+					<li><a href="#NewToon">NewToon</a></li>
+					<li><a href="#HotToon">HotToon</a></li>
+					<li><a href="#ToonArt">ToonArt</a></li>
+					<li><a href="#19+">19+</a></li>
 				</ul>
 				<div class="row">
 					<div class="col-xs-8 col-sm-6"></div>
 					<div id="navbar" class="collapse navbar-collapse">
 						<ul class="nav navbar-nav">
-							<c:choose>
-							<c:when test="${empty user}">
-								<li><a href="${pageContext.request.contextPath}/loginForm">Login</a></li>
-								<li><a href="${pageContext.request.contextPath}/signinForm">Join</a></li>
-							</c:when>
-							<c:otherwise>
-								<li><a href="${pageContext.request.contextPath}/user/logout">Logout</a></li>
-							</c:otherwise>
-						</c:choose>
+							<li><a href="#Login">Login</a></li>
+							<li><a href="#Join">Join</a></li>
+
 						</ul>
 					</div>
 				</div>
@@ -121,39 +97,52 @@ textarea.content {
 
 	</nav>
 	<div id = "container" >
-		<div id = "header" style="height:70px;">
+		<div id = "header" style="background-color:#FFA500;">
+			<h3 style = "margin-bottom:20;"> main title</h3>
 		</div>
 		<div id="leftblank" class="col-xs-3 col-sm-2">
+		
 		</div>
 		<div id="main" class="col-xs-6 col-sm-8" >
-		<h2>News</h2>
-		<br>
-		<br>
 			<table summary="글쓰기 전체 테이블">
-				<form method="post" action="${pageContext.request.contextPath}/wt/news/write" enctype="multipart/form-data">
-					<input type="hidden" name="no" value="3">
-					<table summary="테이블 구성" >
+				<form name="BoardWriteForm" method="post" action="/team5_miniprj/commoninsert" 
+																	onsubmit="return boardWriteCheck();" >
 					
-						<tr>
-			     			<td><input type="text" name="title" class="form-control" value="Title"></td>
-	 			   		</tr>
+			   		<colgroup>
+			   			<col width="20%">
+			   			<col width="80%">
+			   		</colgroup>
+			   	
+			
+					<table summary="테이블 구성" >
+					<caption>게시판 글쓰기</caption>	
 			    		<tr>
-	     					<td><textarea class="content" name="content" id="title"  value="  Content"></textarea></td>
-	    				</tr>
-	    				<tr>
-			     			<td><input type="text" name="url" class="form-control" value="URL"></td>
-	 			   		</tr>
+							<td>작성자</td>
+							<td><input type=text name="id" size=10 maxlength=8 value="${common.id}"></td>
+						</tr>
 			    		<tr>
-	  			   			<td><input type="file" name="file1"></td>
-	   			 		</tr>
+			     			<td>제 목</td>
+			     			<td><input type=text name=title></td>
+			    		</tr>
+			    		<tr>
+			     			<td>이미지</td>
+			     			<td><input type=text name=image size=30></td>
+			    		</tr>
+			    		<tr>
+			     			<td>타입</td>
+			     			<td><input type=text name=type size=30></td>
+			    		</tr>
+			    		<tr>
+			     			<td>내 용</td>
+			     			<td><textarea name=content rows ="10" cols="100"></textarea></td>
+			    		</tr>
 			    		<tr>
 			     			<td colspan=2><hr size=1></td>
 			    		</tr>
 			    		<tr>
 			     			<td colspan="2"><div align="center">
-			     				<input type="submit" class="btn btn-default" value="등록" >&nbsp;&nbsp;&nbsp;
-			    	     		<input type="button" class="btn btn-default" value="뒤로" onclick="location.href='${pageContext.request.contextPath}/wt/news/list'" />
-			    	     		</div>
+			     			<input type="submit" value="등록" >&nbsp;&nbsp;
+			         		<input type="button" value="뒤로" onclick="move('Board_List.jsp');"></div>
 			     			</td>
 			    		</tr> 
 					</table>
