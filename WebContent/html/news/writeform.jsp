@@ -93,8 +93,8 @@ textarea.content {
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="${pageContext.request.contextPath}/wt/news/list">News</a></li>
-					<li><a href="#">NewToon</a></li>
-					<li><a href="#">HotToon</a></li>
+					<li><a href="${pageContext.request.contextPath}/newtoonlist">NewToon</a></li>
+					<li><a href="${pageContext.request.contextPath}/hottoon/showlist">HotToon</a></li>
 					<li><a href="TA.jsp">ToonArt</a></li>
 					<li><a href="#">19+</a></li>
 				</ul>

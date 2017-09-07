@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page import="com.wt.common.domain.Common"%>
+<%@ page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ko">
 <head>
@@ -58,7 +60,6 @@ div#container{
 
 </head>
 <body>
-	
  	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
@@ -75,8 +76,8 @@ div#container{
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li><a href="${pageContext.request.contextPath}/wt/news/list">News</a></li>
-					<li class="active"><a href="${pageContext.request.contextPath}/newtoonlist">NewToon</a></li>
-					<li><a href="${pageContext.request.contextPath}/hottoon/showlist">HotToon</a></li>
+					<li><a href="${pageContext.request.contextPath}/newtoonlist">NewToon</a></li>
+					<li class="active"><a href="${pageContext.request.contextPath}/hottoon/showlist">HotToon</a></li>
 					<li><a href="#ToonArt">ToonArt</a></li>
 					<li><a href="#19+">19+</a></li>
 				</ul>
@@ -101,24 +102,64 @@ div#container{
 			<h3 style = "margin-bottom:20;"> main title</h3>
 		</div>
 		<div id="leftblank" class="col-xs-3 col-sm-2">
-		
 		</div>
 		<div id="main" class="col-xs-6 col-sm-8" >
-			<table class="table table-hover" >
-				<tr>
-					<th>no</th>
-					<th>이미지</th>
-					<th>글쓴이</th>
-					<th>조회수</th>
-				</tr>
-				<tr>
-					<td><a href="newToonDetail.html">이미지</a></td>
-					<td>이미지</td>
-					<td>내용</td>
-					<td>관리자</td>
-				</tr>
+			<table summary="글쓰기 전체 테이블">
+				<h4>게시판 글쓰기</h4>
+				<form name="BoardWriteForm" 
+				method="post" 
+				action="/team5_miniprj/hottoon/create" 
+				onsubmit="return boardWriteCheck();" 
+				enctype = "multipart/form-data">
+					<table summary="테이블 구성" >
+						<tr>
+							<td><input type=hidden name="no" value=></td>
+						</tr>
+						<tr>
+							<td>완결여부</td>
+							<td>
+								<select name="completion">
+									<option>완결</option>
+									<option>미완결</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>장르</td>
+							<td>
+			   					<select name="genre">
+									<option>액션</option>
+									<option>코믹</option>
+									<option>판타지</option>
+									<option>공포/스릴러</option>
+									<option>로맨스</option>
+								</select>
+		   					</td>
+						</tr>
+						<tr>
+							<td>제 목</td>
+							<td><input type=text name="title" value=""></td>
+			    		</tr>
+					 	<tr>
+	   						<td>이미지</td>
+	   						<td><input type=file name="image" size=30></td>
+	   					</tr>
+			    		<tr>
+			     			<td>내 용</td>
+			     			<td><textarea name="content" rows ="10" cols="100" style="resize:none"></textarea></td>
+			    		</tr>    	
+			    		<tr>
+			     			<td colspan=2><hr size=1></td>
+			    		</tr>
+			    		<tr>
+			     			<td colspan="2"><div align="center">
+			     				<button>등록</button>&nbsp;&nbsp;&nbsp;
+			    	     		<input type="button" value="뒤로" onClick="location.replace='/team5_miniprj/hottoon/showlist'"></div>
+			     			</td>
+			    		</tr> 
+					</table>
+				</form> 
 			</table>
-			
 		</div>
 		<div id="leftblank" class="col-xs-6 col-sm-2">
 			

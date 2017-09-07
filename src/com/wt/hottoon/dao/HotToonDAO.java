@@ -13,35 +13,58 @@ import kr.co.mlec.util.JdbcUtil;
 
 public class HotToonDAO {
 	
-	
-	public List<HotToon> selectHotToon()
+	// 여기서는 페이지에 맞는 데이터를 반환
+	public List<HotToon> selectHotToon(String genre, int countList, int page)
 	{
-		List<HotToon> list = new ArrayList<>();
 		Connection con = null;
 		PreparedStatement pstmt = null;
+		List<HotToon> list = new ArrayList<>();
 		try {
 			con = ConnectionPool.getConnection();
+			
 			StringBuffer sql = new StringBuffer();
-			sql.append("select * ");
-			sql.append("  from t97_hottoon");
+			sql.append("select X.* " );
+			sql.append("  from (select rownum as rnum, A.*");
+			sql.append("		  from (select * ");
+			sql.append("		          from t97_hottoon");
+			if(genre != null)
+			{
+				if(!genre.isEmpty())
+					sql.append("		         where genre = ?");
+			}
+			sql.append("  				order by reg_date) A");
+			sql.append("  		 where rownum <= ?) X");
+			sql.append(" where X.rnum >= ?");
 			
 			pstmt = con.prepareStatement(sql.toString());
+			int index = 0;
+			if(genre != null)
+			{
+				if(!genre.isEmpty())
+					pstmt.setString(++index, genre);
+			}
+			int startList = page * countList;
+			int endList = page * countList - (countList - 1);
+			
+			pstmt.setInt(++index, startList);
+			pstmt.setInt(++index, endList);
 			ResultSet rs = pstmt.executeQuery();
 			
 			while(rs.next())
 			{
 				HotToon hottoon = new HotToon();
 				hottoon.setNo(rs.getInt("no"));
-				hottoon.setId(rs.getString("id"));
+				hottoon.setId(rs.getString("userid"));
 				hottoon.setGenre(rs.getString("genre"));
 				hottoon.setCompletion(rs.getString("completion"));
 				hottoon.setImagePath(rs.getString("imagepath"));
 				hottoon.setTitle(rs.getString("title"));
 				hottoon.setContent(rs.getString("content"));
-				hottoon.setUrl(rs.getString("url"));
 				hottoon.setRegDate(rs.getDate("reg_date"));
 				list.add(hottoon);
 			}
+			
+			return list;
 			
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -53,7 +76,7 @@ public class HotToonDAO {
 		return list;
 	}
 	
-	public List<HotToon> selectByGenre(String genre)
+	/*public List<HotToon> selectHotToon(String genre)
 	{
 		List<HotToon> list = new ArrayList<>();
 		Connection con = null;
@@ -62,27 +85,31 @@ public class HotToonDAO {
 			con = ConnectionPool.getConnection();
 			StringBuffer sql = new StringBuffer();
 			sql.append("select * ");
-			sql.append("  from t97_hottoon");
-			sql.append(" where genre = ?");
-			
+			sql.append("  from t97_hottoon ");
+			if(genre != null)
+			{
+				sql.append(" where genre = ? ");
+			}
+			sql.append("order by no desc");
 			pstmt = con.prepareStatement(sql.toString());
-			pstmt.setString(1, genre);
 			ResultSet rs = pstmt.executeQuery();
 			
 			while(rs.next())
 			{
 				HotToon hottoon = new HotToon();
 				hottoon.setNo(rs.getInt("no"));
-				hottoon.setId(rs.getString("id"));
+				hottoon.setId(rs.getString("userid"));
 				hottoon.setGenre(rs.getString("genre"));
 				hottoon.setCompletion(rs.getString("completion"));
 				hottoon.setImagePath(rs.getString("imagepath"));
 				hottoon.setTitle(rs.getString("title"));
 				hottoon.setContent(rs.getString("content"));
-				hottoon.setUrl(rs.getString("url"));
 				hottoon.setRegDate(rs.getDate("reg_date"));
 				list.add(hottoon);
 			}
+			System.out.println("list: " + list);
+			return list;
+			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -91,6 +118,44 @@ public class HotToonDAO {
 		}
 		
 		return list;
+	}*/
+	
+	public HotToon selectByNo(int no)
+	{
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		HotToon hottoon = new HotToon();
+		try {
+			con = ConnectionPool.getConnection();
+			StringBuffer sql = new StringBuffer();
+			sql.append("select * ");
+			sql.append("  from t97_hottoon");
+			sql.append(" where no = ?");
+			
+			pstmt = con.prepareStatement(sql.toString());
+			pstmt.setInt(1, no);
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next())
+			{
+				hottoon.setNo(rs.getInt("no"));
+				hottoon.setId(rs.getString("userid"));
+				hottoon.setGenre(rs.getString("genre"));
+				hottoon.setCompletion(rs.getString("completion"));
+				hottoon.setImagePath(rs.getString("imagepath"));
+				hottoon.setTitle(rs.getString("title"));
+				hottoon.setContent(rs.getString("content"));
+				hottoon.setRegDate(rs.getDate("reg_date"));
+			}
+			return hottoon;
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			JdbcUtil.close(pstmt);
+			ConnectionPool.releaseConnection(con);
+		}
+		
+		return hottoon;
 	}
 	//create sequence s_board_no;
 	public void createHotToon(HotToon hottoon)
@@ -102,8 +167,8 @@ public class HotToonDAO {
 			
 			StringBuffer sql = new StringBuffer();
 			sql.append("insert " );
-			sql.append("  into t97_hottoon(no, id, genre, completion, title, content, imagepath, url)");
-			sql.append("values(s_board_no.nextval, ?, ?, ?, ?, ?, ?, ?");
+			sql.append("  into t97_hottoon(no, userid, genre, completion, title, content, imagepath)");
+			sql.append("values(s97_hottoon_no.nextval, ?, ?, ?, ?, ?, ?)");
 			
 			pstmt = con.prepareStatement(sql.toString());
 			pstmt.setString(1, hottoon.getId());
@@ -112,7 +177,6 @@ public class HotToonDAO {
 			pstmt.setString(4, hottoon.getTitle());
 			pstmt.setString(5, hottoon.getContent());
 			pstmt.setString(6, hottoon.getImagePath());
-			pstmt.setString(7, hottoon.getUrl());
 			pstmt.executeUpdate();
 			
 		}catch(Exception e) {
@@ -135,7 +199,7 @@ public class HotToonDAO {
 			StringBuffer sql = new StringBuffer();
 			sql.append("select id ");
 			sql.append("  from t97_hottoon");
-			sql.append(" where id = ?");
+			sql.append(" where userid = ?");
 			
 			pstmt = con.prepareStatement(sql.toString());
 			pstmt.setString(1, id);
@@ -166,7 +230,7 @@ public class HotToonDAO {
 			StringBuffer sql = new StringBuffer();
 			sql.append("select admin_yn ");
 			sql.append("  from t97_users");
-			sql.append(" where id = ?");
+			sql.append(" where userid = ?");
 			
 			pstmt = con.prepareStatement(sql.toString());
 			pstmt.setString(1, id);
@@ -207,13 +271,12 @@ public class HotToonDAO {
 			if(rs.next())
 			{
 				hottoon.setNo(rs.getInt("no"));
-				hottoon.setId(rs.getString("id"));
+				hottoon.setId(rs.getString("userid"));
 				hottoon.setGenre(rs.getString("genre"));
 				hottoon.setCompletion(rs.getString("completion"));
 				hottoon.setTitle(rs.getString("title"));
 				hottoon.setContent(rs.getString("content"));
 				hottoon.setImagePath(rs.getString("imagepath"));
-				hottoon.setUrl(rs.getString("url"));
 				hottoon.setRegDate(rs.getTimestamp("reg_date"));	
 				return hottoon;
 			}

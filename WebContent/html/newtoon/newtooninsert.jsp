@@ -75,9 +75,9 @@ div#container{
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#News">News</a></li>
-					<li><a href="#NewToon">NewToon</a></li>
-					<li><a href="#HotToon">HotToon</a></li>
+					<li><a href="${pageContext.request.contextPath}/wt/news/list">News</a></li>
+					<li class="active"><a href="${pageContext.request.contextPath}/newtoonlist">NewToon</a></li>
+					<li><a href="${pageContext.request.contextPath}/hottoon/showlist">HotToon</a></li>
 					<li><a href="#ToonArt">ToonArt</a></li>
 					<li><a href="#19+">19+</a></li>
 				</ul>
