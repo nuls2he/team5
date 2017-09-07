@@ -11,7 +11,7 @@
 }
 html, body {
     height: 100%;
-    background-image: url(bg02.png);
+    background-image: url(bg03.png);
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-attachment: fixed;
@@ -70,12 +70,12 @@ div#container{
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="${pageContext.request.contextPath}/wt/wtmain.html">W.T</a>
+				<a class="navbar-brand" href="${pageContext.request.contextPath}/html/main/wtmain.jsp">W.T</a>
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="${pageContext.request.contextPath}/wt/news/list">News</a></li>
-					<li><a href="#NewToon">NewToon</a></li>
+					<li><a href="${pageContext.request.contextPath}/news/list">News</a></li>
+					<li><a href="${pageContext.request.contextPath}/newtoonlist">NewToon</a></li>
 					<li><a href="#HotToon">HotToon</a></li>
 					<li><a href="TA.jsp">ToonArt</a></li>
 					<li><a href="#19+">19+</a></li>
@@ -84,43 +84,65 @@ div#container{
 					<div class="col-xs-8 col-sm-6"></div>
 					<div id="navbar" class="collapse navbar-collapse">
 						<ul class="nav navbar-nav">
-							<li><a href="login.jsp">Login</a></li>
-							<li><a href="signin.jsp">Join</a></li>
+							<li><a href="${pageContext.request.contextPath}/user/login">Login</a></li>
+							<li><a href="${pageContext.request.contextPath}/user/join">Join</a></li>
 
 						</ul>
 					</div>
 				</div>
 
 			</div>
-
+		
 		</div>
 
 	</nav>
 	<div id = "container" >
-		<div id = "header" style="height:70px;">
+		<div id = "header" style="height:130px">
+			<h3 style = "margin-bottom:20;"> main title</h3>
 		</div>
-		<div id="leftblank" class="col-xs-3 col-sm-2"></div>
-		<div id="main" class="col-xs-6 col-sm-8;">
-			<h2>News</h2>
-		<form method="post" action="${pageContext.request.contextPath}/wt/news/update" enctype="multipart/form-data">
-			<input type="hidden" name="no" value="${news.no}" />
-			<table width="700px">
-				<tr>
-					<th><input type="text" name="title" value="${news.title}"/></th>
-					<td><textarea name="content" rows="6" cols="70">${news.content}</textarea></td>
-					<td><input type="file" name="pic" value="${news.pic}"/></td>
-					<td><input type="text" name="url" value="${news.url}"/></td>
-					<td>${news.regDate}</td>
+		<div id="leftblank" class="col-xs-3 col-sm-2">
+		
+		</div>
+		<div id="main" class="col-xs-6 col-sm-8" >
+			<table style="margin:auto">
+				<tr style ="height:300px">
+					<td colspan = "2">
+						<a href="${pageContext.request.contextPath}/newtoonlist">
+						<img src = "${pageContext.request.contextPath}/html/pic/NT.png" style ="height:300px">
+						</a>
+					</td>
+					<td>
+						<a href="${pageContext.request.contextPath}/">
+						<img src = "${pageContext.request.contextPath}/html/pic/HT.png" style ="height:300px">
+						</a>
+					</td>
 				</tr>
+				<tr>
+					<td>	
+						<a href="${pageContext.request.contextPath}/wt/news/list">
+						<img src = "${pageContext.request.contextPath}/html/pic/News.jpg" style ="height:300px">
+						</a>
+					</td>
+					<td>
+						<a href="TA.jsp">
+						<img src = "${pageContext.request.contextPath}/html/pic/TA.jpg" style ="height:300px">
+						</a>
+					</td>
+					<td>
+						<a href="news.jsp">
+						<img src = "${pageContext.request.contextPath}/html/pic/19191.png" style ="height:300px">
+						</a>
+					</td>
+				</tr>
+				
+				
 			</table>
-		<button>수정</button>
-		<a href="${pageContext.request.contextPath}/wt/news/list">목록</a>
-		</form>
+			</div>
 		</div>
-		<div id="leftblank" class="col-xs-6 col-sm-2">
+		<div id="rightblank" class="col-xs-6 col-sm-2">
+			
 		</div>
 		
 	</div>
 </body>
-
 </html>

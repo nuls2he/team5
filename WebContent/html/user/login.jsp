@@ -153,7 +153,7 @@ html, body {
         <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
       </form><br><label style="color: red">${error}</label><br><br><hr>
       <a href="${pageContext.request.contextPath}/signinForm" style="width: 100%" class="usr">회원가입</a>
-      <a href="" style="width: 100%" class="idpw">아이디/비밀번호 찾기</a>
+      <a href="${pageContext.request.contextPath}/finderForm" style="width: 100%" class="idpw">아이디/비밀번호 찾기</a>
 
     </div> <!-- /container -->
 

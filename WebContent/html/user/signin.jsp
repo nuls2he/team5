@@ -94,13 +94,13 @@ html, body {
   <article class="container">
     <form action="${pageContext.request.contextPath}/user/signin" method="post" class="form-horizontal" style="margin-top: 5%;">
     <div class="form-group">
-    <label for="inputEmail" class="col-sm-2 control-label">아이디</label>
+    <label for="inputID" class="col-sm-2 control-label">아이디</label>
     <div class="col-sm-6">
     <input type="text" class="form-control" name="id" id="inputID" placeholder="아이디">
     </div>
     </div>
     <div class="form-group">
-    <label for="inputEmail" class="col-sm-2 control-label">닉네임</label>
+    <label for="inputNick" class="col-sm-2 control-label">닉네임</label>
     <div class="col-sm-6">
     <input type="text" class="form-control" name="nick" id="inputNick" placeholder="닉네임">
     </div>
@@ -130,10 +130,10 @@ html, body {
     <div class="col-sm-6">
     <select name="hintQ">
 		<option value="question" selected="selected">비밀번호 힌트 질문</option>
-		<option value="message1">내가 다녔던 초등학교 이름은?</option>
-		<option value="message2">내가 다녔던 중학교 이름은?</option>
-		<option value="message3">내가 다녔던 고등학교 이름은?</option>
-		<option value="message4">내가 좋아하는 나의 별명은?</option>
+		<option value="q1">내가 다녔던 초등학교 이름은?</option>
+		<option value="q2">내가 다녔던 중학교 이름은?</option>
+		<option value="q3">내가 다녔던 고등학교 이름은?</option>
+		<option value="q4">내가 좋아하는 나의 별명은?</option>
 	</select>
     </div>
     </div>
@@ -145,6 +145,7 @@ html, body {
     </div>
     <div class="form-group">
     </div>
+    <h5 style="color: red; margin-left: 20%">${errMsg}</h5><br><br>
     <div class="form-group">
     <label for="inputName" class="col-sm-2 control-label"></label>
     <div class="col-sm-6">

@@ -2,6 +2,7 @@ package com.wt.user.controller;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,6 +20,7 @@ public class SignInController extends HttpServlet {
 		System.out.println("호출됨..");
 		
 		if(request.getParameter("password").equals(request.getParameter("check-pass"))) {
+			request.setCharacterEncoding("utf-8");
 			UserDAO dao = new UserDAO();
 			User user = new User();
 			user.setID(request.getParameter("id"));
@@ -32,7 +34,10 @@ public class SignInController extends HttpServlet {
 			
 			response.sendRedirect("/team5_miniprj/html/wtmain.jsp");
 		} else {
-			response.sendRedirect("/team5_miniprj/html/user/signin.jsp");
+			request.setAttribute("errMsg", "* 입력정보 확인 후 다시 입력해 주세요. *");
+			
+			RequestDispatcher rd = request.getRequestDispatcher("/html/user/signin.jsp");
+			rd.forward(request, response);
 		}
 		
 		
