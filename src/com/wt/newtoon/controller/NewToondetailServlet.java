@@ -23,7 +23,7 @@ public class NewToondetailServlet extends HttpServlet{
 		
 		Search vo = new Search();
 		request.setCharacterEncoding("utf-8");
-		String type = request.getParameter("type");
+		String type = "n";
 		String selType = request.getParameter("selType");
 		String word = request.getParameter("word");
 		String id = request.getParameter("id");

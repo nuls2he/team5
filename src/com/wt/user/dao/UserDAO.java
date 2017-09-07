@@ -186,7 +186,7 @@ public class UserDAO {
 
 			StringBuffer sql = new StringBuffer();
 			sql.append(" select id ");
-			sql.append("   form tb_users ");
+			sql.append("   from tb_users ");
 			sql.append("  where nick = ? and email = ? ");
 
 			pstmt = con.prepareStatement(sql.toString());
@@ -219,6 +219,9 @@ public class UserDAO {
 			sql.append("  where id = ? and hintQ = ? and hintA = ? ");
 
 			pstmt = con.prepareStatement(sql.toString());
+			pstmt.setString(1, usr.getID());
+			pstmt.setString(2, usr.getHintQ());
+			pstmt.setString(3, usr.getHintA());
 
 			ResultSet rs = pstmt.executeQuery();
 			

@@ -16,11 +16,11 @@ import com.wt.common.domain.Search;
 
 @WebServlet("/newtoonlist")
 public class NewToonListServlet extends HttpServlet{
-	CommonDao dao = new CommonDao();
 	
 	@Override
 	public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
 		
+		CommonDao dao = new CommonDao();
 		int rnum = 0;
 		
 		Search vo = new Search();
