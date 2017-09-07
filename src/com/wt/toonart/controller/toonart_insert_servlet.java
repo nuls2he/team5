@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.wt.common.domain.ToonArt;
-import com.wt.dao.toonart.ToonArt_DAO;
+import com.wt.toonart.dao.ToonArt_DAO;
 
 @WebServlet("/denglu")
 public class toonart_insert_servlet extends HttpServlet {

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.wt.common.domain.Search;
 import com.wt.common.domain.ToonArt;
-import com.wt.dao.toonart.ToonArt_DAO;
+import com.wt.toonart.dao.ToonArt_DAO;
 
 /**
  * Servlet implementation class toonart_list_servlet
