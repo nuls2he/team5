@@ -135,13 +135,13 @@ textarea.content {
 					<table summary="테이블 구성" >
 					
 						<tr>
-			     			<td><input type="text" name="title" class="form-control" value="Title"></td>
+			     			<td><input type="text" name="title" class="form-control" placeholder="Title"></td>
 	 			   		</tr>
 			    		<tr>
-	     					<td><textarea class="content" name="content" id="title"  value="  Content"></textarea></td>
+	     					<td><textarea class="content" name="content" id="title"  placeholder="  Content"></textarea></td>
 	    				</tr>
 	    				<tr>
-			     			<td><input type="text" name="url" class="form-control" value="URL"></td>
+			     			<td><input type="text" name="url" class="form-control" placeholder="URL"></td>
 	 			   		</tr>
 			    		<tr>
 	  			   			<td><input type="file" name="file1"></td>

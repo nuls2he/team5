@@ -25,9 +25,10 @@ public class WriteNewsController extends HttpServlet{
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		NewsDAO dao = new NewsDAO();
 		NewsVO vo = new NewsVO();
-		String upload = "C:/java97/team5_temp/wtpwebapps/team5_temp/upload"; // 디렉토리 위치에 사용자가 지정한 파일을 저장하겠다.
+		String upload = "C:/java97/server-work/wtpwebapps/team5_miniprj/upload"; // 디렉토리 위치에 사용자가 지정한 파일을 저장하겠다.
 		String path = new SimpleDateFormat("/yyyy/MM/dd").format(new Date()); // 현재 날짜 생성 -> 날짜를 문자열로 변환
-				
+		
+		System.out.println(request.getServletContext().getRealPath("/upload"));
 		File f = new File(upload + path);
 		if (!f.exists()) f.mkdirs();
 		MultipartRequest mRequest = new MultipartRequest( 

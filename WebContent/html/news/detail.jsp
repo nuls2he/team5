@@ -109,7 +109,7 @@ div#container{
 					<th colspan="2"><h3>${news.title}</h3></th>
 				</tr>
 				<tr>
-					<td><img src = "${pageContext.request.contextPath}/upload/${news.pic}" /></td>
+					<td><img src="${pageContext.request.contextPath}/upload${news.pic}" /></td>
 					<td>${news.content}</td>
 				</tr>
 				<tr>	
