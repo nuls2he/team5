@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.wt.toonart.dao.ToonArt_DAO;
+import com.wt.dao.toonart.ToonArt_DAO;
 
 @WebServlet("/toonart/taform")
 public class TAFormController extends HttpServlet {

@@ -1,4 +1,4 @@
-package com.wt.toonart.dao;
+package com.wt.dao.toonart;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
