@@ -127,7 +127,7 @@ div#container{
 						<c:when test="${not empty list }">
 							<c:forEach var="Common" items="${list}">
 								
-								<input type=text name=no value="${Common.no}">
+								<input type=hidden name=no value="${Common.no}">
 								<tr>
 					     			<td>제 목</td>
 			   			  			<td><input type=text name=title rows = "10" value="${Common.title}"></td>

@@ -60,27 +60,30 @@ public class NewToonUpdateServlet extends HttpServlet{
 				System.out.println("서버에 실제 저장된 파일 이름 : " + systemName);
 				imagePath = path + systemName; 
 		}
-	
+		
+		System.out.println(request.getParameter("title"));
 		System.out.println(request.getParameter("no"));
-		String title = request.getParameter("title");
-		String id = request.getParameter("id");
-		String content = request.getParameter("content");
-		String imagepath = request.getParameter("imagepath");
-		String type = request.getParameter("type");
-		int no = Integer.parseInt(request.getParameter("no"));
+		String title = mRequest.getParameter("title");
+		String id = mRequest.getParameter("id");
+		String content = mRequest.getParameter("content");
+		String type = mRequest.getParameter("type");
+		int no = Integer.parseInt(mRequest.getParameter("no"));
+		
+		System.out.println("imagepath");
 		
 		vo.setTitle(title);
 		vo.setContent(content);
-		vo.setImagepath(imagepath);
+		vo.setImagepath(imagePath);
 		vo.setType(type);
 		vo.setNo(no);
+		
 		System.out.println("실행됫니?");
 		dao.updateBoard(vo);
 //		System.out.println(vo);
 //		//dao.searchToon(vo);
 //		List<Common> list = dao.updateBoard(vo);
 //		request.setAttribute("list", list);
-		response.sendRedirect("/html/newtoon/newtoonlist");
+		response.sendRedirect("/team5_miniprj/newtoonlist");
 //	RequestDispatcher rd = request.getRequestDispatcher("/newtoonList");
 //	rd.forward(request, response);
 		
