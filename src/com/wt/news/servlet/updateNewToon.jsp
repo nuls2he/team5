@@ -70,13 +70,13 @@ div#container{
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand"  href="${pageContext.request.contextPath}/html/main/wtmain.jsp">W.T</a>
+				<a class="navbar-brand" href="/team5_html/wt/wtmain.html">W.T</a>
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li><a href="${pageContext.request.contextPath}/wt/news/list">News</a></li>
-					<li class="active"><a href="${pageContext.request.contextPath}/newtoonlist">NewToon</a></li>
-					<li><a href="${pageContext.request.contextPath}/hottoon/showlist">HotToon</a></li>
+					<li class="active"><a href="#News">News</a></li>
+					<li><a href="#NewToon">NewToon</a></li>
+					<li><a href="#HotToon">HotToon</a></li>
 					<li><a href="#ToonArt">ToonArt</a></li>
 					<li><a href="#19+">19+</a></li>
 				</ul>
@@ -104,21 +104,50 @@ div#container{
 		
 		</div>
 		<div id="main" class="col-xs-6 col-sm-8" >
-			<table class="table table-hover" >
-				<tr>
-					<th>no</th>
-					<th>이미지</th>
-					<th>글쓴이</th>
-					<th>조회수</th>
-				</tr>
-				<tr>
-					<td><a href="newToonDetail.html">이미지</a></td>
-					<td>이미지</td>
-					<td>내용</td>
-					<td>관리자</td>
-				</tr>
-			</table>
+			<table summary="글쓰기 전체 테이블">
+				<form name="BoardWriteForm" method="post" action="/team5_miniprj/commoninsert" 
+																	onsubmit="return boardWriteCheck();" >
+					
+			   		<colgroup>
+			   			<col width="20%">
+			   			<col width="80%">
+			   		</colgroup>
+			   	
 			
+					<table summary="테이블 구성" >
+					<caption>게시판 글쓰기</caption>	
+			    		<tr>
+							<td>작성자</td>
+							<td><input type=text name="id" size=10 maxlength=8 value="${common.id}"></td>
+						</tr>
+			    		<tr>
+			     			<td>제 목</td>
+			     			<td><input type=text name=title></td>
+			    		</tr>
+			    		<tr>
+			     			<td>이미지</td>
+			     			<td><input type=text name=image size=30></td>
+			    		</tr>
+			    		<tr>
+			     			<td>타입</td>
+			     			<td><input type=text name=type size=30></td>
+			    		</tr>
+			    		<tr>
+			     			<td>내 용</td>
+			     			<td><textarea name=content rows ="10" cols="100"></textarea></td>
+			    		</tr>
+			    		<tr>
+			     			<td colspan=2><hr size=1></td>
+			    		</tr>
+			    		<tr>
+			     			<td colspan="2"><div align="center">
+			     			<input type="submit" value="등록" >&nbsp;&nbsp;
+			         		<input type="button" value="뒤로" onclick="move('Board_List.jsp');"></div>
+			     			</td>
+			    		</tr> 
+					</table>
+				</form> 
+			</table>
 		</div>
 		<div id="leftblank" class="col-xs-6 col-sm-2">
 			

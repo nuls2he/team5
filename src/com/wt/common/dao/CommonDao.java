@@ -67,14 +67,14 @@ public class CommonDao {
 			}
 			
 			System.out.println("조회dao 실행");
-			System.out.println("조회 dao: " + search.getWord());
+			System.out.println("조회 dao word: " + search.getWord());
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
 				Common toon = new Common();
 				toon.setNo(rs.getInt("no"));
 				toon.setTitle(rs.getString("title"));
 				toon.setContent(rs.getString("content"));
-				toon.setImage(rs.getString("imagepath"));
+				toon.setImagepath(rs.getString("imagepath"));
 				toon.setHits(Integer.parseInt(rs.getString("hits")));
 				//toon.setRegdate(rs.getDate("reg_date"));
 				toon.setType(rs.getString("type"));

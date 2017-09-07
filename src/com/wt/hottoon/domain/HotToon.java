@@ -10,7 +10,6 @@ public class HotToon {
 	private String genre;
 	private String completion;
 	private String imagePath;
-	private String url;
 	
 	private Date regDate;
 	
@@ -55,12 +54,6 @@ public class HotToon {
 	}
 	public void setImagePath(String imagePath) {
 		this.imagePath = imagePath;
-	}
-	public String getUrl() {
-		return url;
-	}
-	public void setUrl(String url) {
-		this.url = url;
 	}
 	public Date getRegDate() {
 		return regDate;

@@ -8,17 +8,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.wt.hottoon.dao.HotToonDAO;
+@WebServlet
+public class HotToonReplyRomoveController extends HttpServlet{
 
-@WebServlet("/hottoon/createbtn")
-public class HotToonCreateWindowController extends HttpServlet{
-	HotToonDAO dao = new HotToonDAO();
-	
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// /hottoon/create
-		
-		response.sendRedirect("/team5_miniprj/html/hottoon/insertHotToon.jsp");
 		
 	}
 	

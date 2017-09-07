@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.wt.hottoon.dao.HotToonDAO;
 
-@WebServlet
+@WebServlet("/hottoon/remove")
 public class HotToonRemoveController extends HttpServlet{
 	HotToonDAO dao = new HotToonDAO();
 	
@@ -18,7 +18,10 @@ public class HotToonRemoveController extends HttpServlet{
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String num = request.getParameter("no");
 		int no = Integer.parseInt(num);
-		dao.deleteHotToon(no);
+		if(dao.deleteHotToon(no))
+		{
+			response.sendRedirect("/team5_miniprj/hottoon/showlist");
+		}
 	}
 	
 }

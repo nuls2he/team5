@@ -70,22 +70,22 @@ div#container{
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="${pageContext.request.contextPath}/wt/wtmain.html">W.T</a>
+				<a class="navbar-brand" href="${pageContext.request.contextPath}/html/main/wtmain.jsp">W.T</a>
 			</div>
-			<div id="navbar" class="collapse navbar-collapse">
+			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="${pageContext.request.contextPath}/wt/news/list">News</a></li>
-					<li><a href="#NewToon">NewToon</a></li>
-					<li><a href="#HotToon">HotToon</a></li>
+					<li><a href="${pageContext.request.contextPath}/newtoonlist">NewToon</a></li>
+					<li><a href="${pageContext.request.contextPath}/hottoon/showlist">HotToon</a></li>
 					<li><a href="TA.jsp">ToonArt</a></li>
-					<li><a href="#19+">19+</a></li>
+					<li><a href="#">19+</a></li>
 				</ul>
 				<div class="row">
 					<div class="col-xs-8 col-sm-6"></div>
 					<div id="navbar" class="collapse navbar-collapse">
 						<ul class="nav navbar-nav">
-							<li><a href="login.jsp">Login</a></li>
-							<li><a href="signin.jsp">Join</a></li>
+							<li><a href="${pageContext.request.contextPath}/loginForm">Login</a></li>
+							<li><a href="${pageContext.request.contextPath}/signinForm">Join</a></li>
 
 						</ul>
 					</div>
@@ -106,12 +106,17 @@ div#container{
 			<h2>News</h2>
 			<table width=""700px>
 				<tr>
-					<th><h3>${news.title}</h3></th>
-					<td>${news.content}</td>
-					<td>${news.pic}</td>
-					<td>${news.url}</td>
-					<td>${news.regDate}</td>
+					<th colspan="2"><h3>${news.title}</h3></th>
 				</tr>
+				<tr>
+					<td><img src = "${pageContext.request.contextPath}/upload/${news.pic}" /></td>
+					<td>${news.content}</td>
+				</tr>
+				<tr>	
+					<td>${news.url}</td>
+					<td><h6>${news.regDate}</h6></td>
+				</tr>
+				
 			</table>
 		<a href="${pageContext.request.contextPath}/wt/news/list">목록</a>
 		<a href="${pageContext.request.contextPath}/wt/news/updateform?no=${news.no}">수정</a>
