@@ -1,3 +1,22 @@
+drop table toon purge;
+drop sequence toon_seq;
+
+create table toon(
+ no number(5) primary key,
+ Title varchar2(100) not null,
+ content varchar2(100) not null,
+ imagepath varchar2(200),
+ hits number(5) default 0,
+ regdate Date default sysdate,
+ type varchar2(3) not null,
+ id varchar2(100) 
+);
+
+
+
+
+
+
 create table tb_users (
 	id varchar2(10) not null primary key,
 	nick VARCHAR2(21) not null,

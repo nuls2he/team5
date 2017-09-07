@@ -62,7 +62,7 @@ public class NewToonInsertServlet extends HttpServlet{
 					System.out.println("서버에 실제 저장된 파일 이름 : " + systemName);
 					imagePath = path + systemName; 
 			}
-			System.out.println(imagePath);
+		
 			
 			
 			String title = mRequest.getParameter("title");
