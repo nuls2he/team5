@@ -40,6 +40,20 @@ img.bg{
 div#container{
 	position:relative;
 }
+table {
+		width: 300px;
+		table-layout: fixed;
+		
+	}
+table, td {
+		border: 1px solid black;
+		border-collapse: collapse; 
+		
+		
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
 </style>
 <title>W.T.</title>
 
@@ -106,15 +120,23 @@ div#container{
 			<input type="hidden" name="no" value="${news.no}" />
 			<table width="700px">
 				<tr>
-					<th><input type="text" name="title" value="${news.title}"/></th>
+					<td><input type="text" name="title" value="${news.title}"/></td>
+				</tr>
+				<tr>
 					<td><textarea name="content" rows="6" cols="70">${news.content}</textarea></td>
-					<td><input type="file" name="pic" value="${news.pic}"/></td>
+				</tr>	
+				<tr>
+					<td><input type="file" name="pic" value="${news.pic}" value="{news.pic}"/></td>
+				</tr>
+				<tr>	
 					<td><input type="text" name="url" value="${news.url}"/></td>
+				</tr>
+				<tr>	
 					<td>${news.regDate}</td>
 				</tr>
 			</table>
-		<button>수정</button>
-		<a href="${pageContext.request.contextPath}/wt/news/list">목록</a>
+		<button type="submit" class="btn btn-default">수정</button>
+		<input type="button" class="btn btn-default" value="목록" onclick="location.href='${pageContext.request.contextPath}/wt/news/list'" />
 		</form>
 		</div>
 		<div id="leftblank" class="col-xs-6 col-sm-2">

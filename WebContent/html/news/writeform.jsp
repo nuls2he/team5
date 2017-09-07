@@ -1,4 +1,3 @@
-<%@ page import="com.wt.common.domain.Common"%>
 <%@ page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -42,6 +41,32 @@ img.bg{
 div#container{
 	position:relative;
 }
+
+table.type04 {
+    border-collapse: separate;
+    border-spacing: 1px;
+    text-align: left;
+    line-height: 1.5;
+    border-top: 1px solid #4B5A64;
+  margin : 20px 10px;
+}
+
+table.type04 th {
+    width: 200px;
+    padding: 30px;
+    
+    font-size:16px;
+    vertical-align: top;
+    border-bottom: 1px solid #42779A;
+}
+table.type04 td {
+    width: 800px;
+    padding: 30px;
+    font-size:16px;
+    vertical-align: top;
+    border-bottom: 1px solid #5B96A6;
+}
+
 </style>
 <title>W.T.</title>
 
@@ -103,48 +128,40 @@ div#container{
 		<div id="leftblank" class="col-xs-3 col-sm-2">
 		</div>
 		<div id="main" class="col-xs-6 col-sm-8" >
-			<table summary="글쓰기 전체 테이블">
-				<form name="BoardWriteForm" method="post" action="${pageContext.request.contextPath}/wt/news/write" 
-																	onsubmit="return boardWriteCheck();" enctype="multipart/form-data">
-					
-			   	<colgroup>
-		   			<col width="20%">
-		   			<col width="80%">
-		   		</colgroup>
-			   	
-			
-					<input type="hidden" name="no" value="3">
-					<table summary="테이블 구성" >
-					<caption>게시판 글쓰기</caption>	
-					
-						<tr>
-			     			<td>제 목</td>
-	   			  			<td><input type="text" name="title" id="title" placeholder="Title"></td>
-	 			   		</tr>
-			    		<tr>
-	  			   			<td>이미지</td>
-	    		 			<td><input type="file" name="file1"></td>
-	   			 		</tr>
-			    		<tr>
-	     					<td>내 용</td>
-	     					<td><textarea name="content" id="title" rows ="10" cols="100"></textarea></td>
-	    				</tr>
-			    		<tr>
-			     			<td>URL</td>
-	   			  			<td><input type="text" name="url" id="url" placeholder="URL"></td>
-	 			   		</tr>	
-			    		<tr>
-			     			<td colspan=2><hr size=1></td>
-			    		</tr>
-			    		<tr>
-			     			<td colspan="2"><div align="center">
-			     				<input type="submit" value="등록" >&nbsp;&nbsp;&nbsp;
-			    	     		<input type="button" value="뒤로" onclick="move('Board_List.jsp');"></div>
-			     			</td>
-			    		</tr> 
-					</table>
-				</form> 
-			</table>
+		<h2>News</h2>
+		<br>
+		<br>
+			<form method="post" action="${pageContext.request.contextPath}/wt/news/write" enctype="multipart/form-data">
+				<input type="hidden" name="no" value="3">
+				<table class="type04" >
+					<c:forEach var="b" items="${list}">
+					<tr>
+		     			<td><input type="text" class="form-control" value="Title"></td>
+ 			   		</tr>
+		    		<tr>
+     					<td><textarea class="content" name="content" id="title"  placeholder="  Content"></textarea></td>
+    				</tr>
+    				<tr>
+		     			<td><input type="text" name="url" class="form-control" value="URL"></td>
+ 			   		</tr>
+		    		<tr>
+  			   			<td><input type="file" name="file1"></td>
+   			 		</tr>
+		    		<tr>
+		     			<td colspan=2><hr size=1></td>
+		    		</tr>
+		    		<tr>
+		     			<td colspan="2">
+		     				<div align="center">
+			     				<input type="submit" class="btn btn-default" value="등록" >&nbsp;&nbsp;&nbsp;
+			    	     		<input type="button" class="btn btn-default" value="뒤로" onclick="location.href='${pageContext.request.contextPath}/news/list'" />
+		    	     		</div>
+		     			</td>
+		    		</tr> 
+				</table>
+				</c:forEach>
+			</form> 
+		
 		</div>
 		<div id="leftblank" class="col-xs-6 col-sm-2">
 			
