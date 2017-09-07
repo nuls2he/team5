@@ -119,7 +119,7 @@ div#container{
 				</tr>
 				<tr>
 					<td>	
-						<a href="${pageContext.request.contextPath}/news/list">
+						<a href="${pageContext.request.contextPath}/wt/news/list">
 						<img src = "${pageContext.request.contextPath}/html/pic/News.jpg" style ="height:300px">
 						</a>
 					</td>

@@ -21,6 +21,6 @@ public class DeleteNewsController extends HttpServlet {
 		dao.deleteNews(no);
 		System.out.println("삭제");
 		
-		response.sendRedirect(request.getContextPath() + "/news/list");
+		response.sendRedirect(request.getContextPath() + "wt/news/list");
 	}
 }
