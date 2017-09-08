@@ -65,7 +65,7 @@ public class HotToonCreateController extends HttpServlet{
 		hottoon.setCompletion(mRequest.getParameter("completion"));
 		hottoon.setGenre(mRequest.getParameter("genre"));
 		hottoon.setTitle(mRequest.getParameter("title"));
-		hottoon.setId("won"); //임시
+		hottoon.setId(mRequest.getParameter("id")); //임시
 		hottoon.setContent(mRequest.getParameter("content"));
 		hottoon.setImagePath(imgPath);	// 앞의 경로 "프로젝트명/폴더"를 제외한 경로
 		

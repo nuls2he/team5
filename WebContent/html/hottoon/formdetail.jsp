@@ -133,13 +133,9 @@ div#container{
 					<c:out value="[${hottoon.completion}]-${hottoon.genre}"/>
 				</div>
 				<div align = right>
-					<%-- <fmt:parseDate var="d" value="2017-09-05 3:20:50" pattern="yyyy-MM-dd hh:mm:ss"/>
-					<fmt:formatDate var="date" value="${d}" pattern="yyyy-MM-dd HH:mm:ss" />
-					날짜 :${date} --%>
 					<fmt:formatDate value="${hottoon.regDate}" pattern="yyyy-MM-dd HH:mm:ss" />
 					</div>
 				<div align = center>
-					<!-- <h2>열렙전사</h2> -->
 					<h2>${hottoon.title}</h2>
   					<img src="${pageContext.request.contextPath}/upload/${hottoon.imagePath}" width="100px"height="100px" /><br>
  				</div>
@@ -151,8 +147,13 @@ div#container{
         		</div>
         		<div align = right>
         			<button type = button onClick="location.href='${pageContext.request.contextPath}/hottoon/showlist?genre=<c:out value="${genre}"/>&page=<c:out value="${page}"/>&block=<c:out value="${block}"/>'">목록</button>
-        			<button type = button>수정</button>
-        			<button type = button onClick="location.href='${pageContext.request.contextPath}/hottoon/remove?no=<c:out value="${hottoon.no}"/>'">삭제</button>
+        			<c:choose>
+        				<c:when test="${user.id eq hottoon.id}">
+        					<button type = button>수정</button>
+        					<button type = button onClick="location.href='${pageContext.request.contextPath}/hottoon/remove?no=<c:out value="${hottoon.no}"/>'">삭제</button>
+        				</c:when>			
+        			</c:choose>
+        			
         		</div>
 			</div>
 			<%-- 댓글 기능 여기에 넣어야함 --%>

@@ -25,13 +25,13 @@ public class InfoFormController extends HttpServlet {
 //		System.out.println("user : " + session.getAttribute("user"));
 //		String ssID = (String)session.getAttribute("id");
 //		System.out.println("유저아이디 : "+session.getAttribute("id"));
-		Cookie[] c = request.getCookies();
-		String cID = c[0].getValue();
+		//Cookie[] c = request.getCookies();
+		//String cID = c[0].getValue();
 		
 		UserDAO dao = new UserDAO();
-		request.setAttribute("user", dao.showInfo(cID));
+		//request.setAttribute("user", dao.showInfo(cID));
 //		request.setAttribute("ID", cID);
-		request.setAttribute("certAD", c[1]);
+		//request.setAttribute("certAD", c[1]);
 		RequestDispatcher rd = request.getRequestDispatcher("/html/user/info.jsp");
 		rd.forward(request, response);
 	}

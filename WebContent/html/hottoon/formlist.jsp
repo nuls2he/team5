@@ -199,7 +199,6 @@ div#container{
 					<c:choose>
 						<c:when test="${empty list}">
 							<tr>
-								<c:out value="${user.id}"></c:out>
 								<td width="1%" align="center">비어있습니다.</td>
 							<tr>
 						</c:when>

@@ -11,7 +11,7 @@ public class User {
 	private String call;
 	private String addHead;
 	private String addTail;
-	private boolean chekAD;
+	private String chekAD;
 	private boolean adminYN;
 	public String getAddHead() {
 		return addHead;
@@ -25,11 +25,11 @@ public class User {
 	public void setAddTail(String addTail) {
 		this.addTail = addTail;
 	}
-	
-	public boolean isChekAD() {
+
+	public String getChekAD() {
 		return chekAD;
 	}
-	public void setChekAD(boolean chekAD) {
+	public void setChekAD(String chekAD) {
 		this.chekAD = chekAD;
 	}
 	public boolean isAdminYN() {

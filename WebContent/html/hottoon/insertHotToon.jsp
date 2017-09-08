@@ -115,7 +115,7 @@ div#container{
 				<h4>게시판 글쓰기</h4>
 				<form name="BoardWriteForm" 
 				method="post" 
-				action="/team5_miniprj/hottoon/create" 
+				action="/team5_miniprj/hottoon/create?id=${user.id}" 
 				onsubmit="return boardWriteCheck();" 
 				enctype = "multipart/form-data">
 					<table summary="테이블 구성" >

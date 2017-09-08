@@ -40,34 +40,7 @@ public class HotToonListController extends HttpServlet{
 		{
 			block = "0";
 		}
-		
-		// 세션을 추출하기
-		HttpSession session = request.getSession(); 
-		
-		// 클라이언트를 구분하기 위한 ID 확인
-		String id = session.getId();
-		
-		System.out.println("id : " + URLEncoder.encode(id, "utf-8"));
-		
-		Cookie[] cookies = request.getCookies();
-		System.out.println(URLEncoder.encode(cookies[0].getValue(), "utf-8"));
-		System.out.println(URLDecoder.decode(cookies[0].getValue(), "utf-8"));
-		System.out.println(cookies[0].getValue());
-		//		if(cookies != null)
-//		{
-//			for(Cookie c : cookies)
-//			{
-//				String name = c.getName();
-//				String value = c.getValue();
-//				String comment = c.getComment();
-//				String domain = c.getDomain();
-//				String path = c.getPath();
-//
-//					System.out.println("이름: " + name + ", 값 : " + value + ", comment : " + comment + ", domain : " + domain + ", path : " + path );
-//
-//			}
-//		}
-		
+
 		PagingVO vo = pDao.settingVO(Integer.parseInt(page), Integer.parseInt(block));
 		System.out.println("genre : " + genre);
 		List<HotToon> list = new ArrayList<>();
