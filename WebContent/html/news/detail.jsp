@@ -34,12 +34,25 @@ img.bg{
 
 @media screen and (max-width:1024px){
 	img.bg{
-	left: 50%;
+	left: 30%;
 	margin-left: -512px;}
 }
 
 div#container{
 	position:relative;
+}
+
+.content1{
+	width:100%;
+}
+
+.img1{
+	width: 40%;
+}
+.img2{
+	width: 90%;
+	margin: 10;
+	float: left; 
 }
 </style>
 <title>W.T.</title>
@@ -112,16 +125,16 @@ div#container{
 		</div>
 		<div id="main" class="col-xs-6 col-sm-8;">
 			<h2>News</h2>
-			<table width=""700px>
+			<table class="content1">
 				<tr>
 					<th colspan="2"><h3>${news.title}</h3></th>
 				</tr>
 				<tr>
-					<td><img src="${pageContext.request.contextPath}/upload${news.pic}" /></td>
+					<td class="img1"><img class="img2" src="${pageContext.request.contextPath}/upload${news.pic}" /></td>
 					<td>${news.content}</td>
 				</tr>
 				<tr>	
-					<td>${news.url}</td>
+					<td><a href="${news.url}">뉴스 바로가기</a></td>
 					<td><h6>${news.regDate}</h6></td>
 				</tr>
 				
