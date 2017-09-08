@@ -53,7 +53,7 @@ html, body {
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="${pageContext.request.contextPath}/html/main/wtmain.jsp">W.T</a>
+				<a class="navbar-brand" href="${pageContext.request.contextPath}/mainform">W.T</a>
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
@@ -67,12 +67,13 @@ html, body {
 					<div class="col-xs-8 col-sm-6"></div>
 					<div id="navbar" class="collapse navbar-collapse">
 						<ul class="nav navbar-nav">
-							<c:choose>
+						<c:choose>
 							<c:when test="${empty user}">
 								<li><a href="${pageContext.request.contextPath}/loginForm">Login</a></li>
 								<li><a href="${pageContext.request.contextPath}/signinForm">Join</a></li>
 							</c:when>
 							<c:otherwise>
+								<li><a href="${pageContext.request.contextPath}/infoForm">Info</a></li>
 								<li><a href="${pageContext.request.contextPath}/user/logout">Logout</a></li>
 							</c:otherwise>
 						</c:choose>

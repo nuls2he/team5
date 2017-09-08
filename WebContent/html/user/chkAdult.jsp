@@ -14,7 +14,7 @@ html, body {
     height: 100%;
     background: url(user/bg03.png);
     background-repeat: no-repeat;
-    background-position: 50% 50%;1
+    background-position: 50% 50%;
     background-attachment: fixed;
     background-size: cover;
 }
@@ -53,13 +53,13 @@ select.birth {
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="${pageContext.request.contextPath}/html/main/wtmain.jsp">W.T</a>
+				<a class="navbar-brand" href="${pageContext.request.contextPath}/mainform">W.T</a>
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#News">News</a></li>
-					<li><a href="#NewToon">NewToon</a></li>
-					<li><a href="#HotToon">HotToon</a></li>
+					<li class="active"><a href="${pageContext.request.contextPath}/wt/news/list">News</a></li>
+					<li><a href="${pageContext.request.contextPath}/newtoonlist">NewToon</a></li>
+					<li><a href="${pageContext.request.contextPath}/hottoon/showlist">HotToon</a></li>
 					<li><a href="#ToonArt">ToonArt</a></li>
 					<li><a href="#19+">19+</a></li>
 				</ul>
@@ -67,15 +67,7 @@ select.birth {
 					<div class="col-xs-8 col-sm-6"></div>
 					<div id="navbar" class="collapse navbar-collapse">
 						<ul class="nav navbar-nav">
-							<c:choose>
-							<c:when test="${empty user}">
-								<li><a href="${pageContext.request.contextPath}/loginForm">Login</a></li>
-								<li><a href="${pageContext.request.contextPath}/signinForm">Join</a></li>
-							</c:when>
-							<c:otherwise>
 								<li><a href="${pageContext.request.contextPath}/user/logout">Logout</a></li>
-							</c:otherwise>
-						</c:choose>
 						</ul>
 					</div>
 				</div>

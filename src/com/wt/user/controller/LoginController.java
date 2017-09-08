@@ -30,7 +30,7 @@ public class LoginController extends HttpServlet{
 		User usr = udao.login(user);
 		
 		
-		String page = "wtmain.jsp";
+		String page = "main/wtmain.jsp";
 		if (usr != null) {
 			HttpSession session = request.getSession();
 			

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ko">
 <head>
@@ -70,7 +71,7 @@ div#container{
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand"  href="${pageContext.request.contextPath}/html/main/wtmain.jsp">W.T</a>
+				<a class="navbar-brand"  href="${pageContext.request.contextPath}/mainform">W.T</a>
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
@@ -84,9 +85,16 @@ div#container{
 					<div class="col-xs-8 col-sm-6"></div>
 					<div id="navbar" class="collapse navbar-collapse">
 						<ul class="nav navbar-nav">
-							<li><a href="#Login">Login</a></li>
-							<li><a href="#Join">Join</a></li>
-
+						<c:choose>
+							<c:when test="${empty user}">
+								<li><a href="${pageContext.request.contextPath}/loginForm">Login</a></li>
+								<li><a href="${pageContext.request.contextPath}/signinForm">Join</a></li>
+							</c:when>
+							<c:otherwise>
+								<li><a href="${pageContext.request.contextPath}/infoForm">Info</a></li>
+								<li><a href="${pageContext.request.contextPath}/user/logout">Logout</a></li>
+							</c:otherwise>
+						</c:choose>
 						</ul>
 					</div>
 				</div>
