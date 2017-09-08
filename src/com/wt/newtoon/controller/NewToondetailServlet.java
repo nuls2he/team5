@@ -24,8 +24,8 @@ public class NewToondetailServlet extends HttpServlet{
 		Search vo = new Search();
 		request.setCharacterEncoding("utf-8");
 		String type = "n";
-		String selType = request.getParameter("selType");
-		String word = request.getParameter("word");
+		String selType ="no";
+		String word = request.getParameter("no");
 		String id = request.getParameter("id");
 		
 		vo.setType(type);

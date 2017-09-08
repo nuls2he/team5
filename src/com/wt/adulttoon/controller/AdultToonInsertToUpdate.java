@@ -37,7 +37,7 @@ public class AdultToonInsertToUpdate extends HttpServlet{
 		//dao.searchToon(vo);
 		List<Common> list = dao.searchToon(vo);
 		request.setAttribute("list", list);
-	RequestDispatcher rd = request.getRequestDispatcher("/html/newtoon/newtooninsert.jsp");
+	RequestDispatcher rd = request.getRequestDispatcher("/html/adulttoon/adulttoonninsert.jsp");
 	rd.forward(request, response);
 		
 }

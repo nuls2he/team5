@@ -82,7 +82,7 @@ public class AdultToonInsertServlet extends HttpServlet{
 			CommonDao dao = new CommonDao();
 			dao.insertBoard(vo);
 			
-			response.sendRedirect("/team5_miniprj/newtoonlist");	
+			response.sendRedirect("/team5_miniprj/adulttoonlist");	
 //			RequestDispatcher rd = request.getRequestDispatcher("/com/wt/common/controller/commonListServlet");
 //			rd.forward(request, response);
 			

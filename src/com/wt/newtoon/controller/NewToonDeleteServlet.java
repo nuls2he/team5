@@ -26,7 +26,7 @@ public class NewToonDeleteServlet extends HttpServlet{
 
 		dao.deleteBoard(no);
 		
-		response.sendRedirect("/team5/newtoonlist");
+		response.sendRedirect("/team5_miniprj/newtoonlist");
 	}
 
 	

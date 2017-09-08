@@ -127,7 +127,7 @@ div#container{
 		<c:forEach var="Common" items="${list}">
 		<tr>
 			<td><c:out value="${Common.no}" /></td>
-			<td><img src="<c:out value="${pageContext.request.contextPath}/image${Common.imagepath}"/>" width="250" height="200"></td>
+			<td><a href="${pageContext.request.contextPath}/newtoondetail?no=${Common.no}"><img src="<c:out value="${pageContext.request.contextPath}/image${Common.imagepath}"/>" width="250" height="200"></a></td>
 			<td><c:out value="${Common.title}"/></td>
 			<td><c:out value="${Common.content}" /></td>
 			<td><c:out value="${Common.regdate}"/>
@@ -139,10 +139,20 @@ div#container{
 			<a href="${pageContext.request.contextPath}/newtoonlist?rnum=0"><<</a>&nbsp;&nbsp;&nbsp;
 			<a href="${pageContext.request.contextPath}/newtoonlist?rnum=<fmt:formatNumber value="${((rnum/5-(rnum/5%1))-1)*5}" pattern="0"/>"><</a>&nbsp;&nbsp;&nbsp;
 			<c:forEach var="i" begin="${(rnum/5-(rnum/5%1))*5}" end="${(rnum/5-(rnum/5%1)+1)*5-1}">
-				<a href="/team5/newtoonlist?rnum=${i}">${i+1}</a>&nbsp;&nbsp;&nbsp;
+				<a href="${pageContext.request.contextPath}/newtoonlist?rnum=${i}">${i+1}</a>&nbsp;&nbsp;&nbsp;
 			</c:forEach>
 			<a href="${pageContext.request.contextPath}/newtoonlist?rnum=<fmt:formatNumber value="${((rnum/5-(rnum/5%1))+1)*5}" pattern="0"/>">></a>&nbsp;&nbsp;&nbsp;
 			<a href="${pageContext.request.contextPath}/newtoonlist?rnum=<fmt:formatNumber value="${pnum/5}" pattern="0"/>">>></a>&nbsp;&nbsp;&nbsp;
+				
+		<form name="SearchForm" method="post" action="${pageContext.request.contextPath}/newtoonlist">
+			<select name="selType" style="height:30px">
+				<option value="no">글 번호</option>
+				<option value="title">제목</option>
+			</select>&nbsp;&nbsp;&nbsp;
+				<input type="text" name="word" >&nbsp;&nbsp;&nbsp;
+				<input type="submit" value="검색">		
+		</form>
+		
 		</div>
 		<div id="leftblank" class="col-xs-6 col-sm-2">
 

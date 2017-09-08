@@ -83,7 +83,7 @@ public class AdultToonUpdateServlet extends HttpServlet{
 //		//dao.searchToon(vo);
 //		List<Common> list = dao.updateBoard(vo);
 //		request.setAttribute("list", list);
-		response.sendRedirect("/team5_miniprj/newtoonlist");
+		response.sendRedirect("/team5_miniprj/adulttoonlist");
 //	RequestDispatcher rd = request.getRequestDispatcher("/newtoonList");
 //	rd.forward(request, response);
 		

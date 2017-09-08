@@ -54,7 +54,7 @@ public class AdultToonListServlet extends HttpServlet{
 		request.setAttribute("rnum", rnum);
 		
 		System.out.println(pnum);
-	RequestDispatcher rd = request.getRequestDispatcher("/html/newtoon/newtoonmain.jsp");
+	RequestDispatcher rd = request.getRequestDispatcher("/html/adulttoon/adulttoonmain.jsp");
 	rd.forward(request, response);
 		
 }

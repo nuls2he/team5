@@ -106,12 +106,12 @@ div#container{
 		<div id="main" class="col-xs-6 col-sm-8" >
 			<table summary="글쓰기 전체 테이블">
 				<c:choose>
-					<c:when test="${empty list }">
+					<c:when test="${empty list}">
 						<form name="BoardWriteForm" method="post" action="${pageContext.request.contextPath}/newtooninsert" 
 																	enctype="multipart/form-data">
 					</c:when>
 					<c:otherwise>
-					<form name="BoardWriteForm" method="post" action="${pageContext.request.contextPath}/newtoonupdate" 
+						<form name="BoardWriteForm" method="post" action="${pageContext.request.contextPath}/newtoonupdate" 
 																	enctype="multipart/form-data">
 					</c:otherwise>
 				</c:choose>
@@ -124,7 +124,7 @@ div#container{
 					<table summary="테이블 구성" >
 					<caption>게시판 글쓰기</caption>	
 					<c:choose>
-						<c:when test="${not empty list }">
+						<c:when test="${not empty list}">
 							<c:forEach var="Common" items="${list}">
 								
 								<input type=hidden name=no value="${Common.no}">
@@ -164,7 +164,7 @@ div#container{
 			    		<tr>
 			     			<td colspan="2"><div align="center">
 			     				<input type="submit" value="등록" >&nbsp;&nbsp;&nbsp;
-			    	     		<input type="button" value="뒤로" onclick="move('Board_List.jsp');"></div>
+			    	     		<input type="button" value="뒤로" onclick="location.href='${pageContext.request.contextPath}/newtoonlist'"></div>
 			     			</td>
 			    		</tr> 
 					</table>
