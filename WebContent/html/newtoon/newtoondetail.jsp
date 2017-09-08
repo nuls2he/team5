@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="java.text.Format"%>
 <%@ page import="com.wt.common.domain.Common"%>
