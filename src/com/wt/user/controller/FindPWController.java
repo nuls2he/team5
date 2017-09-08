@@ -19,7 +19,7 @@ public class FindPWController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		User user = new User();
-		user.setID(request.getParameter("id"));
+		user.setId(request.getParameter("id"));
 		user.setHintQ(request.getParameter("hintQ"));
 		user.setHintA(request.getParameter("hintA"));
 

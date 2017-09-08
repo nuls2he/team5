@@ -29,7 +29,7 @@ public class InfoUpController extends HttpServlet {
 		usr.setCall(request.getParameter("call"));
 		usr.setAddHead(request.getParameter("addHead"));
 		usr.setAddTail(request.getParameter("addTail"));
-		usr.setID(cID);
+		usr.setId(cID);
 		dao.updateInfo(usr);
 		
 		

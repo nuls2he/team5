@@ -23,8 +23,9 @@ public class HotToonDetailController extends HttpServlet{
 		String page = request.getParameter("page");
 		String block = request.getParameter("block");
 		System.out.println("no : " + no);
-		HotToon hottoon = dao.selectByNo(Integer.parseInt(no));
+		HotToon hottoon = dao.detailHotToon(Integer.parseInt(no));
 		
+		System.out.println("시간 : " + hottoon.getRegDate());
 		request.setAttribute("hottoon", hottoon);
 		request.setAttribute("genre", genre);
 		request.setAttribute("page", page);

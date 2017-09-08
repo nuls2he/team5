@@ -20,8 +20,8 @@ public class PagingDAO {
 		PagingVO vo = new PagingVO();
 		
 		vo.setTotalCount(getTotalCount());
-		vo.setCountList(4);
-		vo.setCountPage(10);
+		vo.setCountList(2);
+		vo.setCountPage(5);
 		vo.setPage(page);
 		vo.setBlockCount(block);
 		vo.setStartPage(1 + vo.getCountPage() * vo.getBlockCount());
@@ -36,15 +36,16 @@ public class PagingDAO {
 		{
 			vo.setEndPage(vo.getTotalPage()); 
 		}
+		vo.setLastBlock(vo.getTotalPage() / vo.getCountPage());
 		
-		/*System.out.println("TotalList : " + vo.getTotalCount());
+		System.out.println("TotalList : " + vo.getTotalCount());
 		System.out.println("나눌 게시물 개수 : " + vo.getCountList());
 		System.out.println("나눌 페이지 개수 : " + vo.getCountPage());
 		System.out.println("현재 페이지 : " + vo.getPage());
 		System.out.println("현재 블록 : " + vo.getBlockCount());
 		System.out.println("시작 페이지 : " + vo.getStartPage());
 		System.out.println("끝 페이지 : " + vo.getEndPage());
-		System.out.println("총 페이지 : " + vo.getTotalPage());*/
+		System.out.println("총 페이지 : " + vo.getTotalPage());
 		return vo;
 	}
 	

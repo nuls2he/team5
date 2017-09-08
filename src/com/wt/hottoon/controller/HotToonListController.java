@@ -1,15 +1,19 @@
 package com.wt.hottoon.controller;
 
 import java.io.IOException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.wt.common.dao.PagingDAO;
 import com.wt.common.domain.PagingVO;
@@ -23,6 +27,7 @@ public class HotToonListController extends HttpServlet{
 
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html; charset=utf-8");
 		String genre = request.getParameter("genre");
 		String page = request.getParameter("page");
 		String block = request.getParameter("block");
@@ -35,6 +40,33 @@ public class HotToonListController extends HttpServlet{
 		{
 			block = "0";
 		}
+		
+		// 세션을 추출하기
+		HttpSession session = request.getSession(); 
+		
+		// 클라이언트를 구분하기 위한 ID 확인
+		String id = session.getId();
+		
+		System.out.println("id : " + URLEncoder.encode(id, "utf-8"));
+		
+		Cookie[] cookies = request.getCookies();
+		System.out.println(URLEncoder.encode(cookies[0].getValue(), "utf-8"));
+		System.out.println(URLDecoder.decode(cookies[0].getValue(), "utf-8"));
+		System.out.println(cookies[0].getValue());
+		//		if(cookies != null)
+//		{
+//			for(Cookie c : cookies)
+//			{
+//				String name = c.getName();
+//				String value = c.getValue();
+//				String comment = c.getComment();
+//				String domain = c.getDomain();
+//				String path = c.getPath();
+//
+//					System.out.println("이름: " + name + ", 값 : " + value + ", comment : " + comment + ", domain : " + domain + ", path : " + path );
+//
+//			}
+//		}
 		
 		PagingVO vo = pDao.settingVO(Integer.parseInt(page), Integer.parseInt(block));
 		System.out.println("genre : " + genre);

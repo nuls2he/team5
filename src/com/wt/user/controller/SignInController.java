@@ -23,7 +23,7 @@ public class SignInController extends HttpServlet {
 			request.setCharacterEncoding("utf-8");
 			UserDAO dao = new UserDAO();
 			User user = new User();
-			user.setID(request.getParameter("id"));
+			user.setId(request.getParameter("id"));
 			user.setNick(request.getParameter("nick"));
 			user.setPwd(request.getParameter("password"));
 			user.setEmail(request.getParameter("email"));

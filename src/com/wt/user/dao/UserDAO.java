@@ -25,7 +25,7 @@ public class UserDAO {
 			
 			pstmt = con.prepareStatement(sql.toString());
 			
-			pstmt.setString(1, usr.getID());
+			pstmt.setString(1, usr.getId());
 			pstmt.setString(2, usr.getNick());
 			pstmt.setString(3, usr.getPwd());
 			pstmt.setString(4, usr.getEmail());
@@ -57,14 +57,14 @@ public class UserDAO {
 
 			pstmt = con.prepareStatement(sql.toString());
 
-			pstmt.setString(1, user.getID());
+			pstmt.setString(1, user.getId());
 			pstmt.setString(2, user.getPwd());
 			
 			ResultSet rs = pstmt.executeQuery();
 			
 			while (rs.next()) {
 				
-				usr.setID(rs.getString("id"));
+				usr.setId(rs.getString("id"));
 				usr.setNick(rs.getString("nick"));
 				usr.setEmail(rs.getString("email"));
 				usr.setName(rs.getString("name"));
@@ -101,7 +101,7 @@ public class UserDAO {
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
 				User usr = new User();
-				usr.setID(rs.getString("id"));
+				usr.setId(rs.getString("id"));
 				usr.setNick(rs.getString("nick"));
 				usr.setEmail(rs.getString("email"));
 				usr.setName(rs.getString("name"));
@@ -135,13 +135,13 @@ public class UserDAO {
 			sql.append("    	addTail = ? ");
 			sql.append(" where id = ? ");
 			pstmt = con.prepareStatement(sql.toString());
-			System.out.println(usr.getID());
+			System.out.println(usr.getId());
 			pstmt.setString(1, usr.getEmail());
 			pstmt.setString(2, usr.getName());
 			pstmt.setString(3, usr.getCall());
 			pstmt.setString(4, usr.getAddHead());
 			pstmt.setString(5, usr.getAddTail());
-			pstmt.setString(6, usr.getID());
+			pstmt.setString(6, usr.getId());
 			
 			pstmt.executeQuery();
 			System.out.println("수정완료");
@@ -219,7 +219,7 @@ public class UserDAO {
 			sql.append("  where id = ? and hintQ = ? and hintA = ? ");
 
 			pstmt = con.prepareStatement(sql.toString());
-			pstmt.setString(1, usr.getID());
+			pstmt.setString(1, usr.getId());
 			pstmt.setString(2, usr.getHintQ());
 			pstmt.setString(3, usr.getHintA());
 

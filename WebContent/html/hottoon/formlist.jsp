@@ -58,7 +58,7 @@ div#container{
 	text-align: left;
 }
 
-.pagination a {
+.pagination a, button {
     color: black;
     float: left;
     padding: 8px 16px;
@@ -101,7 +101,7 @@ div#container{
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand"  href="${pageContext.request.contextPath}/mainform">W.T</a>
+				<a class="navbar-brand"  href="${pageContext.request.contextPath}/html/main/wtmain.jsp">W.T</a>
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
@@ -189,7 +189,9 @@ div#container{
 				</c:choose>
 			</div>
 			<div style="text-align: right;">
-				<a href="/team5_miniprj/hottoon/createbtn">글쓰기</a>
+				<c:if test="${!empty user}">
+					<a href="/team5_miniprj/hottoon/createbtn">글쓰기</a>
+				</c:if>
 			</div>
 			<div>
 				<table style="table-layout:fixed" class="table table-striped table-bordered table-hover">
@@ -197,6 +199,7 @@ div#container{
 					<c:choose>
 						<c:when test="${empty list}">
 							<tr>
+								<c:out value="${user.id}"></c:out>
 								<td width="1%" align="center">비어있습니다.</td>
 							<tr>
 						</c:when>
@@ -206,7 +209,7 @@ div#container{
 								<tr style="cursor:pointer;" onClick = "location.href='${pageContext.request.contextPath}/hottoon/detail?no=<c:out value="${b.no}"/>&genre=<c:out value="${genre}"/>&page=<c:out value="${paging.page}"/>&block=<c:out value="${paging.blockCount}"/>'">
 									<td width="10%">${b.no}</td>
 									<td width="10%">이미지공간
-										<c:out value="${pageContext.request.contextPath}/upload${b.imagePath}"/>
+										<%-- <c:out value="${pageContext.request.contextPath}/upload${b.imagePath}"/> --%>
 										<img src="${pageContext.request.contextPath}/upload${b.imagePath}" width="100px"height="100px" />
 									</td>
 									<td width="30%">
@@ -245,7 +248,12 @@ div#container{
         		<div class="col-xs-12">
         			<div class="jb-center" style="text-align: center;">
 						<div class="pagination">
-							<a href="#">&laquo;</a>
+							<button type="button" onClick="location.href='${pageContext.request.contextPath}/hottoon/showlist?genre=${genre}&page=1&block=0'" <c:if test="${paging.blockCount eq 0}">disabled</c:if>>
+								&laquo;
+							</button>
+							<button type="button" onClick="location.href='${pageContext.request.contextPath}/hottoon/showlist?genre=${genre}&page=<c:out value="${(paging.blockCount - 1 + 1) * paging.countPage - 9}"/>&block=${paging.blockCount - 1}'" <c:if test="${paging.blockCount eq 0}">disabled</c:if>>
+								&lt;
+							</button>
 							<c:forEach var="index" begin="${paging.startPage}" end="${paging.endPage}" step="1">
 								<c:choose>
 									<c:when test="${paging.page eq index}">
@@ -255,10 +263,15 @@ div#container{
 										<a href="${pageContext.request.contextPath}/hottoon/showlist?genre=${genre}&page=${index}&block=${paging.blockCount}"><c:out value="${index}"/></a>
 									</c:otherwise>
 								</c:choose>
-								
-								
+								<%-- <c:if test="${paging.blockCount eq 0}">class="disabled"</c:if> --%>
+								<%-- <a <c:if test="${paging.blockCount eq 0}"><c:out value="class='disabled'"/></c:if> href="${pageContext.request.contextPath}/hottoon/showlist?genre=${genre}&page=1&block=0">&laquo;</a> --%>
 							</c:forEach>
-							<a href="#">&raquo;</a>
+							<button type="button" onClick="location.href='${pageContext.request.contextPath}/hottoon/showlist?genre=${genre}&page=<c:out value="${(paging.blockCount + 1 + 1) * paging.countPage - 4}"/>&block=${paging.blockCount + 1}'" <c:if test="${paging.blockCount eq paging.lastBlock}">disabled</c:if>>
+								&gt;
+							</button>
+							<button type="button" onClick="location.href='${pageContext.request.contextPath}/hottoon/showlist?genre=${genre}&page=${paging.totalPage}&block=${paging.lastBlock}'" <c:if test="${paging.blockCount eq paging.lastBlock}">disabled</c:if>>
+								&raquo;
+							</button>
 						</div>
 					</div>
         		</div>

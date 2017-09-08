@@ -24,7 +24,7 @@ public class LoginController extends HttpServlet{
 		User user = new User();
 		request.setCharacterEncoding("utf-8");
 		String id = request.getParameter("id");
-		user.setID(id);
+		user.setId(id);
 		user.setPwd(request.getParameter("pwd"));
 		
 		UserDAO udao = new UserDAO();

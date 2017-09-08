@@ -43,11 +43,11 @@ public class HotToonDAO {
 				if(!genre.isEmpty())
 					pstmt.setString(++index, genre);
 			}
-			int startList = page * countList;
-			int endList = page * countList - (countList - 1);
+			int endList = page * countList;
+			int startList = page * countList - (countList - 1);
 			
-			pstmt.setInt(++index, startList);
 			pstmt.setInt(++index, endList);
+			pstmt.setInt(++index, startList);
 			ResultSet rs = pstmt.executeQuery();
 			
 			while(rs.next())
@@ -76,87 +76,7 @@ public class HotToonDAO {
 		return list;
 	}
 	
-	/*public List<HotToon> selectHotToon(String genre)
-	{
-		List<HotToon> list = new ArrayList<>();
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		try {
-			con = ConnectionPool.getConnection();
-			StringBuffer sql = new StringBuffer();
-			sql.append("select * ");
-			sql.append("  from t97_hottoon ");
-			if(genre != null)
-			{
-				sql.append(" where genre = ? ");
-			}
-			sql.append("order by no desc");
-			pstmt = con.prepareStatement(sql.toString());
-			ResultSet rs = pstmt.executeQuery();
-			
-			while(rs.next())
-			{
-				HotToon hottoon = new HotToon();
-				hottoon.setNo(rs.getInt("no"));
-				hottoon.setId(rs.getString("userid"));
-				hottoon.setGenre(rs.getString("genre"));
-				hottoon.setCompletion(rs.getString("completion"));
-				hottoon.setImagePath(rs.getString("imagepath"));
-				hottoon.setTitle(rs.getString("title"));
-				hottoon.setContent(rs.getString("content"));
-				hottoon.setRegDate(rs.getDate("reg_date"));
-				list.add(hottoon);
-			}
-			System.out.println("list: " + list);
-			return list;
-			
-		}catch(Exception e) {
-			e.printStackTrace();
-		}finally {
-			JdbcUtil.close(pstmt);
-			ConnectionPool.releaseConnection(con);
-		}
-		
-		return list;
-	}*/
 	
-	public HotToon selectByNo(int no)
-	{
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		HotToon hottoon = new HotToon();
-		try {
-			con = ConnectionPool.getConnection();
-			StringBuffer sql = new StringBuffer();
-			sql.append("select * ");
-			sql.append("  from t97_hottoon");
-			sql.append(" where no = ?");
-			
-			pstmt = con.prepareStatement(sql.toString());
-			pstmt.setInt(1, no);
-			ResultSet rs = pstmt.executeQuery();
-			
-			while(rs.next())
-			{
-				hottoon.setNo(rs.getInt("no"));
-				hottoon.setId(rs.getString("userid"));
-				hottoon.setGenre(rs.getString("genre"));
-				hottoon.setCompletion(rs.getString("completion"));
-				hottoon.setImagePath(rs.getString("imagepath"));
-				hottoon.setTitle(rs.getString("title"));
-				hottoon.setContent(rs.getString("content"));
-				hottoon.setRegDate(rs.getDate("reg_date"));
-			}
-			return hottoon;
-		}catch(Exception e) {
-			e.printStackTrace();
-		}finally {
-			JdbcUtil.close(pstmt);
-			ConnectionPool.releaseConnection(con);
-		}
-		
-		return hottoon;
-	}
 	//create sequence s_board_no;
 	public void createHotToon(HotToon hottoon)
 	{
@@ -195,11 +115,24 @@ public class HotToonDAO {
 		try {
 			con = ConnectionPool.getConnection();
 			
+			/*
+			 select l.city, d.department_name, e.last_name
+			  from employees e 
+			inner join departments d
+			    on e.department_id = d.department_id
+			inner join locations l
+			    on d.location_id = l.location_id
+			inner join countries c
+			    on l.country_id = c.country_id
+			where c.country_name = 'Canada';
+			*/
+			//tb_users
 			//권한 체크
 			StringBuffer sql = new StringBuffer();
-			sql.append("select id ");
-			sql.append("  from t97_hottoon");
-			sql.append(" where userid = ?");
+			sql.append("select u.id ");
+			sql.append("  from tb_users u ");
+			sql.append("inner join t97_hottoon h ");
+			sql.append("     on u.id = h.userid");
 			
 			pstmt = con.prepareStatement(sql.toString());
 			pstmt.setString(1, id);

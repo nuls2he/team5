@@ -38,10 +38,11 @@ public class User {
 	public void setAdminYN(boolean adminYN) {
 		this.adminYN = adminYN;
 	}
-	public String getID() {
+	
+	public String getId() {
 		return id;
 	}
-	public void setID(String id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getNick() {

@@ -19,6 +19,14 @@ public class PagingVO {
 	
 	int totalPage;
 	
+	int lastBlock;
+	
+	public int getLastBlock() {
+		return lastBlock;
+	}
+	public void setLastBlock(int lastBlock) {
+		this.lastBlock = lastBlock;
+	}
 	public int getTotalPage() {
 		return totalPage;
 	}
