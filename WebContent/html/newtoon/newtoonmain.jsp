@@ -138,9 +138,19 @@ div#container{
 	</table>	 
 			<a href="${pageContext.request.contextPath}/newtoonlist?rnum=0"><<</a>&nbsp;&nbsp;&nbsp;
 			<a href="${pageContext.request.contextPath}/newtoonlist?rnum=<fmt:formatNumber value="${((rnum/5-(rnum/5%1))-1)*5}" pattern="0"/>"><</a>&nbsp;&nbsp;&nbsp;
-			<c:forEach var="i" begin="${(rnum/5-(rnum/5%1))*5}" end="${(rnum/5-(rnum/5%1)+1)*5-1}">
+			<c:choose>
+			<c:when test="${((rnum/5-(rnum/5%1)+1)*5-1)>=(pnum/5)}">
+				<c:forEach var="i" begin="${(rnum/5-(rnum/5%1))*5}" end="${pnum/5}">
 				<a href="${pageContext.request.contextPath}/newtoonlist?rnum=${i}">${i+1}</a>&nbsp;&nbsp;&nbsp;
-			</c:forEach>
+				</c:forEach>
+			</c:when>
+			<c:otherwise>
+				<c:forEach var="i" begin="${(rnum/5-(rnum/5%1))*5}" end="${(rnum/5-(rnum/5%1)+1)*5-1}">
+				<a href="${pageContext.request.contextPath}/newtoonlist?rnum=${i}">${i+1}</a>&nbsp;&nbsp;&nbsp;
+				</c:forEach>
+			</c:otherwise>
+			</c:choose>
+	
 			<a href="${pageContext.request.contextPath}/newtoonlist?rnum=<fmt:formatNumber value="${((rnum/5-(rnum/5%1))+1)*5}" pattern="0"/>">></a>&nbsp;&nbsp;&nbsp;
 			<a href="${pageContext.request.contextPath}/newtoonlist?rnum=<fmt:formatNumber value="${pnum/5}" pattern="0"/>">>></a>&nbsp;&nbsp;&nbsp;
 				
