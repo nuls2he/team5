@@ -53,7 +53,7 @@ html, body {
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="${pageContext.request.contextPath}/wtmain">W.T</a>
+				<a class="navbar-brand" href="${pageContext.request.contextPath}/html/main/wtmain.jsp">W.T</a>
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">

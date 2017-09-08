@@ -14,7 +14,7 @@ html, body {
     height: 100%;
     background: url(user/bg03.png);
     background-repeat: no-repeat;
-    background-position: 50% 50%;
+    background-position: 50% 50%;1
     background-attachment: fixed;
     background-size: cover;
 }
@@ -22,7 +22,9 @@ html, body {
     height: 98%; 
     border: 3px solid blue;}
 }
-select.
+select.birth {
+	margin: 30px;
+}
 
 </style>
 <title>W.T.성인인증</title>
@@ -51,7 +53,7 @@ select.
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="${pageContext.request.contextPath}/wtmain">W.T</a>
+				<a class="navbar-brand" href="${pageContext.request.contextPath}/html/main/wtmain.jsp">W.T</a>
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
@@ -124,7 +126,7 @@ select.
     </fieldset>
     <div class="form-group">
     <label for="inputName" class="col-sm-2 control-label"></label>
-      <button type="submit" class="btn btn-primary" style="margin-left: 20%;">계정 삭제</button>
+      <button type="submit" class="btn btn-primary" style="margin-left: 20%;">성인 인증</button>
     </div>
     </form>
   </article>
