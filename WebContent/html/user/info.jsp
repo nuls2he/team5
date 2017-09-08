@@ -53,7 +53,7 @@ html, body {
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="${pageContext.request.contextPath}/wtmain">W.T</a>
+				<a class="navbar-brand" href="${pageContext.request.contextPath}/mainform">W.T</a>
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
@@ -67,12 +67,13 @@ html, body {
 					<div class="col-xs-8 col-sm-6"></div>
 					<div id="navbar" class="collapse navbar-collapse">
 						<ul class="nav navbar-nav">
-							<c:choose>
+						<c:choose>
 							<c:when test="${empty user}">
 								<li><a href="${pageContext.request.contextPath}/loginForm">Login</a></li>
 								<li><a href="${pageContext.request.contextPath}/signinForm">Join</a></li>
 							</c:when>
 							<c:otherwise>
+								<li><a href="${pageContext.request.contextPath}/infoForm">Info</a></li>
 								<li><a href="${pageContext.request.contextPath}/user/logout">Logout</a></li>
 							</c:otherwise>
 						</c:choose>
@@ -158,8 +159,15 @@ html, body {
   </fieldset>
  
     <div class="form-group">
-      <a href="${pageContext.request.contextPath}/chkAdform" style="margin: 30px;">성인인증</a>
-      <a href="${pageContext.request.contextPath}/withrawForm">회원탈퇴</a>
+    	<c:choose>
+			<c:when test="${certAD eq y}">
+      			<a href="${pageContext.request.contextPath}/withrawForm">회원탈퇴</a>
+			</c:when>
+			<c:otherwise>
+		      	<a href="${pageContext.request.contextPath}/chkAdform" style="margin: 30px;">성인인증</a>
+      			<a href="${pageContext.request.contextPath}/withrawForm">회원탈퇴</a>
+			</c:otherwise>
+		</c:choose>
     <label for="inputName" class="col-sm-2 control-label"></label>
     <div class="col-sm-6">
       <button type="submit" class="btn btn-primary" style="margin-left: 25px;">저장</button>

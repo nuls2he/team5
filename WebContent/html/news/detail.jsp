@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ko">
 <head>
@@ -33,12 +34,25 @@ img.bg{
 
 @media screen and (max-width:1024px){
 	img.bg{
-	left: 50%;
+	left: 30%;
 	margin-left: -512px;}
 }
 
 div#container{
 	position:relative;
+}
+
+.content1{
+	width:100%;
+}
+
+.img1{
+	width: 40%;
+}
+.img2{
+	width: 90%;
+	margin: 10;
+	float: left; 
 }
 </style>
 <title>W.T.</title>
@@ -70,7 +84,7 @@ div#container{
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="${pageContext.request.contextPath}/html/main/wtmain.jsp">W.T</a>
+				<a class="navbar-brand" href="${pageContext.request.contextPath}/mainform">W.T</a>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
@@ -84,9 +98,16 @@ div#container{
 					<div class="col-xs-8 col-sm-6"></div>
 					<div id="navbar" class="collapse navbar-collapse">
 						<ul class="nav navbar-nav">
-							<li><a href="${pageContext.request.contextPath}/loginForm">Login</a></li>
-							<li><a href="${pageContext.request.contextPath}/signinForm">Join</a></li>
-
+						<c:choose>
+							<c:when test="${empty user}">
+								<li><a href="${pageContext.request.contextPath}/loginForm">Login</a></li>
+								<li><a href="${pageContext.request.contextPath}/signinForm">Join</a></li>
+							</c:when>
+							<c:otherwise>
+								<li><a href="${pageContext.request.contextPath}/infoForm">Info</a></li>
+								<li><a href="${pageContext.request.contextPath}/user/logout">Logout</a></li>
+							</c:otherwise>
+						</c:choose>
 						</ul>
 					</div>
 				</div>
@@ -104,16 +125,16 @@ div#container{
 		</div>
 		<div id="main" class="col-xs-6 col-sm-8;">
 			<h2>News</h2>
-			<table width=""700px>
+			<table class="content1">
 				<tr>
 					<th colspan="2"><h3>${news.title}</h3></th>
 				</tr>
 				<tr>
-					<td><img src="${pageContext.request.contextPath}/upload${news.pic}" /></td>
+					<td class="img1"><img class="img2" src="${pageContext.request.contextPath}/upload${news.pic}" /></td>
 					<td>${news.content}</td>
 				</tr>
 				<tr>	
-					<td>${news.url}</td>
+					<td><a href="${news.url}">뉴스 바로가기</a></td>
 					<td><h6>${news.regDate}</h6></td>
 				</tr>
 				

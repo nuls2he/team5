@@ -48,14 +48,14 @@ table, td{
 	width: 80%;
 	
 }
-textarea.content {
+.content1 {
 	width: 100%;
-	rows: "10" ;
-	cols: "150" ;
 	height: 400px;
-	white-space: nowrap;
+	
+	resize: none;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	overflow-y:auto;
 	
 }
 
@@ -88,7 +88,7 @@ textarea.content {
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="${pageContext.request.contextPath}/html/main/wtmain.jsp">W.T</a>
+				<a class="navbar-brand" href="${pageContext.request.contextPath}/mainform">W.T</a>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
@@ -102,12 +102,13 @@ textarea.content {
 					<div class="col-xs-8 col-sm-6"></div>
 					<div id="navbar" class="collapse navbar-collapse">
 						<ul class="nav navbar-nav">
-							<c:choose>
+						<c:choose>
 							<c:when test="${empty user}">
 								<li><a href="${pageContext.request.contextPath}/loginForm">Login</a></li>
 								<li><a href="${pageContext.request.contextPath}/signinForm">Join</a></li>
 							</c:when>
 							<c:otherwise>
+								<li><a href="${pageContext.request.contextPath}/infoForm">Info</a></li>
 								<li><a href="${pageContext.request.contextPath}/user/logout">Logout</a></li>
 							</c:otherwise>
 						</c:choose>
@@ -138,7 +139,7 @@ textarea.content {
 			     			<td><input type="text" name="title" class="form-control" placeholder="Title"></td>
 	 			   		</tr>
 			    		<tr>
-	     					<td><textarea class="content" name="content" id="title"  placeholder="  Content"></textarea></td>
+	     					<td><textarea class="content1" name="content" id="title"  placeholder="  Content"></textarea></td>
 	    				</tr>
 	    				<tr>
 			     			<td><input type="text" name="url" class="form-control" placeholder="URL"></td>

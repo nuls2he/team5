@@ -20,9 +20,9 @@ html, body {
 }
 .back {
     height: 98%; 
-    border: 3px solid blue;}
+    border: 3px solid blue;
 }
-select.
+
 
 </style>
 <title>W.T.성인인증</title>
@@ -51,13 +51,13 @@ select.
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="${pageContext.request.contextPath}/wtmain">W.T</a>
+				<a class="navbar-brand" href="${pageContext.request.contextPath}/mainform">W.T</a>
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#News">News</a></li>
-					<li><a href="#NewToon">NewToon</a></li>
-					<li><a href="#HotToon">HotToon</a></li>
+					<li class="active"><a href="${pageContext.request.contextPath}/wt/news/list">News</a></li>
+					<li><a href="${pageContext.request.contextPath}/newtoonlist">NewToon</a></li>
+					<li><a href="${pageContext.request.contextPath}/hottoon/showlist">HotToon</a></li>
 					<li><a href="#ToonArt">ToonArt</a></li>
 					<li><a href="#19+">19+</a></li>
 				</ul>
@@ -65,15 +65,7 @@ select.
 					<div class="col-xs-8 col-sm-6"></div>
 					<div id="navbar" class="collapse navbar-collapse">
 						<ul class="nav navbar-nav">
-							<c:choose>
-							<c:when test="${empty user}">
-								<li><a href="${pageContext.request.contextPath}/loginForm">Login</a></li>
-								<li><a href="${pageContext.request.contextPath}/signinForm">Join</a></li>
-							</c:when>
-							<c:otherwise>
 								<li><a href="${pageContext.request.contextPath}/user/logout">Logout</a></li>
-							</c:otherwise>
-						</c:choose>
 						</ul>
 					</div>
 				</div>
@@ -94,37 +86,52 @@ select.
 			<div class="contentwrap">
     </div>
   <article class="container">
-    <form action="${pageContext.request.contextPath}/user/withraw" method="post" class="form-horizontal" style="margin-top: 5%;">
+    <form action="${pageContext.request.contextPath}/user/chkadult" method="post" class="form-horizontal" style="margin-top: 5%;">
+<!--     <fieldset style="border-style: double; width: 80%;  height: 200px"> -->
+<!--     <legend>아이디 입력</legend> -->
+<!--     <div class="form-group"> -->
+<!--     <input type="text" class="form-control" name="id" style="width: 65%; margin-left: 17%"> -->
+<!--     </div> -->
+<!--     </fieldset> -->
     <fieldset style="border-style: double; width: 80%;  height: 200px">
-    <legend>아이디 입력</legend>
+    <legend>성인 인증</legend>
     <div class="form-group">
-    <input type="text" class="form-control" name="id" style="width: 65%; margin-left: 17%">
-    </div><br>
-    </fieldset>
-    <fieldset style="border-style: double; width: 80%;  height: 200px">
-    <legend>생년월일 입력</legend>
-    <div class="form-group">
-	<select name="birthYear" class="birth">
+    <label for="inputName" class="col-sm-2 control-label" style="margin-left: 10%; font-size: large;">태어난 년도</label>
+    <div class="col-sm-6">
+	<select name="birthYear" class="form-control" style="width: 150px; margin-left: 20%;">
 	<c:forEach var="i" begin="0" end="100">
 		<c:set var="year" value="${2017-i}" />
 		<option><c:out value="${year}" /></option>
 	</c:forEach>
 	</select>
-	<select name="birthMonth" class="birth">
+    </div>
+    </div><br>
+    <div class="form-group">
+    <label for="inputName" class="col-sm-2 control-label" style="margin-left: 10%; font-size: large;">월</label>
+    <div class="col-sm-6">
+	<select name="birthMonth" class="form-control" style="width: 150px; margin-left: 20%;">
 	<c:forEach var="i" begin="1" end="12">
 		<option><c:out value="${i}" /></option>
 	</c:forEach>
 	</select>
-	<select name="birthDay" class="birth">
+    </div>
+    </div><br>
+    <div class="form-group">
+    <label for="inputName" class="col-sm-2 control-label" style="margin-left: 10%; font-size: large;">일</label>
+    <div class="col-sm-6">
+	<select name="birthDay" class="form-control" style="width: 150px; margin-left: 20%;">
 	<c:forEach var="i" begin="1" end="31">
 		<option><c:out value="${i}" /></option>
 	</c:forEach>
 	</select>
-    </div><h5 style="text-align: center; color: Cornflowerblue">${msg}</h5><br>
-    </fieldset>
+    </div>
+    </div><br><br><br><br>
+
+    <h3 style="text-align: center; color: red;">${chkMsg}</h3><br>
+    </fieldset><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <div class="form-group">
     <label for="inputName" class="col-sm-2 control-label"></label>
-      <button type="submit" class="btn btn-primary" style="margin-left: 20%;">계정 삭제</button>
+      <button type="submit" class="btn btn-primary" style="margin-left: 20%;">성인 인증</button>
     </div>
     </form>
   </article>

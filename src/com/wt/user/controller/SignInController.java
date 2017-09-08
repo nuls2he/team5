@@ -32,7 +32,7 @@ public class SignInController extends HttpServlet {
 			
 			dao.join(user);
 			
-			response.sendRedirect("/team5_miniprj/html/wtmain.jsp");
+			response.sendRedirect("/team5_miniprj/mainform");
 		} else {
 			request.setAttribute("errMsg", "* 입력정보 확인 후 다시 입력해 주세요. *");
 			

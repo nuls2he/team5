@@ -23,19 +23,23 @@ public class LoginController extends HttpServlet{
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		User user = new User();
 		request.setCharacterEncoding("utf-8");
-		user.setID(request.getParameter("id"));
+		String id = request.getParameter("id");
+		user.setID(id);
 		user.setPwd(request.getParameter("pwd"));
 		
 		UserDAO udao = new UserDAO();
 		User usr = udao.login(user);
 		
 		
-		String page = "wtmain.jsp";
+		String page = "main/wtmain.jsp";
 		if (usr != null) {
 			HttpSession session = request.getSession();
 			
-			Cookie c = new Cookie("loginID", URLEncoder.encode(request.getParameter("id"), "utf-8"));
+			Cookie c = new Cookie("loginID", URLEncoder.encode(id, "utf-8"));
 			response.addCookie(c);
+			
+			Cookie ad = new Cookie("certAD", URLEncoder.encode(udao.certAD(id), "utf-8"));
+			response.addCookie(ad);
 			session.setAttribute("user", usr);
 		}
 		else {
