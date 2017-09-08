@@ -30,7 +30,8 @@ public class InfoFormController extends HttpServlet {
 		
 		UserDAO dao = new UserDAO();
 		request.setAttribute("user", dao.showInfo(cID));
-		request.setAttribute("ID", cID);
+//		request.setAttribute("ID", cID);
+		request.setAttribute("certAD", c[1]);
 		RequestDispatcher rd = request.getRequestDispatcher("/html/user/info.jsp");
 		rd.forward(request, response);
 	}

@@ -159,8 +159,15 @@ html, body {
   </fieldset>
  
     <div class="form-group">
-      <a href="${pageContext.request.contextPath}/chkAdform" style="margin: 30px;">성인인증</a>
-      <a href="${pageContext.request.contextPath}/withrawForm">회원탈퇴</a>
+    	<c:choose>
+			<c:when test="${certAD eq y}">
+      			<a href="${pageContext.request.contextPath}/withrawForm">회원탈퇴</a>
+			</c:when>
+			<c:otherwise>
+		      	<a href="${pageContext.request.contextPath}/chkAdform" style="margin: 30px;">성인인증</a>
+      			<a href="${pageContext.request.contextPath}/withrawForm">회원탈퇴</a>
+			</c:otherwise>
+		</c:choose>
     <label for="inputName" class="col-sm-2 control-label"></label>
     <div class="col-sm-6">
       <button type="submit" class="btn btn-primary" style="margin-left: 25px;">저장</button>

@@ -63,9 +63,11 @@ html, body {
 				<div class="row">
 					<div class="col-xs-8 col-sm-6"></div>
 					<div id="navbar" class="collapse navbar-collapse">
-						<ul class="nav navbar-nav">
+						<div id="navbar" class="collapse navbar-collapse">
+							<ul class="nav navbar-nav">
 								<li><a href="${pageContext.request.contextPath}/loginForm">Login</a></li>
-						</ul>
+							</ul>
+						</div>
 					</div>
 				</div>
 

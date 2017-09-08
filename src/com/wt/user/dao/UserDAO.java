@@ -257,8 +257,8 @@ public class UserDAO {
 					con = ConnectionPool.getConnection();
 
 					StringBuffer sql = new StringBuffer();
-					sql.append(" insert into tb_users (chekAD)");
-					sql.append(" values (y) ");
+					sql.append(" update tb_users");
+					sql.append("    set check_ad = 'y' ");
 					sql.append("  where id = ? ");
 
 					pstmt = con.prepareStatement(sql.toString());
@@ -266,10 +266,10 @@ public class UserDAO {
 					pstmt.setString(1, id);
 					
 					pstmt.executeUpdate();
-					return "인증 완료";
+					return "인증 성공!";
 				} catch (Exception e) {
 					e.printStackTrace();
-					return "인증 오류";
+					return "! 인증 오류 !";
 				} finally {
 					JdbcUtil.close(pstmt);
 					ConnectionPool.releaseConnection(con);
@@ -277,4 +277,34 @@ public class UserDAO {
 	        } else return "만 19세 이상이 아닙니다.";
 	       
 	 }
+	 
+	 public String certAD(String id) {
+			Connection con = null;
+			PreparedStatement pstmt = null;
+
+			try {
+				con = ConnectionPool.getConnection();
+
+				StringBuffer sql = new StringBuffer();
+				sql.append(" select check_ad ");
+				sql.append("   from tb_users ");
+				sql.append("  where id = ? ");
+
+				pstmt = con.prepareStatement(sql.toString());
+				pstmt.setString(1, id);
+
+				ResultSet rs = pstmt.executeQuery();
+				
+				if (rs.next()) {
+					return rs.getString("check_ad") == null ? "N" : "y";
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				JdbcUtil.close(pstmt);
+				ConnectionPool.releaseConnection(con);
+			}
+			return null;
+		}
+	 
 } // .class

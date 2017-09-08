@@ -20,11 +20,9 @@ html, body {
 }
 .back {
     height: 98%; 
-    border: 3px solid blue;}
+    border: 3px solid blue;
 }
-select.birth {
-	margin: 30px;
-}
+
 
 </style>
 <title>W.T.성인인증</title>
@@ -88,34 +86,49 @@ select.birth {
 			<div class="contentwrap">
     </div>
   <article class="container">
-    <form action="${pageContext.request.contextPath}/user/withraw" method="post" class="form-horizontal" style="margin-top: 5%;">
+    <form action="${pageContext.request.contextPath}/user/chkadult" method="post" class="form-horizontal" style="margin-top: 5%;">
+<!--     <fieldset style="border-style: double; width: 80%;  height: 200px"> -->
+<!--     <legend>아이디 입력</legend> -->
+<!--     <div class="form-group"> -->
+<!--     <input type="text" class="form-control" name="id" style="width: 65%; margin-left: 17%"> -->
+<!--     </div> -->
+<!--     </fieldset> -->
     <fieldset style="border-style: double; width: 80%;  height: 200px">
-    <legend>아이디 입력</legend>
+    <legend>성인 인증</legend>
     <div class="form-group">
-    <input type="text" class="form-control" name="id" style="width: 65%; margin-left: 17%">
-    </div><br>
-    </fieldset>
-    <fieldset style="border-style: double; width: 80%;  height: 200px">
-    <legend>생년월일 입력</legend>
-    <div class="form-group">
-	<select name="birthYear" class="birth">
+    <label for="inputName" class="col-sm-2 control-label" style="margin-left: 10%; font-size: large;">태어난 년도</label>
+    <div class="col-sm-6">
+	<select name="birthYear" class="form-control" style="width: 150px; margin-left: 20%;">
 	<c:forEach var="i" begin="0" end="100">
 		<c:set var="year" value="${2017-i}" />
 		<option><c:out value="${year}" /></option>
 	</c:forEach>
 	</select>
-	<select name="birthMonth" class="birth">
+    </div>
+    </div><br>
+    <div class="form-group">
+    <label for="inputName" class="col-sm-2 control-label" style="margin-left: 10%; font-size: large;">월</label>
+    <div class="col-sm-6">
+	<select name="birthMonth" class="form-control" style="width: 150px; margin-left: 20%;">
 	<c:forEach var="i" begin="1" end="12">
 		<option><c:out value="${i}" /></option>
 	</c:forEach>
 	</select>
-	<select name="birthDay" class="birth">
+    </div>
+    </div><br>
+    <div class="form-group">
+    <label for="inputName" class="col-sm-2 control-label" style="margin-left: 10%; font-size: large;">일</label>
+    <div class="col-sm-6">
+	<select name="birthDay" class="form-control" style="width: 150px; margin-left: 20%;">
 	<c:forEach var="i" begin="1" end="31">
 		<option><c:out value="${i}" /></option>
 	</c:forEach>
 	</select>
-    </div><h5 style="text-align: center; color: Cornflowerblue">${msg}</h5><br>
-    </fieldset>
+    </div>
+    </div><br><br><br><br>
+
+    <h3 style="text-align: center; color: red;">${chkMsg}</h3><br>
+    </fieldset><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <div class="form-group">
     <label for="inputName" class="col-sm-2 control-label"></label>
       <button type="submit" class="btn btn-primary" style="margin-left: 20%;">성인 인증</button>
