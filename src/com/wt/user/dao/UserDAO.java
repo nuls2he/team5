@@ -71,6 +71,8 @@ public class UserDAO {
 				usr.setCall(rs.getString("call"));
 				usr.setAddHead(rs.getString("addHead"));
 				usr.setAddTail(rs.getString("addTail"));
+				usr.setChekAD(rs.getString("check_ad"));
+				usr.setAdminYN(rs.getString("admin_yn"));
 				return usr;
 			} 
 		} catch (Exception e) {

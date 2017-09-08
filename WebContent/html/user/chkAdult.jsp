@@ -129,6 +129,7 @@ html, body {
 
     <h3 style="text-align: center; color: red;">${chkMsg}</h3><br>
     </fieldset><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <input type="hidden" name="id" value="${user.id}">
     <div class="form-group">
     <label for="inputName" class="col-sm-2 control-label"></label>
       <button type="submit" class="btn btn-primary" style="margin-left: 20%;">성인 인증</button>

@@ -20,8 +20,8 @@ public class InfoUpController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		Cookie[] c = request.getCookies();
-		String cID = c[0].getValue();
+//		Cookie[] c = request.getCookies();
+//		String cID = c[0].getValue();
 		UserDAO dao = new UserDAO();
 		User usr = new User();
 		usr.setEmail(request.getParameter("email"));
@@ -29,7 +29,7 @@ public class InfoUpController extends HttpServlet {
 		usr.setCall(request.getParameter("call"));
 		usr.setAddHead(request.getParameter("addHead"));
 		usr.setAddTail(request.getParameter("addTail"));
-		usr.setId(cID);
+		usr.setId(request.getParameter("id"));
 		dao.updateInfo(usr);
 		
 		

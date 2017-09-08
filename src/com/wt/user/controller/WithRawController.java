@@ -24,10 +24,10 @@ public class WithRawController extends HttpServlet {
 		
 		String page = "/html/wtmain.jsp";
 		if (pwd.equals(chkPwd)) {
-			Cookie[] c = request.getCookies();
-			String cID = c[0].getValue();
+//			Cookie[] c = request.getCookies();
+//			String cID = c[0].getValue();
 			UserDAO dao = new UserDAO();
-			dao.withRaw(cID);
+			dao.withRaw(request.getParameter("id"));
 			HttpSession session = request.getSession();
 			session.invalidate();
 		} else {

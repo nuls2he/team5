@@ -12,7 +12,7 @@ public class User {
 	private String addHead;
 	private String addTail;
 	private String chekAD;
-	private boolean adminYN;
+	private String adminYN;
 	public String getAddHead() {
 		return addHead;
 	}
@@ -32,10 +32,10 @@ public class User {
 	public void setChekAD(String chekAD) {
 		this.chekAD = chekAD;
 	}
-	public boolean isAdminYN() {
+	public String isAdminYN() {
 		return adminYN;
 	}
-	public void setAdminYN(boolean adminYN) {
+	public void setAdminYN(String adminYN) {
 		this.adminYN = adminYN;
 	}
 	

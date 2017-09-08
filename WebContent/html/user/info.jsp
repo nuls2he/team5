@@ -160,7 +160,7 @@ html, body {
  
     <div class="form-group">
     	<c:choose>
-			<c:when test="${certAD eq y}">
+			<c:when test="${user.chekAD eq 'y'}">
       			<a href="${pageContext.request.contextPath}/withrawForm">회원탈퇴</a>
 			</c:when>
 			<c:otherwise>
@@ -170,6 +170,7 @@ html, body {
 		</c:choose>
     <label for="inputName" class="col-sm-2 control-label"></label>
     <div class="col-sm-6">
+    <input type="hidden" name="id" value="${user.id}">
       <button type="submit" class="btn btn-primary" style="margin-left: 25px;">저장</button>
     </div>
     </div>

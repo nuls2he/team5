@@ -100,6 +100,7 @@ html, body {
     </fieldset>
     <div class="form-group">
     <label for="inputName" class="col-sm-2 control-label"></label>
+    <input type="hidden" name="id" value="${user.id}" > 
       <button type="submit" class="btn btn-primary" style="margin-left: 20%;">계정 삭제</button>
     </div>
     </form>

@@ -35,11 +35,11 @@ public class LoginController extends HttpServlet{
 		if (usr != null) {
 			HttpSession session = request.getSession();
 			
-			Cookie c = new Cookie("loginID", URLEncoder.encode(id, "utf-8"));
-			response.addCookie(c);
-			
-			Cookie ad = new Cookie("certAD", URLEncoder.encode(udao.certAD(id), "utf-8"));
-			response.addCookie(ad);
+//			Cookie c = new Cookie("loginID", URLEncoder.encode(id, "utf-8"));
+//			response.addCookie(c);
+//			
+//			Cookie ad = new Cookie("certAD", URLEncoder.encode(udao.certAD(id), "utf-8"));
+//			response.addCookie(ad);
 			session.setAttribute("user", usr);
 		}
 		else {
