@@ -87,7 +87,7 @@ div#container{
 					<li class="active"><a href="${pageContext.request.contextPath}/newtoonlist">NewToon</a></li>
 					<li><a href="${pageContext.request.contextPath}/hottoon/showlist">HotToon</a></li>
 					<li><a href="#ToonArt">ToonArt</a></li>
-					<li><a href="#19+">19+</a></li>
+					<li><a href="${pageContext.request.contextPath}/adulttoonlist">19+</a></li>
 				</ul>
 				<div class="row">
 					<div class="col-xs-8 col-sm-6"></div>

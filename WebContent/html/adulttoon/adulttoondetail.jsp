@@ -79,7 +79,7 @@ div#container{
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="/team5_html/wt/wtmain.html">W.T</a>
+				<a class="navbar-brand" href="${pageContext.request.contextPath}/mainform">W.T</a>
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
@@ -87,7 +87,7 @@ div#container{
 					<li class="active"><a href="${pageContext.request.contextPath}/newtoonlist">NewToon</a></li>
 					<li><a href="${pageContext.request.contextPath}/hottoon/showlist">HotToon</a></li>
 					<li><a href="#ToonArt">ToonArt</a></li>
-					<li><a href="#19+">19+</a></li>
+					<li><a href="${pageContext.request.contextPath}/adulttoonlist">19+</a></li>
 				</ul>
 				<div class="row">
 					<div class="col-xs-8 col-sm-6"></div>
