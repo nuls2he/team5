@@ -31,7 +31,8 @@ public class HotToonListController extends HttpServlet{
 		String genre = request.getParameter("genre");
 		String page = request.getParameter("page");
 		String block = request.getParameter("block");
-		
+		System.out.println("page : " + page);
+		System.out.println("block : " + block);
 		if(page == null)
 		{
 			page = "1";
@@ -40,8 +41,9 @@ public class HotToonListController extends HttpServlet{
 		{
 			block = "0";
 		}
-
-		PagingVO vo = pDao.settingVO(Integer.parseInt(page), Integer.parseInt(block));
+		System.out.println("page : " + page);
+		System.out.println("block : " + block);
+		PagingVO vo = pDao.settingVO(genre, Integer.parseInt(page), Integer.parseInt(block));
 		System.out.println("genre : " + genre);
 		List<HotToon> list = new ArrayList<>();
 		list = dao.selectHotToon(genre, vo.getCountList(), vo.getPage());

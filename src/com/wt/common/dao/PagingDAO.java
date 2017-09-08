@@ -15,13 +15,14 @@ import kr.co.mlec.util.JdbcUtil;
 public class PagingDAO {
 	
 	// vo셋팅
-	public PagingVO settingVO(int page, int block)
+	public PagingVO settingVO(String genre, int page, int block)
 	{
 		PagingVO vo = new PagingVO();
 		
-		vo.setTotalCount(getTotalCount());
+		vo.setTotalCount(getTotalCount(genre));
 		vo.setCountList(2);
 		vo.setCountPage(5);
+		System.out.println("page : " + page);
 		vo.setPage(page);
 		vo.setBlockCount(block);
 		vo.setStartPage(1 + vo.getCountPage() * vo.getBlockCount());
@@ -51,7 +52,7 @@ public class PagingDAO {
 	
 	
 	// 게시물 총 개수
-	public int getTotalCount()
+	public int getTotalCount(String genre)
 	{
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -62,10 +63,13 @@ public class PagingDAO {
 			StringBuffer sql = new StringBuffer();
 			sql.append("select COUNT(*) as count " );
 			sql.append("  from t97_hottoon" );
+			if(genre != null)
+				sql.append(" where genre = ?" );
 
 			
 			pstmt = con.prepareStatement(sql.toString());
-			
+			if(genre != null)
+				pstmt.setString(1, genre);
 			ResultSet rs = pstmt.executeQuery();
 			
 			if(rs.next())

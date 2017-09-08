@@ -122,10 +122,10 @@ div#container{
 		
 		</div>
 		<div id="main" class="col-xs-6 col-sm-8" >
-		
+			
 			<%-- 로그인 했거나 관리자일 경우만 글쓰기, 수정, 삭제 버튼 활성화 --%>
 			<div style="text-align: right;">
-					<a href="/team5_miniprj/hottoon/createbtn">글쓰기</a>
+					<!-- <a href="/team5_miniprj/hottoon/createbtn">글쓰기</a> -->
 			</div>
 			<div style="border: 1px solid black;">
 				<div align = left>
@@ -149,7 +149,7 @@ div#container{
         			<button type = button onClick="location.href='${pageContext.request.contextPath}/hottoon/showlist?genre=<c:out value="${genre}"/>&page=<c:out value="${page}"/>&block=<c:out value="${block}"/>'">목록</button>
         			<c:choose>
         				<c:when test="${user.id eq hottoon.id}">
-        					<button type = button>수정</button>
+        					<%-- <button type = button onClick="location.href='${pageContext.request.contextPath}/hottoon/modifybtn?no=<c:out value="${hottoon.no}"/>'">수정</button> --%>
         					<button type = button onClick="location.href='${pageContext.request.contextPath}/hottoon/remove?no=<c:out value="${hottoon.no}"/>'">삭제</button>
         				</c:when>			
         			</c:choose>
