@@ -45,7 +45,9 @@ div#container{
 .content1{
 	width:100%;
 }
-
+.content2{
+	font-size:16px
+}
 .img1{
 	width: 40%;
 }
@@ -131,7 +133,7 @@ div#container{
 				</tr>
 				<tr>
 					<td class="img1"><img class="img2" src="${pageContext.request.contextPath}/upload${news.pic}" /></td>
-					<td>${news.content}</td>
+					<td class="content2">${news.content}</td>
 				</tr>
 				<tr>	
 					<td><a href="${news.url}">뉴스 바로가기</a></td>
