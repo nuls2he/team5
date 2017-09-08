@@ -64,17 +64,30 @@ public class PagingDAO {
 			sql.append("select COUNT(*) as count " );
 			sql.append("  from t97_hottoon" );
 			if(genre != null)
-				sql.append(" where genre = ?" );
+			{
+				if(!genre.isEmpty())
+				{
+					sql.append(" where genre = ?" );
+				}
+			}
 
-			
 			pstmt = con.prepareStatement(sql.toString());
 			if(genre != null)
-				pstmt.setString(1, genre);
+			{
+				if(!genre.isEmpty())
+				{
+					pstmt.setString(1, genre);
+				}
+			}
+				
 			ResultSet rs = pstmt.executeQuery();
 			
 			if(rs.next())
 			{
+				
 				total = rs.getInt("count");
+				
+				System.out.println("total: " + total);
 			}
 			return total;
 		}catch(Exception e) {
