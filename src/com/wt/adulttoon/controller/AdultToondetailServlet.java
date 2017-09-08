@@ -5,10 +5,10 @@ import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import com.wt.common.dao.CommonDao;
 import com.wt.common.domain.Common;
@@ -19,13 +19,13 @@ public class AdultToondetailServlet extends HttpServlet{
 	CommonDao dao = new CommonDao();
 	
 	@Override
-	public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
+	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		Search vo = new Search();
 		request.setCharacterEncoding("utf-8");
 		String type = "a";
-		String selType = request.getParameter("selType");
-		String word = request.getParameter("word");
+		String selType = "no";
+		String word = request.getParameter("no");
 		String id = request.getParameter("id");
 		
 		vo.setType(type);
