@@ -30,6 +30,17 @@ img.bg{
 	top:0;
 	left:0;
 }
+textarea.content {
+	width: 100%;
+	rows: "10" ;
+	cols: "150" ;
+	height: 400px;
+	
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	
+}
 
 @media screen and (max-width:1024px){
 	img.bg{
@@ -113,7 +124,7 @@ div#container{
 					<td>${news.content}</td>
 				</tr>
 				<tr>	
-					<td>${news.url}</td>
+					<td><a href="${news.url}">뉴스보기</a></td>
 					<td><h6>${news.regDate}</h6></td>
 				</tr>
 				
