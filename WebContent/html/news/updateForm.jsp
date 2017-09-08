@@ -48,14 +48,14 @@ table, td{
 	width: 80%;
 	
 }
-textarea.content {
+.content {
 	width: 100%;
-	rows: "10" ;
-	cols: "150" ;
 	height: 400px;
-	white-space: nowrap;
+	
+	resize: none;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	overflow-y:auto;
 	
 }
 
@@ -138,7 +138,7 @@ textarea.content {
 					<td><input type="text" class="form-control" name="title" value="${news.title}"/></td>
 				</tr>
 				<tr>
-					<td><textarea class="content" name="content" id="title">${news.content}</textarea></td>
+					<td><textarea class="content1" name="content" id="title">${news.content}</textarea></td>
 				</tr>	
 				<tr>
 					<td><input type="file" name="url" class="form-control"/></td>

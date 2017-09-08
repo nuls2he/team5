@@ -48,14 +48,14 @@ table, td{
 	width: 80%;
 	
 }
-textarea.content {
+.content1 {
 	width: 100%;
-	rows: "10" ;
-	cols: "150" ;
 	height: 400px;
-	white-space: nowrap;
+	
+	resize: none;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	overflow-y:auto;
 	
 }
 
@@ -139,7 +139,7 @@ textarea.content {
 			     			<td><input type="text" name="title" class="form-control" placeholder="Title"></td>
 	 			   		</tr>
 			    		<tr>
-	     					<td><textarea class="content" name="content" id="title"  placeholder="  Content"></textarea></td>
+	     					<td><textarea class="content1" name="content" id="title"  placeholder="  Content"></textarea></td>
 	    				</tr>
 	    				<tr>
 			     			<td><input type="text" name="url" class="form-control" placeholder="URL"></td>
