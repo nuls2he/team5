@@ -6,10 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <style type = "text/css">
-* {
-    margin: 0px;
-    padding: 0px;
-}
 html, body {
     height: 100%;
     background-image: url(bg03.png);
@@ -42,23 +38,110 @@ div#container{
 	position:relative;
 }
 
+table, td{
+	border: 1px solid black;
+}
+
+table{
+	width:100%;
+	margin: auto;
+	text-align: center;
+}
+
 .table > thead {
 	background-color: #ffffff;
 }
-.table > thead > tr > th {
-	text-align: center;
-}
+
 .table-hover > tbody > tr:hover {
-	background-color: #e6ecff;
-}
-.table > tbody > tr > td {
-	text-align: center;
-}
-.table > tbody > tr > #title {
-	text-align: left;
+	background-color: #e6eade;
 }
 
-.pagination a, button {
+
+
+.button {
+  border-radius: 5px;
+  font-size: 20px;
+  text-decoration: none;
+  margin: 13px 0;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+}
+
+.button:active {
+  transform: translate(0px, 5px);
+  -webkit-transform: translate(0px, 5px);
+  box-shadow: 0px 1px 0px 0px;
+}
+.blue {
+  background-color: #55acee;
+  box-shadow: 0px 5px 0px 0px #3C93D5;
+}
+
+.pagination {
+  font-weight: bold;
+  font-size: 16px;
+  font-family: "helvetica neue", helvetica, arial, sans-serif;
+}
+.pagination a {
+  padding: 8px 16px;
+  border: 1px solid #262626;
+  border-radius: 3px;
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2UzZTNlMyIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2I4YjhiOCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e3e3e3), color-stop(100%, #b8b8b8));
+  background: -moz-linear-gradient(top, #e3e3e3, #b8b8b8);
+  background: -webkit-linear-gradient(top, #e3e3e3, #b8b8b8);
+  background: linear-gradient(to bottom, #e3e3e3, #b8b8b8);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.6), inset 0 1px rgba(255, 255, 255, 0.4);
+  color: #333;
+  text-decoration: none;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.72);
+}
+.pagination a:hover {
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Q5MDA3MyIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2EwMDA1NiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #d90073), color-stop(100%, #a00056));
+  background: -moz-linear-gradient(top, #d90073, #a00056);
+  background: -webkit-linear-gradient(top, #d90073, #a00056);
+  background: linear-gradient(to bottom, #d90073, #a00056);
+  color: #260014;
+}
+.pagination a.active {
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwYWRkOSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwNzA4YyIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #00add9), color-stop(100%, #00708c));
+  background: -moz-linear-gradient(top, #00add9, #00708c);
+  background: -webkit-linear-gradient(top, #00add9, #00708c);
+  background: linear-gradient(to bottom, #00add9, #00708c);
+  color: #001e26;
+}
+.pagination a.active:hover {
+  cursor: default;
+}
+.pagination .prev:before {
+  content: "« ";
+  font-weight: normal;
+}
+.pagination .next:after {
+  content: " »";
+  font-weight: normal;
+}
+.pagination .next:hover, .pagination .prev:hover {
+  border-color: #141414;
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzI2MjYyNiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzFhMWExYSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #262626), color-stop(100%, #1a1a1a));
+  background: -moz-linear-gradient(top, #262626, #1a1a1a);
+  background: -webkit-linear-gradient(top, #262626, #1a1a1a);
+  background: linear-gradient(to bottom, #262626, #1a1a1a);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.6), inset 0 1px rgba(255, 255, 255, 0.1);
+  color: #ebebeb;
+  text-shadow: none;
+}
+
+.pagination {
+  margin-top: 200px;
+}
+
+
+/* .pagination a, button {
     color: black;
     float: left;
     padding: 8px 16px;
@@ -70,7 +153,7 @@ div#container{
     background-color: #4CAF50;
     color: white;
 }
-.pagination a:hover:not(.active) {background-color: #ddd;}
+.pagination a:hover:not(.active) {background-color: #ddd;} */
 </style>
 <title>W.T.</title>
 
@@ -142,7 +225,8 @@ div#container{
 		
 		</div>
 		<div id="main" class="col-xs-6 col-sm-8" >
-			<div class="pagination">
+			<div class="pagination col-sm-8">
+
 				<c:choose>
 					<c:when test="${genre eq '액션'}'">
 						<a href="${pageContext.request.contextPath}/hottoon/showlist?genre=액션" class="active">액션</a> 	
@@ -188,13 +272,18 @@ div#container{
 					</c:otherwise>
 				</c:choose>
 			</div>
-			<div style="text-align: right;">
-				<c:if test="${!empty user}">
-					<a href="/team5_miniprj/hottoon/createbtn">글쓰기</a>
-				</c:if>
+			
+			<div class="col-sm-4">
+				<div style="text-align: right;">
+					<a href="/team5_miniprj/hottoon/createbtn" class="button blue">글쓰기</a>
+						<%-- <c:if test="${!empty user}">
+							<a href="/team5_miniprj/hottoon/createbtn">글쓰기</a>
+						</c:if> --%>
+				</div>
 			</div>
-			<div>
-				<table style="table-layout:fixed" class="table table-striped table-bordered table-hover">
+			
+			<div class="row" style="border: 1px solid black; padding: 15px 15px;">
+				<table style="table-layout:fixed;">
 				<tbody>
 					<c:choose>
 						<c:when test="${empty list}">
@@ -207,16 +296,16 @@ div#container{
 							<c:forEach var="b" items="${list}"> 
 								<tr style="cursor:pointer;" onClick = "location.href='${pageContext.request.contextPath}/hottoon/detail?no=<c:out value="${b.no}"/>&genre=<c:out value="${genre}"/>&page=<c:out value="${paging.page}"/>&block=<c:out value="${paging.blockCount}"/>'">
 									<td width="10%">${b.no}</td>
-									<td width="10%">이미지공간
+									<td width="15%">
 										<%-- <c:out value="${pageContext.request.contextPath}/upload${b.imagePath}"/> --%>
-										<img src="${pageContext.request.contextPath}/upload${b.imagePath}" width="100px"height="100px" />
+										<img src="${pageContext.request.contextPath}/upload${b.imagePath}" width="100%"height="100%" />
 									</td>
-									<td width="30%">
+									<td width="25%">
 										[<c:out value="${b.genre}"/>]-
 										<c:out value="${b.completion}"/><br>
 										<c:out value="${b.title}"/>
 									</td>
-									<td width="50%"> 말 줄임 처리 해야됨
+									<td width="50%">
 										<c:out value="${b.content}"/>
 									</td>
 									
@@ -243,6 +332,7 @@ div#container{
 					</tbody>
 				</table>
 			</div>
+			<hr>
 			<div class="row">
         		<div class="col-xs-12">
         			<div class="jb-center" style="text-align: center;">
